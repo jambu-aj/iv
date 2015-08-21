@@ -1,0 +1,887 @@
+
+GccApplication3_SD3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000004a4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000003  00800100  00800100  00000518  2**0
+                  ALLOC
+  2 .stab         000006cc  00000000  00000000  00000518  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  00000be4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  00000c70  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000075d  00000000  00000000  00000cf0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000268  00000000  00000000  0000144d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000003fc  00000000  00000000  000016b5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000190  00000000  00000000  00001ab4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001f6  00000000  00000000  00001c44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000425  00000000  00000000  00001e3a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000030  00000000  00000000  0000225f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e4 ea       	ldi	r30, 0xA4	; 164
+  a0:	f4 e0       	ldi	r31, 0x04	; 4
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	11 e0       	ldi	r17, 0x01	; 1
+  b4:	a0 e0       	ldi	r26, 0x00	; 0
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a3 30       	cpi	r26, 0x03	; 3
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 08 02 	call	0x410	; 0x410 <main>
+  c6:	0c 94 50 02 	jmp	0x4a0	; 0x4a0 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <Init_SPISystem>:
+}
+
+void Init_SPISystem(void)
+{
+	/* Set MOSI and SCK and CS output, all others input */
+	DDRB |= (1<<PORTB5)|(1<<PORTB7)|(1<<PORTB4) | (1<<PORTB1);
+  ce:	84 b1       	in	r24, 0x04	; 4
+  d0:	82 6b       	ori	r24, 0xB2	; 178
+  d2:	84 b9       	out	0x04, r24	; 4
+	/* Enable SPI, Master */
+	SPCR = (1<<SPE)|(1<<MSTR);
+  d4:	80 e5       	ldi	r24, 0x50	; 80
+  d6:	8c bd       	out	0x2c, r24	; 44
+
+	// set clock rate fck/64
+	SPCR = SPCR|(0<<SPR0)|(1<<SPR1);
+  d8:	8c b5       	in	r24, 0x2c	; 44
+  da:	82 60       	ori	r24, 0x02	; 2
+  dc:	8c bd       	out	0x2c, r24	; 44
+	SPSR = SPSR|(0<<SPI2X);
+  de:	8d b5       	in	r24, 0x2d	; 45
+  e0:	8d bd       	out	0x2d, r24	; 45
+
+	sdInit(); //-< ENABLE WHEN SD IS READY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  e2:	0e 94 41 01 	call	0x282	; 0x282 <sdInit>
+	//delay(2000);
+
+	// crank up clock rate fck/4
+	SPCR &= 0b11111100;
+  e6:	8c b5       	in	r24, 0x2c	; 44
+  e8:	8c 7f       	andi	r24, 0xFC	; 252
+  ea:	8c bd       	out	0x2c, r24	; 44
+	SPSR &= 0b11111110;
+  ec:	8d b5       	in	r24, 0x2d	; 45
+  ee:	8e 7f       	andi	r24, 0xFE	; 254
+  f0:	8d bd       	out	0x2d, r24	; 45
+	//SPCR |= (0<<SPR0)|(0<<SPR1);
+	//SPSR |= (0<<SPI2X);
+
+}
+  f2:	08 95       	ret
+
+000000f4 <CSup>:
+	SPITransmit(data);
+	return SPIReceive();
+}
+
+void CSup(){// chip select line UP
+PORTB|=(1<<CS_SD);
+  f4:	29 9a       	sbi	0x05, 1	; 5
+}
+  f6:	08 95       	ret
+
+000000f8 <CSdown>:
+
+void CSdown(){// chip select line DOWN
+	PORTB &= ~(1<<CS_SD);
+  f8:	29 98       	cbi	0x05, 1	; 5
+}
+  fa:	08 95       	ret
+
+000000fc <SPITransmit>:
+	//SPSR |= (0<<SPI2X);
+
+}
+
+void SPITransmit(unsigned char data){
+	SPDR=data;
+  fc:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF))){
+  fe:	0d b4       	in	r0, 0x2d	; 45
+ 100:	07 fe       	sbrs	r0, 7
+ 102:	fd cf       	rjmp	.-6      	; 0xfe <SPITransmit+0x2>
+		//do nothing
+	}
+}
+ 104:	08 95       	ret
+
+00000106 <SPIReceive>:
+
+unsigned char SPIReceive(){
+	/* Wait for reception complete */
+	while(!(SPSR & (1<<SPIF)));
+ 106:	0d b4       	in	r0, 0x2d	; 45
+ 108:	07 fe       	sbrs	r0, 7
+ 10a:	fd cf       	rjmp	.-6      	; 0x106 <SPIReceive>
+	/* Return Data Register */
+	return SPDR;
+ 10c:	8e b5       	in	r24, 0x2e	; 46
+}
+ 10e:	08 95       	ret
+
+00000110 <SPITransceive>:
+
+unsigned char SPITransceive(unsigned char data){
+	SPITransmit(data);
+ 110:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	return SPIReceive();
+ 114:	0e 94 83 00 	call	0x106	; 0x106 <SPIReceive>
+}
+ 118:	08 95       	ret
+
+0000011a <wait_one_second>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 11a:	8f e3       	ldi	r24, 0x3F	; 63
+ 11c:	9d e0       	ldi	r25, 0x0D	; 13
+ 11e:	a3 e0       	ldi	r26, 0x03	; 3
+ 120:	81 50       	subi	r24, 0x01	; 1
+ 122:	90 40       	sbci	r25, 0x00	; 0
+ 124:	a0 40       	sbci	r26, 0x00	; 0
+ 126:	e1 f7       	brne	.-8      	; 0x120 <wait_one_second+0x6>
+ 128:	00 c0       	rjmp	.+0      	; 0x12a <wait_one_second+0x10>
+ 12a:	00 00       	nop
+
+int wait_one_second(void)
+{
+	_delay_ms(1000);
+	return 1;
+}
+ 12c:	81 e0       	ldi	r24, 0x01	; 1
+ 12e:	90 e0       	ldi	r25, 0x00	; 0
+ 130:	08 95       	ret
+
+00000132 <set_PORTB_bit>:
+{
+	// Sets or clears the bit in position 'position'
+	// either high or low (1 or 0) to match 'value'.
+	// Leaves all other bits in PORTB unchanged.
+	
+	if (value == 0)
+ 132:	61 15       	cp	r22, r1
+ 134:	71 05       	cpc	r23, r1
+ 136:	71 f4       	brne	.+28     	; 0x154 <set_PORTB_bit+0x22>
+	{
+		PORTB &= ~(1 << position);      // Set bit # 'position' low
+ 138:	45 b1       	in	r20, 0x05	; 5
+ 13a:	21 e0       	ldi	r18, 0x01	; 1
+ 13c:	30 e0       	ldi	r19, 0x00	; 0
+ 13e:	b9 01       	movw	r22, r18
+ 140:	02 c0       	rjmp	.+4      	; 0x146 <set_PORTB_bit+0x14>
+ 142:	66 0f       	add	r22, r22
+ 144:	77 1f       	adc	r23, r23
+ 146:	8a 95       	dec	r24
+ 148:	e2 f7       	brpl	.-8      	; 0x142 <set_PORTB_bit+0x10>
+ 14a:	cb 01       	movw	r24, r22
+ 14c:	80 95       	com	r24
+ 14e:	84 23       	and	r24, r20
+ 150:	85 b9       	out	0x05, r24	; 5
+ 152:	0c c0       	rjmp	.+24     	; 0x16c <set_PORTB_bit+0x3a>
+	}
+	else
+	{
+		PORTB |= (1 << position);       // Set bit # 'position' high
+ 154:	45 b1       	in	r20, 0x05	; 5
+ 156:	21 e0       	ldi	r18, 0x01	; 1
+ 158:	30 e0       	ldi	r19, 0x00	; 0
+ 15a:	b9 01       	movw	r22, r18
+ 15c:	02 c0       	rjmp	.+4      	; 0x162 <set_PORTB_bit+0x30>
+ 15e:	66 0f       	add	r22, r22
+ 160:	77 1f       	adc	r23, r23
+ 162:	8a 95       	dec	r24
+ 164:	e2 f7       	brpl	.-8      	; 0x15e <set_PORTB_bit+0x2c>
+ 166:	cb 01       	movw	r24, r22
+ 168:	84 2b       	or	r24, r20
+ 16a:	85 b9       	out	0x05, r24	; 5
+	}
+	return 1;
+}
+ 16c:	81 e0       	ldi	r24, 0x01	; 1
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	08 95       	ret
+
+00000172 <sendCmd>:
+	//sendCmd(10,0x00000000,0xff); //results in r1=0xff
+	CSup();
+	return 1;
+}
+
+unsigned char sendCmd(unsigned char address ,unsigned long arg, unsigned char crc){
+ 172:	ef 92       	push	r14
+ 174:	ff 92       	push	r15
+ 176:	0f 93       	push	r16
+ 178:	1f 93       	push	r17
+ 17a:	cf 93       	push	r28
+ 17c:	df 93       	push	r29
+ 17e:	e8 2e       	mov	r14, r24
+ 180:	d4 2f       	mov	r29, r20
+ 182:	15 2f       	mov	r17, r21
+ 184:	06 2f       	mov	r16, r22
+ 186:	f7 2e       	mov	r15, r23
+ 188:	c2 2f       	mov	r28, r18
+	SPITransmit(0xff);
+ 18a:	8f ef       	ldi	r24, 0xFF	; 255
+ 18c:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(address|0x40);
+ 190:	8e 2d       	mov	r24, r14
+ 192:	80 64       	ori	r24, 0x40	; 64
+ 194:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(arg>>24);
+ 198:	8f 2d       	mov	r24, r15
+ 19a:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(arg>>16);
+ 19e:	80 2f       	mov	r24, r16
+ 1a0:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(arg>>8);
+ 1a4:	81 2f       	mov	r24, r17
+ 1a6:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(arg);
+ 1aa:	8d 2f       	mov	r24, r29
+ 1ac:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(crc);
+ 1b0:	8c 2f       	mov	r24, r28
+ 1b2:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(0xff);
+ 1b6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1b8:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	r1 = SPITransceive(0xff);
+ 1bc:	8f ef       	ldi	r24, 0xFF	; 255
+ 1be:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+ 1c2:	80 93 02 01 	sts	0x0102, r24
+	SPITransceive(0xff);
+ 1c6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1c8:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+	SPITransceive(0xff);
+ 1cc:	8f ef       	ldi	r24, 0xFF	; 255
+ 1ce:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+	SPITransceive(0xff);
+ 1d2:	8f ef       	ldi	r24, 0xFF	; 255
+ 1d4:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+	r7=SPITransceive(0xff);
+ 1d8:	8f ef       	ldi	r24, 0xFF	; 255
+ 1da:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+ 1de:	80 93 00 01 	sts	0x0100, r24
+	return r1;
+}
+ 1e2:	80 91 02 01 	lds	r24, 0x0102
+ 1e6:	df 91       	pop	r29
+ 1e8:	cf 91       	pop	r28
+ 1ea:	1f 91       	pop	r17
+ 1ec:	0f 91       	pop	r16
+ 1ee:	ff 90       	pop	r15
+ 1f0:	ef 90       	pop	r14
+ 1f2:	08 95       	ret
+
+000001f4 <sdWrite>:
+
+void sdWrite(unsigned char *DATA, unsigned long address){
+ 1f4:	cf 92       	push	r12
+ 1f6:	df 92       	push	r13
+ 1f8:	ef 92       	push	r14
+ 1fa:	ff 92       	push	r15
+ 1fc:	0f 93       	push	r16
+ 1fe:	1f 93       	push	r17
+ 200:	cf 93       	push	r28
+ 202:	df 93       	push	r29
+ 204:	c8 2f       	mov	r28, r24
+ 206:	d9 2f       	mov	r29, r25
+ 208:	6a 01       	movw	r12, r20
+ 20a:	7b 01       	movw	r14, r22
+	
+	CSdown();
+ 20c:	0e 94 7c 00 	call	0xf8	; 0xf8 <CSdown>
+	r1=0x01;
+ 210:	81 e0       	ldi	r24, 0x01	; 1
+ 212:	80 93 02 01 	sts	0x0102, r24
+	//r2=0;
+	while(r1!=0x00){ //...................................................doesnt work
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+ 216:	88 e1       	ldi	r24, 0x18	; 24
+ 218:	b7 01       	movw	r22, r14
+ 21a:	a6 01       	movw	r20, r12
+ 21c:	2f ef       	ldi	r18, 0xFF	; 255
+ 21e:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+void sdWrite(unsigned char *DATA, unsigned long address){
+	
+	CSdown();
+	r1=0x01;
+	//r2=0;
+	while(r1!=0x00){ //...................................................doesnt work
+ 222:	80 91 02 01 	lds	r24, 0x0102
+ 226:	88 23       	and	r24, r24
+ 228:	b1 f7       	brne	.-20     	; 0x216 <sdWrite+0x22>
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+		//r2++;
+	}
+	
+	SPITransmit(0xfe); //datatoken
+ 22a:	8e ef       	ldi	r24, 0xFE	; 254
+ 22c:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+ 230:	0c 2f       	mov	r16, r28
+ 232:	1d 2f       	mov	r17, r29
+	for (int i=0;i<512;i++){
+ 234:	c0 e0       	ldi	r28, 0x00	; 0
+ 236:	d0 e0       	ldi	r29, 0x00	; 0
+		SPITransmit(DATA[i]);
+ 238:	f8 01       	movw	r30, r16
+ 23a:	81 91       	ld	r24, Z+
+ 23c:	8f 01       	movw	r16, r30
+ 23e:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+		//r2++;
+	}
+	
+	SPITransmit(0xfe); //datatoken
+	for (int i=0;i<512;i++){
+ 242:	21 96       	adiw	r28, 0x01	; 1
+ 244:	f2 e0       	ldi	r31, 0x02	; 2
+ 246:	c0 30       	cpi	r28, 0x00	; 0
+ 248:	df 07       	cpc	r29, r31
+ 24a:	b1 f7       	brne	.-20     	; 0x238 <sdWrite+0x44>
+		SPITransmit(DATA[i]);
+	}
+	SPITransmit(0x95);
+ 24c:	85 e9       	ldi	r24, 0x95	; 149
+ 24e:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(0x95);
+ 252:	85 e9       	ldi	r24, 0x95	; 149
+ 254:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+ 258:	c0 e1       	ldi	r28, 0x10	; 16
+ 25a:	d7 e2       	ldi	r29, 0x27	; 39
+	char tester=0x01;
+	for(int i=0; i<10000; i++){
+		tester = SPITransceive(0xff); //look @ SPDR
+ 25c:	8f ef       	ldi	r24, 0xFF	; 255
+ 25e:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+		if(tester == 0xE5 ){//If data accepted
+ 262:	85 3e       	cpi	r24, 0xE5	; 229
+ 264:	19 f4       	brne	.+6      	; 0x26c <sdWrite+0x78>
+				
+				CSup();
+ 266:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+				break;
+ 26a:	02 c0       	rjmp	.+4      	; 0x270 <sdWrite+0x7c>
+ 26c:	21 97       	sbiw	r28, 0x01	; 1
+		SPITransmit(DATA[i]);
+	}
+	SPITransmit(0x95);
+	SPITransmit(0x95);
+	char tester=0x01;
+	for(int i=0; i<10000; i++){
+ 26e:	b1 f7       	brne	.-20     	; 0x25c <sdWrite+0x68>
+		} else if(tester == 0x0d){ // If Write error
+			//LEDTestG(); // green LED error signal		
+		}
+	}			
+		
+}
+ 270:	df 91       	pop	r29
+ 272:	cf 91       	pop	r28
+ 274:	1f 91       	pop	r17
+ 276:	0f 91       	pop	r16
+ 278:	ff 90       	pop	r15
+ 27a:	ef 90       	pop	r14
+ 27c:	df 90       	pop	r13
+ 27e:	cf 90       	pop	r12
+ 280:	08 95       	ret
+
+00000282 <sdInit>:
+		PORTB |= (1 << position);       // Set bit # 'position' high
+	}
+	return 1;
+}
+
+void sdInit(){
+ 282:	cf 93       	push	r28
+	wait_one_second();
+ 284:	0e 94 8d 00 	call	0x11a	; 0x11a <wait_one_second>
+	CSup();
+ 288:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+ 28c:	ca e0       	ldi	r28, 0x0A	; 10
+	for(char i=0;i<10;i++){
+		SPITransmit(0xff);
+ 28e:	8f ef       	ldi	r24, 0xFF	; 255
+ 290:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+ 294:	c1 50       	subi	r28, 0x01	; 1
+}
+
+void sdInit(){
+	wait_one_second();
+	CSup();
+	for(char i=0;i<10;i++){
+ 296:	d9 f7       	brne	.-10     	; 0x28e <sdInit+0xc>
+		SPITransmit(0xff);
+	}	
+	CSdown();
+ 298:	0e 94 7c 00 	call	0xf8	; 0xf8 <CSdown>
+	
+	SPITransmit(0xff);
+ 29c:	8f ef       	ldi	r24, 0xFF	; 255
+ 29e:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	SPITransmit(0xff);
+ 2a2:	8f ef       	ldi	r24, 0xFF	; 255
+ 2a4:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	
+	while(r1!=0x01){
+ 2a8:	80 91 02 01 	lds	r24, 0x0102
+ 2ac:	81 30       	cpi	r24, 0x01	; 1
+ 2ae:	59 f0       	breq	.+22     	; 0x2c6 <sdInit+0x44>
+		sendCmd(0,0x00000000,0x95);
+ 2b0:	80 e0       	ldi	r24, 0x00	; 0
+ 2b2:	40 e0       	ldi	r20, 0x00	; 0
+ 2b4:	50 e0       	ldi	r21, 0x00	; 0
+ 2b6:	ba 01       	movw	r22, r20
+ 2b8:	25 e9       	ldi	r18, 0x95	; 149
+ 2ba:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+	CSdown();
+	
+	SPITransmit(0xff);
+	SPITransmit(0xff);
+	
+	while(r1!=0x01){
+ 2be:	80 91 02 01 	lds	r24, 0x0102
+ 2c2:	81 30       	cpi	r24, 0x01	; 1
+ 2c4:	a9 f7       	brne	.-22     	; 0x2b0 <sdInit+0x2e>
+		sendCmd(0,0x00000000,0x95);
+	}
+	
+	while((r7!=0xAA)){
+ 2c6:	80 91 00 01 	lds	r24, 0x0100
+ 2ca:	8a 3a       	cpi	r24, 0xAA	; 170
+ 2cc:	61 f0       	breq	.+24     	; 0x2e6 <sdInit+0x64>
+		sendCmd(8,0x000001AA,0x87);
+ 2ce:	88 e0       	ldi	r24, 0x08	; 8
+ 2d0:	4a ea       	ldi	r20, 0xAA	; 170
+ 2d2:	51 e0       	ldi	r21, 0x01	; 1
+ 2d4:	60 e0       	ldi	r22, 0x00	; 0
+ 2d6:	70 e0       	ldi	r23, 0x00	; 0
+ 2d8:	27 e8       	ldi	r18, 0x87	; 135
+ 2da:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+	
+	while(r1!=0x01){
+		sendCmd(0,0x00000000,0x95);
+	}
+	
+	while((r7!=0xAA)){
+ 2de:	80 91 00 01 	lds	r24, 0x0100
+ 2e2:	8a 3a       	cpi	r24, 0xAA	; 170
+ 2e4:	a1 f7       	brne	.-24     	; 0x2ce <sdInit+0x4c>
+		sendCmd(8,0x000001AA,0x87);
+	}
+		
+	
+	while(r1!=0x00){
+ 2e6:	80 91 02 01 	lds	r24, 0x0102
+ 2ea:	88 23       	and	r24, r24
+ 2ec:	a1 f0       	breq	.+40     	; 0x316 <sdInit+0x94>
+		sendCmd(55,0x40000000,0xff);
+ 2ee:	87 e3       	ldi	r24, 0x37	; 55
+ 2f0:	40 e0       	ldi	r20, 0x00	; 0
+ 2f2:	50 e0       	ldi	r21, 0x00	; 0
+ 2f4:	60 e0       	ldi	r22, 0x00	; 0
+ 2f6:	70 e4       	ldi	r23, 0x40	; 64
+ 2f8:	2f ef       	ldi	r18, 0xFF	; 255
+ 2fa:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+		sendCmd(41,0x40000000,0xff);
+ 2fe:	89 e2       	ldi	r24, 0x29	; 41
+ 300:	40 e0       	ldi	r20, 0x00	; 0
+ 302:	50 e0       	ldi	r21, 0x00	; 0
+ 304:	60 e0       	ldi	r22, 0x00	; 0
+ 306:	70 e4       	ldi	r23, 0x40	; 64
+ 308:	2f ef       	ldi	r18, 0xFF	; 255
+ 30a:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+	while((r7!=0xAA)){
+		sendCmd(8,0x000001AA,0x87);
+	}
+		
+	
+	while(r1!=0x00){
+ 30e:	80 91 02 01 	lds	r24, 0x0102
+ 312:	88 23       	and	r24, r24
+ 314:	61 f7       	brne	.-40     	; 0x2ee <sdInit+0x6c>
+		sendCmd(55,0x40000000,0xff);
+		sendCmd(41,0x40000000,0xff);
+	}
+	
+	sendCmd(58,0x00000000,0xff);
+ 316:	8a e3       	ldi	r24, 0x3A	; 58
+ 318:	40 e0       	ldi	r20, 0x00	; 0
+ 31a:	50 e0       	ldi	r21, 0x00	; 0
+ 31c:	ba 01       	movw	r22, r20
+ 31e:	2f ef       	ldi	r18, 0xFF	; 255
+ 320:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+	SPITransmit(0xff);
+ 324:	8f ef       	ldi	r24, 0xFF	; 255
+ 326:	0e 94 7e 00 	call	0xfc	; 0xfc <SPITransmit>
+	
+	//sendCmd(16,0x00000200,0xff);
+	//SPITransmit(0xff);
+	
+	//sendCmd(10,0x00000000,0xff); //results in r1=0xff
+	CSup();
+ 32a:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+	return 1;
+}
+ 32e:	cf 91       	pop	r28
+ 330:	08 95       	ret
+
+00000332 <sdRead>:
+		}
+	}			
+		
+}
+
+bool sdRead(unsigned char * DATA, unsigned long address){
+ 332:	cf 92       	push	r12
+ 334:	df 92       	push	r13
+ 336:	ef 92       	push	r14
+ 338:	ff 92       	push	r15
+ 33a:	0f 93       	push	r16
+ 33c:	1f 93       	push	r17
+ 33e:	cf 93       	push	r28
+ 340:	df 93       	push	r29
+ 342:	c8 2f       	mov	r28, r24
+ 344:	d9 2f       	mov	r29, r25
+ 346:	6a 01       	movw	r12, r20
+ 348:	7b 01       	movw	r14, r22
+		CSdown();
+ 34a:	0e 94 7c 00 	call	0xf8	; 0xf8 <CSdown>
+		r1=0x01;
+ 34e:	81 e0       	ldi	r24, 0x01	; 1
+ 350:	80 93 02 01 	sts	0x0102, r24
+		r2=0;
+ 354:	10 92 01 01 	sts	0x0101, r1
+		r1=sendCmd(0x11,address,0xff);// CMD17 ................. All write commands work, just cant read....
+ 358:	81 e1       	ldi	r24, 0x11	; 17
+ 35a:	b7 01       	movw	r22, r14
+ 35c:	a6 01       	movw	r20, r12
+ 35e:	2f ef       	ldi	r18, 0xFF	; 255
+ 360:	0e 94 b9 00 	call	0x172	; 0x172 <sendCmd>
+ 364:	80 93 02 01 	sts	0x0102, r24
+			
+		while(SPITransceive(0xff)!=0xfe){//do nothing
+ 368:	8f ef       	ldi	r24, 0xFF	; 255
+ 36a:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+ 36e:	8e 3f       	cpi	r24, 0xFE	; 254
+ 370:	d9 f7       	brne	.-10     	; 0x368 <sdRead+0x36>
+ 372:	0c 2f       	mov	r16, r28
+ 374:	1d 2f       	mov	r17, r29
+ 376:	c0 e0       	ldi	r28, 0x00	; 0
+ 378:	d0 e0       	ldi	r29, 0x00	; 0
+		}
+
+
+		for(int i=0;i<512;i++){//512 is the default block size for SDv1
+			DATA[i]=SPITransceive(0xff);	
+ 37a:	8f ef       	ldi	r24, 0xFF	; 255
+ 37c:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+ 380:	f8 01       	movw	r30, r16
+ 382:	81 93       	st	Z+, r24
+ 384:	8f 01       	movw	r16, r30
+			
+		while(SPITransceive(0xff)!=0xfe){//do nothing
+		}
+
+
+		for(int i=0;i<512;i++){//512 is the default block size for SDv1
+ 386:	21 96       	adiw	r28, 0x01	; 1
+ 388:	f2 e0       	ldi	r31, 0x02	; 2
+ 38a:	c0 30       	cpi	r28, 0x00	; 0
+ 38c:	df 07       	cpc	r29, r31
+ 38e:	a9 f7       	brne	.-22     	; 0x37a <sdRead+0x48>
+			DATA[i]=SPITransceive(0xff);	
+		}
+	
+		SPITransceive(0xff);
+ 390:	8f ef       	ldi	r24, 0xFF	; 255
+ 392:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+		SPITransceive(0xff);
+ 396:	8f ef       	ldi	r24, 0xFF	; 255
+ 398:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+		CSup();
+ 39c:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+}
+ 3a0:	df 91       	pop	r29
+ 3a2:	cf 91       	pop	r28
+ 3a4:	1f 91       	pop	r17
+ 3a6:	0f 91       	pop	r16
+ 3a8:	ff 90       	pop	r15
+ 3aa:	ef 90       	pop	r14
+ 3ac:	df 90       	pop	r13
+ 3ae:	cf 90       	pop	r12
+ 3b0:	08 95       	ret
+
+000003b2 <sd_mmc_spi_wait_not_busy>:
+
+
+bool sd_mmc_spi_wait_not_busy(void){
+ 3b2:	cf 92       	push	r12
+ 3b4:	df 92       	push	r13
+ 3b6:	ef 92       	push	r14
+ 3b8:	ff 92       	push	r15
+  uint32_t retry;
+
+  // Select the SD_MMC memory gl_ptr_mem points to
+  CSdown();
+ 3ba:	0e 94 7c 00 	call	0xf8	; 0xf8 <CSdown>
+  retry = 0;
+  r1=0x00;
+ 3be:	10 92 02 01 	sts	0x0102, r1
+ 3c2:	0f 2e       	mov	r0, r31
+ 3c4:	f0 e4       	ldi	r31, 0x40	; 64
+ 3c6:	cf 2e       	mov	r12, r31
+ 3c8:	fd e0       	ldi	r31, 0x0D	; 13
+ 3ca:	df 2e       	mov	r13, r31
+ 3cc:	f3 e0       	ldi	r31, 0x03	; 3
+ 3ce:	ef 2e       	mov	r14, r31
+ 3d0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3d2:	ff 2e       	mov	r15, r31
+ 3d4:	f0 2d       	mov	r31, r0
+  while( r1 != 0xFF){
+	r1 = SPITransceive(0xFF);
+ 3d6:	8f ef       	ldi	r24, 0xFF	; 255
+ 3d8:	0e 94 88 00 	call	0x110	; 0x110 <SPITransceive>
+ 3dc:	80 93 02 01 	sts	0x0102, r24
+ 3e0:	08 94       	sec
+ 3e2:	c1 08       	sbc	r12, r1
+ 3e4:	d1 08       	sbc	r13, r1
+ 3e6:	e1 08       	sbc	r14, r1
+ 3e8:	f1 08       	sbc	r15, r1
+    retry++;
+    if (retry == 200000){
+ 3ea:	c1 14       	cp	r12, r1
+ 3ec:	d1 04       	cpc	r13, r1
+ 3ee:	e1 04       	cpc	r14, r1
+ 3f0:	f1 04       	cpc	r15, r1
+ 3f2:	21 f4       	brne	.+8      	; 0x3fc <sd_mmc_spi_wait_not_busy+0x4a>
+      CSup();
+ 3f4:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+      return false;
+ 3f8:	80 e0       	ldi	r24, 0x00	; 0
+ 3fa:	05 c0       	rjmp	.+10     	; 0x406 <sd_mmc_spi_wait_not_busy+0x54>
+
+  // Select the SD_MMC memory gl_ptr_mem points to
+  CSdown();
+  retry = 0;
+  r1=0x00;
+  while( r1 != 0xFF){
+ 3fc:	8f 3f       	cpi	r24, 0xFF	; 255
+ 3fe:	59 f7       	brne	.-42     	; 0x3d6 <sd_mmc_spi_wait_not_busy+0x24>
+    if (retry == 200000){
+      CSup();
+      return false;
+    }
+  }
+  CSup();
+ 400:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+  return true;
+ 404:	81 e0       	ldi	r24, 0x01	; 1
+}
+ 406:	ff 90       	pop	r15
+ 408:	ef 90       	pop	r14
+ 40a:	df 90       	pop	r13
+ 40c:	cf 90       	pop	r12
+ 40e:	08 95       	ret
+
+00000410 <main>:
+
+unsigned char sendCmd(unsigned char address ,unsigned long arg, unsigned char crc);//proto
+bool sdRead(unsigned char * DATA, unsigned long address);
+bool sd_mmc_spi_wait_not_busy(void);
+int main(void)
+{
+ 410:	cf 93       	push	r28
+ 412:	df 93       	push	r29
+ 414:	cd b7       	in	r28, 0x3d	; 61
+ 416:	de b7       	in	r29, 0x3e	; 62
+ 418:	c0 50       	subi	r28, 0x00	; 0
+ 41a:	d4 40       	sbci	r29, 0x04	; 4
+ 41c:	0f b6       	in	r0, 0x3f	; 63
+ 41e:	f8 94       	cli
+ 420:	de bf       	out	0x3e, r29	; 62
+ 422:	0f be       	out	0x3f, r0	; 63
+ 424:	cd bf       	out	0x3d, r28	; 61
+		CSdown(); 
+		Init_SPISystem();
+		
+		//Check if Write Able to Transfer Data
+		unsigned char toSend[512];
+		toSend[0]=0xAA; //Test Byte
+ 426:	0f 2e       	mov	r0, r31
+ 428:	f1 e0       	ldi	r31, 0x01	; 1
+ 42a:	4f 2e       	mov	r4, r31
+ 42c:	f2 e0       	ldi	r31, 0x02	; 2
+ 42e:	5f 2e       	mov	r5, r31
+ 430:	f0 2d       	mov	r31, r0
+ 432:	4c 0e       	add	r4, r28
+ 434:	5d 1e       	adc	r5, r29
+ 436:	0f 2e       	mov	r0, r31
+ 438:	fa ea       	ldi	r31, 0xAA	; 170
+ 43a:	7f 2e       	mov	r7, r31
+ 43c:	f0 2d       	mov	r31, r0
+		for (unsigned long i=0;i<2000;i+=512){ //ORIGINALLY 1074000000	
+ 43e:	88 24       	eor	r8, r8
+ 440:	99 24       	eor	r9, r9
+ 442:	54 01       	movw	r10, r8
+			sdWrite(toSend,i);	
+ 444:	14 2d       	mov	r17, r4
+ 446:	05 2d       	mov	r16, r5
+{
+    while(1)
+    {
+	
+        //TODO:: Please write your application code
+		CSdown(); 
+ 448:	0e 94 7c 00 	call	0xf8	; 0xf8 <CSdown>
+		Init_SPISystem();
+ 44c:	0e 94 67 00 	call	0xce	; 0xce <Init_SPISystem>
+		
+		//Check if Write Able to Transfer Data
+		unsigned char toSend[512];
+		toSend[0]=0xAA; //Test Byte
+ 450:	d2 01       	movw	r26, r4
+ 452:	7c 92       	st	X, r7
+		for (unsigned long i=0;i<2000;i+=512){ //ORIGINALLY 1074000000	
+ 454:	75 01       	movw	r14, r10
+ 456:	64 01       	movw	r12, r8
+			sdWrite(toSend,i);	
+ 458:	81 2f       	mov	r24, r17
+ 45a:	90 2f       	mov	r25, r16
+ 45c:	b7 01       	movw	r22, r14
+ 45e:	a6 01       	movw	r20, r12
+ 460:	0e 94 fa 00 	call	0x1f4	; 0x1f4 <sdWrite>
+		Init_SPISystem();
+		
+		//Check if Write Able to Transfer Data
+		unsigned char toSend[512];
+		toSend[0]=0xAA; //Test Byte
+		for (unsigned long i=0;i<2000;i+=512){ //ORIGINALLY 1074000000	
+ 464:	80 e0       	ldi	r24, 0x00	; 0
+ 466:	92 e0       	ldi	r25, 0x02	; 2
+ 468:	a0 e0       	ldi	r26, 0x00	; 0
+ 46a:	b0 e0       	ldi	r27, 0x00	; 0
+ 46c:	c8 0e       	add	r12, r24
+ 46e:	d9 1e       	adc	r13, r25
+ 470:	ea 1e       	adc	r14, r26
+ 472:	fb 1e       	adc	r15, r27
+ 474:	90 e0       	ldi	r25, 0x00	; 0
+ 476:	c9 16       	cp	r12, r25
+ 478:	98 e0       	ldi	r25, 0x08	; 8
+ 47a:	d9 06       	cpc	r13, r25
+ 47c:	90 e0       	ldi	r25, 0x00	; 0
+ 47e:	e9 06       	cpc	r14, r25
+ 480:	90 e0       	ldi	r25, 0x00	; 0
+ 482:	f9 06       	cpc	r15, r25
+ 484:	49 f7       	brne	.-46     	; 0x458 <main+0x48>
+			sdWrite(toSend,i);	
+		}	
+		
+		//Check if Read Confirms Data
+			
+		if(sd_mmc_spi_wait_not_busy()==true){
+ 486:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <sd_mmc_spi_wait_not_busy>
+ 48a:	88 23       	and	r24, r24
+ 48c:	e9 f2       	breq	.-70     	; 0x448 <main+0x38>
+				unsigned char toReceive[512];
+				sdRead(toReceive,0);
+ 48e:	ce 01       	movw	r24, r28
+ 490:	01 96       	adiw	r24, 0x01	; 1
+ 492:	b5 01       	movw	r22, r10
+ 494:	a4 01       	movw	r20, r8
+ 496:	0e 94 99 01 	call	0x332	; 0x332 <sdRead>
+				CSup();
+ 49a:	0e 94 7a 00 	call	0xf4	; 0xf4 <CSup>
+ 49e:	d4 cf       	rjmp	.-88     	; 0x448 <main+0x38>
+
+000004a0 <_exit>:
+ 4a0:	f8 94       	cli
+
+000004a2 <__stop_program>:
+ 4a2:	ff cf       	rjmp	.-2      	; 0x4a2 <__stop_program>

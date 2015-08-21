@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "GccApplication4_IV", "GccApplication4_IV\GccApplication4_IV.cppproj", "{03001D21-C837-445B-A362-B014F019C597}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03001D21-C837-445B-A362-B014F019C597}.Debug|AVR.ActiveCfg = Debug|AVR
+		{03001D21-C837-445B-A362-B014F019C597}.Debug|AVR.Build.0 = Debug|AVR
+		{03001D21-C837-445B-A362-B014F019C597}.Release|AVR.ActiveCfg = Release|AVR
+		{03001D21-C837-445B-A362-B014F019C597}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

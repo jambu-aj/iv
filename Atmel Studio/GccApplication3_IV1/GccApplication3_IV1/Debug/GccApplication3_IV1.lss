@@ -1,0 +1,1682 @@
+
+GccApplication3_IV1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000009cc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000020  00800100  00800100  00000a40  2**0
+                  ALLOC
+  2 .stab         000006cc  00000000  00000000  00000a40  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  0000110c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  00001198  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a4a  00000000  00000000  00001218  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000002f4  00000000  00000000  00001c62  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004e2  00000000  00000000  00001f56  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000250  00000000  00000000  00002438  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002f6  00000000  00000000  00002688  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000003dc  00000000  00000000  0000297e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ec ec       	ldi	r30, 0xCC	; 204
+  a0:	f9 e0       	ldi	r31, 0x09	; 9
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	11 e0       	ldi	r17, 0x01	; 1
+  b4:	a0 e0       	ldi	r26, 0x00	; 0
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a0 32       	cpi	r26, 0x20	; 32
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 71 04 	call	0x8e2	; 0x8e2 <main>
+  c6:	0c 94 e4 04 	jmp	0x9c8	; 0x9c8 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <crankClock>:
+}
+
+void crankClock(){
+	// Call after sdInit()
+	// crank up clock rate fck/4
+	SPCR &= 0b11111100;
+  ce:	8c b5       	in	r24, 0x2c	; 44
+  d0:	8c 7f       	andi	r24, 0xFC	; 252
+  d2:	8c bd       	out	0x2c, r24	; 44
+	SPSR &= 0b11111110;
+  d4:	8d b5       	in	r24, 0x2d	; 45
+  d6:	8e 7f       	andi	r24, 0xFE	; 254
+  d8:	8d bd       	out	0x2d, r24	; 45
+}
+  da:	08 95       	ret
+
+000000dc <CS1up>:
+
+//SD Functions-------------------------------------------------------------
+
+void CS1up(){
+	PORTB |= (1<<CS1); //Assert PB2 HIGH
+  dc:	2c 9a       	sbi	0x05, 4	; 5
+}
+  de:	08 95       	ret
+
+000000e0 <CS1down>:
+
+void CS1down(){
+	PORTB &= ~(1<<CS1); //Assert PB2 LOW
+  e0:	2c 98       	cbi	0x05, 4	; 5
+}
+  e2:	08 95       	ret
+
+000000e4 <ledInit>:
+}
+
+//LED Functions-------------------------------------------------------------
+
+void ledInit(){
+	DDRD = 0b01100000;  // Enabling PD5&PD6
+  e4:	80 e6       	ldi	r24, 0x60	; 96
+  e6:	8a b9       	out	0x0a, r24	; 10
+}
+  e8:	08 95       	ret
+
+000000ea <rtd1Init>:
+}
+
+//RTD Functions-------------------------------------------------------------
+
+void rtd1Init(){
+	ADMUX = 0x01; //enables ADC1 (RTD1)
+  ea:	81 e0       	ldi	r24, 0x01	; 1
+  ec:	80 93 7c 00 	sts	0x007C, r24
+	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor) 
+  f0:	ea e7       	ldi	r30, 0x7A	; 122
+  f2:	f0 e0       	ldi	r31, 0x00	; 0
+  f4:	80 81       	ld	r24, Z
+  f6:	83 6c       	ori	r24, 0xC3	; 195
+  f8:	80 83       	st	Z, r24
+}
+  fa:	08 95       	ret
+
+000000fc <rtd2Init>:
+	return adcvalComb;
+	
+}
+
+void rtd2Init(){
+	ADMUX = 0x00; //enables ADC0 (RTD2)
+  fc:	10 92 7c 00 	sts	0x007C, r1
+	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor)
+ 100:	ea e7       	ldi	r30, 0x7A	; 122
+ 102:	f0 e0       	ldi	r31, 0x00	; 0
+ 104:	80 81       	ld	r24, Z
+ 106:	83 6c       	ori	r24, 0xC3	; 195
+ 108:	80 83       	st	Z, r24
+}
+ 10a:	08 95       	ret
+
+0000010c <SPI_MasterInit>:
+//SPI Functions-------------------------------------------------------------
+
+void SPI_MasterInit(void){
+	//Function modified from ATmega 1284P Datasheet
+	/* Set MOSI and SCK output, all others input */
+	DDRB |= (1<<CS2)|(1<<CS1)|(1<<MOSI)|(1<<SCK);
+ 10c:	84 b1       	in	r24, 0x04	; 4
+ 10e:	84 6b       	ori	r24, 0xB4	; 180
+ 110:	84 b9       	out	0x04, r24	; 4
+	
+	/* Enable SPI, Master, set clock rate fck/4 -> 250kHz */
+	SPCR = (1<<SPE)|(1<<MSTR);
+ 112:	80 e5       	ldi	r24, 0x50	; 80
+ 114:	8c bd       	out	0x2c, r24	; 44
+	
+	// set clock rate fck/64 (SD Initialization)(Crank up After)
+	SPCR = SPCR|(0<<SPR0)|(1<<SPR1);
+ 116:	8c b5       	in	r24, 0x2c	; 44
+ 118:	82 60       	ori	r24, 0x02	; 2
+ 11a:	8c bd       	out	0x2c, r24	; 44
+	SPSR = SPSR|(0<<SPI2X);
+ 11c:	8d b5       	in	r24, 0x2d	; 45
+ 11e:	8d bd       	out	0x2d, r24	; 45
+}
+ 120:	08 95       	ret
+
+00000122 <SPI_MasterTransmit>:
+
+void SPI_MasterTransmit(unsigned char cData){
+	//Function copied from ATmega 1284P Datasheet
+	/* Start transmission */
+	SPDR = cData;
+ 122:	8e bd       	out	0x2e, r24	; 46
+	/* Wait for transmission complete */
+	while(!(SPSR & (1<<SPIF)))
+ 124:	0d b4       	in	r0, 0x2d	; 45
+ 126:	07 fe       	sbrs	r0, 7
+ 128:	fd cf       	rjmp	.-6      	; 0x124 <SPI_MasterTransmit+0x2>
+	;
+}
+ 12a:	08 95       	ret
+
+0000012c <SPI_MasterReceive>:
+
+unsigned char SPI_MasterReceive(unsigned char cdata){
+	SPDR=cdata;
+ 12c:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF))){
+ 12e:	0d b4       	in	r0, 0x2d	; 45
+ 130:	07 fe       	sbrs	r0, 7
+ 132:	fd cf       	rjmp	.-6      	; 0x12e <SPI_MasterReceive+0x2>
+		//do nothing
+	}
+	/* Return Data Register */
+	return SPDR;
+ 134:	8e b5       	in	r24, 0x2e	; 46
+}
+ 136:	08 95       	ret
+
+00000138 <sendCmd>:
+
+void CS1down(){
+	PORTB &= ~(1<<CS1); //Assert PB2 LOW
+}
+
+unsigned char sendCmd(unsigned char address ,unsigned long arg, unsigned char crc){
+ 138:	ef 92       	push	r14
+ 13a:	ff 92       	push	r15
+ 13c:	0f 93       	push	r16
+ 13e:	1f 93       	push	r17
+ 140:	cf 93       	push	r28
+ 142:	df 93       	push	r29
+ 144:	e8 2e       	mov	r14, r24
+ 146:	d4 2f       	mov	r29, r20
+ 148:	15 2f       	mov	r17, r21
+ 14a:	06 2f       	mov	r16, r22
+ 14c:	f7 2e       	mov	r15, r23
+ 14e:	c2 2f       	mov	r28, r18
+	SPI_MasterTransmit(0xff);
+ 150:	8f ef       	ldi	r24, 0xFF	; 255
+ 152:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(address|0x40);
+ 156:	8e 2d       	mov	r24, r14
+ 158:	80 64       	ori	r24, 0x40	; 64
+ 15a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(arg>>24);
+ 15e:	8f 2d       	mov	r24, r15
+ 160:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(arg>>16);
+ 164:	80 2f       	mov	r24, r16
+ 166:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(arg>>8);
+ 16a:	81 2f       	mov	r24, r17
+ 16c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(arg);
+ 170:	8d 2f       	mov	r24, r29
+ 172:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(crc);
+ 176:	8c 2f       	mov	r24, r28
+ 178:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xff);
+ 17c:	8f ef       	ldi	r24, 0xFF	; 255
+ 17e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	r1 = SPI_MasterReceive(0xff);
+ 182:	8f ef       	ldi	r24, 0xFF	; 255
+ 184:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 188:	80 93 1f 01 	sts	0x011F, r24
+	SPI_MasterReceive(0xff);
+ 18c:	8f ef       	ldi	r24, 0xFF	; 255
+ 18e:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+	SPI_MasterReceive(0xff);
+ 192:	8f ef       	ldi	r24, 0xFF	; 255
+ 194:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+	SPI_MasterReceive(0xff);
+ 198:	8f ef       	ldi	r24, 0xFF	; 255
+ 19a:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+	r7=SPI_MasterReceive(0xff);
+ 19e:	8f ef       	ldi	r24, 0xFF	; 255
+ 1a0:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 1a4:	80 93 17 01 	sts	0x0117, r24
+	return r1;
+}
+ 1a8:	80 91 1f 01 	lds	r24, 0x011F
+ 1ac:	df 91       	pop	r29
+ 1ae:	cf 91       	pop	r28
+ 1b0:	1f 91       	pop	r17
+ 1b2:	0f 91       	pop	r16
+ 1b4:	ff 90       	pop	r15
+ 1b6:	ef 90       	pop	r14
+ 1b8:	08 95       	ret
+
+000001ba <sdWrite>:
+	//sendCmd(10,0x00000000,0xff); //results in r1=0xff
+	CS1up();
+	//return 1;
+}
+
+void sdWrite(unsigned char *DATA, unsigned long address){
+ 1ba:	cf 92       	push	r12
+ 1bc:	df 92       	push	r13
+ 1be:	ef 92       	push	r14
+ 1c0:	ff 92       	push	r15
+ 1c2:	0f 93       	push	r16
+ 1c4:	1f 93       	push	r17
+ 1c6:	cf 93       	push	r28
+ 1c8:	df 93       	push	r29
+ 1ca:	c8 2f       	mov	r28, r24
+ 1cc:	d9 2f       	mov	r29, r25
+ 1ce:	6a 01       	movw	r12, r20
+ 1d0:	7b 01       	movw	r14, r22
+	
+	CS1down();
+ 1d2:	0e 94 70 00 	call	0xe0	; 0xe0 <CS1down>
+	r1=0x01;
+ 1d6:	81 e0       	ldi	r24, 0x01	; 1
+ 1d8:	80 93 1f 01 	sts	0x011F, r24
+	//r2=0;
+	while(r1!=0x00){
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+ 1dc:	88 e1       	ldi	r24, 0x18	; 24
+ 1de:	b7 01       	movw	r22, r14
+ 1e0:	a6 01       	movw	r20, r12
+ 1e2:	2f ef       	ldi	r18, 0xFF	; 255
+ 1e4:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+void sdWrite(unsigned char *DATA, unsigned long address){
+	
+	CS1down();
+	r1=0x01;
+	//r2=0;
+	while(r1!=0x00){
+ 1e8:	80 91 1f 01 	lds	r24, 0x011F
+ 1ec:	88 23       	and	r24, r24
+ 1ee:	b1 f7       	brne	.-20     	; 0x1dc <sdWrite+0x22>
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+		//r2++;
+	}
+	
+	SPI_MasterTransmit(0xfe); //datatoken
+ 1f0:	8e ef       	ldi	r24, 0xFE	; 254
+ 1f2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+ 1f6:	0c 2f       	mov	r16, r28
+ 1f8:	1d 2f       	mov	r17, r29
+	for (int i=0;i<512;i++){
+ 1fa:	c0 e0       	ldi	r28, 0x00	; 0
+ 1fc:	d0 e0       	ldi	r29, 0x00	; 0
+		SPI_MasterTransmit(DATA[i]);
+ 1fe:	f8 01       	movw	r30, r16
+ 200:	81 91       	ld	r24, Z+
+ 202:	8f 01       	movw	r16, r30
+ 204:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+		sendCmd(24,address,0xff); //Gets in 41 tries...why?
+		//r2++;
+	}
+	
+	SPI_MasterTransmit(0xfe); //datatoken
+	for (int i=0;i<512;i++){
+ 208:	21 96       	adiw	r28, 0x01	; 1
+ 20a:	f2 e0       	ldi	r31, 0x02	; 2
+ 20c:	c0 30       	cpi	r28, 0x00	; 0
+ 20e:	df 07       	cpc	r29, r31
+ 210:	b1 f7       	brne	.-20     	; 0x1fe <sdWrite+0x44>
+		SPI_MasterTransmit(DATA[i]);
+	}
+	SPI_MasterTransmit(0x95);
+ 212:	85 e9       	ldi	r24, 0x95	; 149
+ 214:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x95);
+ 218:	85 e9       	ldi	r24, 0x95	; 149
+ 21a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	tester=0x01;
+ 21e:	81 e0       	ldi	r24, 0x01	; 1
+ 220:	80 93 04 01 	sts	0x0104, r24
+ 224:	c0 e1       	ldi	r28, 0x10	; 16
+ 226:	d7 e2       	ldi	r29, 0x27	; 39
+	for(int i=0; i<10000; i++){
+		tester = SPI_MasterReceive(0xff);
+ 228:	8f ef       	ldi	r24, 0xFF	; 255
+ 22a:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 22e:	80 93 04 01 	sts	0x0104, r24
+		//look @ SPDR
+		if(tester == 0xE5 ){
+ 232:	85 3e       	cpi	r24, 0xE5	; 229
+ 234:	19 f4       	brne	.+6      	; 0x23c <sdWrite+0x82>
+			//If data accepted
+			CS1up();
+ 236:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+			break;
+ 23a:	02 c0       	rjmp	.+4      	; 0x240 <sdWrite+0x86>
+ 23c:	21 97       	sbiw	r28, 0x01	; 1
+		SPI_MasterTransmit(DATA[i]);
+	}
+	SPI_MasterTransmit(0x95);
+	SPI_MasterTransmit(0x95);
+	tester=0x01;
+	for(int i=0; i<10000; i++){
+ 23e:	a1 f7       	brne	.-24     	; 0x228 <sdWrite+0x6e>
+		} else if(tester == 0x0d){
+			// If Write error
+		}
+	}
+	
+}
+ 240:	df 91       	pop	r29
+ 242:	cf 91       	pop	r28
+ 244:	1f 91       	pop	r17
+ 246:	0f 91       	pop	r16
+ 248:	ff 90       	pop	r15
+ 24a:	ef 90       	pop	r14
+ 24c:	df 90       	pop	r13
+ 24e:	cf 90       	pop	r12
+ 250:	08 95       	ret
+
+00000252 <sdRead>:
+
+bool sdRead(unsigned char *DATA, unsigned long address){
+ 252:	cf 92       	push	r12
+ 254:	df 92       	push	r13
+ 256:	ef 92       	push	r14
+ 258:	ff 92       	push	r15
+ 25a:	0f 93       	push	r16
+ 25c:	1f 93       	push	r17
+ 25e:	cf 93       	push	r28
+ 260:	df 93       	push	r29
+ 262:	c8 2f       	mov	r28, r24
+ 264:	d9 2f       	mov	r29, r25
+ 266:	6a 01       	movw	r12, r20
+ 268:	7b 01       	movw	r14, r22
+	CS1down();
+ 26a:	0e 94 70 00 	call	0xe0	; 0xe0 <CS1down>
+	r1=0x01;
+ 26e:	81 e0       	ldi	r24, 0x01	; 1
+ 270:	80 93 1f 01 	sts	0x011F, r24
+	r2=0;
+ 274:	10 92 1b 01 	sts	0x011B, r1
+	r1=sendCmd(0x11,address,0xff);// CMD17 ................. All write commands work, just cant read....
+ 278:	81 e1       	ldi	r24, 0x11	; 17
+ 27a:	b7 01       	movw	r22, r14
+ 27c:	a6 01       	movw	r20, r12
+ 27e:	2f ef       	ldi	r18, 0xFF	; 255
+ 280:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+ 284:	80 93 1f 01 	sts	0x011F, r24
+	
+	while(SPI_MasterReceive(0xff)!=0xfe){
+ 288:	8f ef       	ldi	r24, 0xFF	; 255
+ 28a:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 28e:	8e 3f       	cpi	r24, 0xFE	; 254
+ 290:	d9 f7       	brne	.-10     	; 0x288 <sdRead+0x36>
+ 292:	0c 2f       	mov	r16, r28
+ 294:	1d 2f       	mov	r17, r29
+ 296:	c0 e0       	ldi	r28, 0x00	; 0
+ 298:	d0 e0       	ldi	r29, 0x00	; 0
+	}
+
+
+	for(int i=0;i<512;i++){
+		//512 is the default block size for SDv1
+		DATA[i]=SPI_MasterReceive(0xff);
+ 29a:	8f ef       	ldi	r24, 0xFF	; 255
+ 29c:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 2a0:	f8 01       	movw	r30, r16
+ 2a2:	81 93       	st	Z+, r24
+ 2a4:	8f 01       	movw	r16, r30
+	while(SPI_MasterReceive(0xff)!=0xfe){
+		//do nothing
+	}
+
+
+	for(int i=0;i<512;i++){
+ 2a6:	21 96       	adiw	r28, 0x01	; 1
+ 2a8:	f2 e0       	ldi	r31, 0x02	; 2
+ 2aa:	c0 30       	cpi	r28, 0x00	; 0
+ 2ac:	df 07       	cpc	r29, r31
+ 2ae:	a9 f7       	brne	.-22     	; 0x29a <sdRead+0x48>
+		//512 is the default block size for SDv1
+		DATA[i]=SPI_MasterReceive(0xff);
+	}
+	
+	SPI_MasterReceive(0xff);
+ 2b0:	8f ef       	ldi	r24, 0xFF	; 255
+ 2b2:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+	SPI_MasterReceive(0xff);
+ 2b6:	8f ef       	ldi	r24, 0xFF	; 255
+ 2b8:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+	CS1up();
+ 2bc:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+}
+ 2c0:	df 91       	pop	r29
+ 2c2:	cf 91       	pop	r28
+ 2c4:	1f 91       	pop	r17
+ 2c6:	0f 91       	pop	r16
+ 2c8:	ff 90       	pop	r15
+ 2ca:	ef 90       	pop	r14
+ 2cc:	df 90       	pop	r13
+ 2ce:	cf 90       	pop	r12
+ 2d0:	08 95       	ret
+
+000002d2 <sd_mmc_spi_wait_not_busy>:
+
+bool sd_mmc_spi_wait_not_busy(void){
+ 2d2:	cf 92       	push	r12
+ 2d4:	df 92       	push	r13
+ 2d6:	ef 92       	push	r14
+ 2d8:	ff 92       	push	r15
+	uint32_t retry;
+
+	// Select the SD_MMC memory gl_ptr_mem points to
+	CS1down();
+ 2da:	0e 94 70 00 	call	0xe0	; 0xe0 <CS1down>
+	retry = 0;
+	r1=0x00;
+ 2de:	10 92 1f 01 	sts	0x011F, r1
+ 2e2:	0f 2e       	mov	r0, r31
+ 2e4:	f0 e4       	ldi	r31, 0x40	; 64
+ 2e6:	cf 2e       	mov	r12, r31
+ 2e8:	fd e0       	ldi	r31, 0x0D	; 13
+ 2ea:	df 2e       	mov	r13, r31
+ 2ec:	f3 e0       	ldi	r31, 0x03	; 3
+ 2ee:	ef 2e       	mov	r14, r31
+ 2f0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2f2:	ff 2e       	mov	r15, r31
+ 2f4:	f0 2d       	mov	r31, r0
+	while( r1 != 0xFF){
+		r1 = SPI_MasterReceive(0xFF);
+ 2f6:	8f ef       	ldi	r24, 0xFF	; 255
+ 2f8:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 2fc:	80 93 1f 01 	sts	0x011F, r24
+ 300:	08 94       	sec
+ 302:	c1 08       	sbc	r12, r1
+ 304:	d1 08       	sbc	r13, r1
+ 306:	e1 08       	sbc	r14, r1
+ 308:	f1 08       	sbc	r15, r1
+		retry++;
+		if (retry == 200000){
+ 30a:	c1 14       	cp	r12, r1
+ 30c:	d1 04       	cpc	r13, r1
+ 30e:	e1 04       	cpc	r14, r1
+ 310:	f1 04       	cpc	r15, r1
+ 312:	21 f4       	brne	.+8      	; 0x31c <sd_mmc_spi_wait_not_busy+0x4a>
+			CS1up();
+ 314:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+			return false;
+ 318:	80 e0       	ldi	r24, 0x00	; 0
+ 31a:	05 c0       	rjmp	.+10     	; 0x326 <sd_mmc_spi_wait_not_busy+0x54>
+
+	// Select the SD_MMC memory gl_ptr_mem points to
+	CS1down();
+	retry = 0;
+	r1=0x00;
+	while( r1 != 0xFF){
+ 31c:	8f 3f       	cpi	r24, 0xFF	; 255
+ 31e:	59 f7       	brne	.-42     	; 0x2f6 <sd_mmc_spi_wait_not_busy+0x24>
+		if (retry == 200000){
+			CS1up();
+			return false;
+		}
+	}
+	CS1up();
+ 320:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+	return true;
+ 324:	81 e0       	ldi	r24, 0x01	; 1
+}
+ 326:	ff 90       	pop	r15
+ 328:	ef 90       	pop	r14
+ 32a:	df 90       	pop	r13
+ 32c:	cf 90       	pop	r12
+ 32e:	08 95       	ret
+
+00000330 <CS2up>:
+
+
+//AFE Functions-------------------------------------------------------------
+
+void CS2up(){
+	PORTB |= (1<<CS2); //Assert PB2 HIGH
+ 330:	2a 9a       	sbi	0x05, 2	; 5
+}
+ 332:	08 95       	ret
+
+00000334 <CS2down>:
+
+void CS2down(){
+	PORTB &= ~(1<<CS2); //Assert PB2 LOW
+ 334:	2a 98       	cbi	0x05, 2	; 5
+}
+ 336:	08 95       	ret
+
+00000338 <AFE_Init_BCM_SS>:
+
+void AFE_Init_BCM_SS(){
+	CS2down();
+ 338:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+ 33c:	82 e0       	ldi	r24, 0x02	; 2
+ 33e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 342:	80 e0       	ldi	r24, 0x00	; 0
+ 344:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 348:	80 e0       	ldi	r24, 0x00	; 0
+ 34a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+ 34e:	83 e0       	ldi	r24, 0x03	; 3
+ 350:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 354:	8f ef       	ldi	r24, 0xFF	; 255
+ 356:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 35a:	8f ef       	ldi	r24, 0xFF	; 255
+ 35c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+ 360:	89 e0       	ldi	r24, 0x09	; 9
+ 362:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x60);
+ 366:	80 e6       	ldi	r24, 0x60	; 96
+ 368:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x06);
+ 36c:	86 e0       	ldi	r24, 0x06	; 6
+ 36e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0A); // ISW Mux
+ 372:	8a e0       	ldi	r24, 0x0A	; 10
+ 374:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x40);
+ 378:	80 e4       	ldi	r24, 0x40	; 64
+ 37a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x80);
+ 37e:	80 e8       	ldi	r24, 0x80	; 128
+ 380:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0B); // VSense Mux
+ 384:	8b e0       	ldi	r24, 0x0B	; 11
+ 386:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x40);
+ 38a:	80 e4       	ldi	r24, 0x40	; 64
+ 38c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x80);
+ 390:	80 e8       	ldi	r24, 0x80	; 128
+ 392:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+ 396:	8c e0       	ldi	r24, 0x0C	; 12
+ 398:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 39c:	80 e0       	ldi	r24, 0x00	; 0
+ 39e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+ 3a8:	8d e0       	ldi	r24, 0x0D	; 13
+ 3aa:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3ae:	80 e0       	ldi	r24, 0x00	; 0
+ 3b0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3b4:	80 e0       	ldi	r24, 0x00	; 0
+ 3b6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+ 3ba:	8e e0       	ldi	r24, 0x0E	; 14
+ 3bc:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x01);
+ 3c0:	81 e0       	ldi	r24, 0x01	; 1
+ 3c2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3c6:	80 e0       	ldi	r24, 0x00	; 0
+ 3c8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+ 3cc:	8f e0       	ldi	r24, 0x0F	; 15
+ 3ce:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3d2:	80 e0       	ldi	r24, 0x00	; 0
+ 3d4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3d8:	80 e0       	ldi	r24, 0x00	; 0
+ 3da:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+ 3de:	80 e1       	ldi	r24, 0x10	; 16
+ 3e0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3e4:	80 e0       	ldi	r24, 0x00	; 0
+ 3e6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x63);
+ 3ea:	83 e6       	ldi	r24, 0x63	; 99
+ 3ec:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+ 3f0:	8a e1       	ldi	r24, 0x1A	; 26
+ 3f2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 3f6:	80 e0       	ldi	r24, 0x00	; 0
+ 3f8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+ 3fc:	80 e3       	ldi	r24, 0x30	; 48
+ 3fe:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+ 402:	81 e0       	ldi	r24, 0x01	; 1
+ 404:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xC1);
+ 408:	81 ec       	ldi	r24, 0xC1	; 193
+ 40a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xD0);
+ 40e:	80 ed       	ldi	r24, 0xD0	; 208
+ 410:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	CS2up();
+ 414:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+}
+ 418:	08 95       	ret
+
+0000041a <AFE_Init_BCM_Cont>:
+
+void AFE_Init_BCM_Cont(){
+	CS2down();
+ 41a:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+ 41e:	82 e0       	ldi	r24, 0x02	; 2
+ 420:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 424:	80 e0       	ldi	r24, 0x00	; 0
+ 426:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 42a:	80 e0       	ldi	r24, 0x00	; 0
+ 42c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+ 430:	83 e0       	ldi	r24, 0x03	; 3
+ 432:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 436:	8f ef       	ldi	r24, 0xFF	; 255
+ 438:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 43c:	8f ef       	ldi	r24, 0xFF	; 255
+ 43e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+ 442:	89 e0       	ldi	r24, 0x09	; 9
+ 444:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x60);
+ 448:	80 e6       	ldi	r24, 0x60	; 96
+ 44a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x06);
+ 44e:	86 e0       	ldi	r24, 0x06	; 6
+ 450:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0A); // ISW Mux
+ 454:	8a e0       	ldi	r24, 0x0A	; 10
+ 456:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x40);
+ 45a:	80 e4       	ldi	r24, 0x40	; 64
+ 45c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x80);
+ 460:	80 e8       	ldi	r24, 0x80	; 128
+ 462:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0B); // VSense Mux
+ 466:	8b e0       	ldi	r24, 0x0B	; 11
+ 468:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x40);
+ 46c:	80 e4       	ldi	r24, 0x40	; 64
+ 46e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x80);
+ 472:	80 e8       	ldi	r24, 0x80	; 128
+ 474:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+ 478:	8c e0       	ldi	r24, 0x0C	; 12
+ 47a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 47e:	80 e0       	ldi	r24, 0x00	; 0
+ 480:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 484:	80 e0       	ldi	r24, 0x00	; 0
+ 486:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+ 48a:	8d e0       	ldi	r24, 0x0D	; 13
+ 48c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 490:	80 e0       	ldi	r24, 0x00	; 0
+ 492:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 496:	80 e0       	ldi	r24, 0x00	; 0
+ 498:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+ 49c:	8e e0       	ldi	r24, 0x0E	; 14
+ 49e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x01);
+ 4a2:	81 e0       	ldi	r24, 0x01	; 1
+ 4a4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 4a8:	80 e0       	ldi	r24, 0x00	; 0
+ 4aa:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+ 4ae:	8f e0       	ldi	r24, 0x0F	; 15
+ 4b0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 4b4:	80 e0       	ldi	r24, 0x00	; 0
+ 4b6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 4ba:	80 e0       	ldi	r24, 0x00	; 0
+ 4bc:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+ 4c0:	80 e1       	ldi	r24, 0x10	; 16
+ 4c2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 4c6:	80 e0       	ldi	r24, 0x00	; 0
+ 4c8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x63);
+ 4cc:	83 e6       	ldi	r24, 0x63	; 99
+ 4ce:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+ 4d2:	8a e1       	ldi	r24, 0x1A	; 26
+ 4d4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 4d8:	80 e0       	ldi	r24, 0x00	; 0
+ 4da:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+ 4de:	80 e3       	ldi	r24, 0x30	; 48
+ 4e0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+ 4e4:	81 e0       	ldi	r24, 0x01	; 1
+ 4e6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x41); // Continuous Conversion w/ Differential Input
+ 4ea:	81 e4       	ldi	r24, 0x41	; 65
+ 4ec:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x50); //<-250 Samples/Sec
+ 4f0:	80 e5       	ldi	r24, 0x50	; 80
+ 4f2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	CS2up();
+ 4f6:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+}
+ 4fa:	08 95       	ret
+
+000004fc <readBCM>:
+
+uint16_t readBCM(){
+	AFE_Init_BCM_SS(); //BCM Read Single Shot Mode
+ 4fc:	0e 94 9c 01 	call	0x338	; 0x338 <AFE_Init_BCM_SS>
+	
+	//Polling for RDY (PINB0 must transition 1>0)
+while(PINB & 0x01){}
+ 500:	18 99       	sbic	0x03, 0	; 3
+ 502:	fe cf       	rjmp	.-4      	; 0x500 <readBCM+0x4>
+
+//Read Conversion Data
+CS2down();
+ 504:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+SPI_MasterTransmit(0x20);
+ 508:	80 e2       	ldi	r24, 0x20	; 32
+ 50a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+msb=SPI_MasterReceive(0xff);
+ 50e:	8f ef       	ldi	r24, 0xFF	; 255
+ 510:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 514:	80 93 0a 01 	sts	0x010A, r24
+lsb=SPI_MasterReceive(0xff);
+ 518:	8f ef       	ldi	r24, 0xFF	; 255
+ 51a:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 51e:	80 93 03 01 	sts	0x0103, r24
+CS2up();
+ 522:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+
+//Combine [MSB(8) LSB(8)] into 16bit Val
+msb_lsb_comb=((uint16_t) msb<<8)|lsb;
+ 526:	30 91 0a 01 	lds	r19, 0x010A
+ 52a:	20 e0       	ldi	r18, 0x00	; 0
+ 52c:	80 91 03 01 	lds	r24, 0x0103
+ 530:	90 e0       	ldi	r25, 0x00	; 0
+ 532:	82 2b       	or	r24, r18
+ 534:	93 2b       	or	r25, r19
+ 536:	90 93 1a 01 	sts	0x011A, r25
+ 53a:	80 93 19 01 	sts	0x0119, r24
+return msb_lsb_comb;
+
+}
+ 53e:	08 95       	ret
+
+00000540 <AFE_Init_WSM_SS>:
+
+void AFE_Init_WSM_SS(){
+	CS2down();
+ 540:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+ 544:	82 e0       	ldi	r24, 0x02	; 2
+ 546:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 54a:	80 e0       	ldi	r24, 0x00	; 0
+ 54c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 550:	80 e0       	ldi	r24, 0x00	; 0
+ 552:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+ 556:	83 e0       	ldi	r24, 0x03	; 3
+ 558:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 55c:	8f ef       	ldi	r24, 0xFF	; 255
+ 55e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 562:	8f ef       	ldi	r24, 0xFF	; 255
+ 564:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+ 568:	89 e0       	ldi	r24, 0x09	; 9
+ 56a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x60);
+ 56e:	80 e6       	ldi	r24, 0x60	; 96
+ 570:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x05);
+ 574:	85 e0       	ldi	r24, 0x05	; 5
+ 576:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0A); // ISW Mux
+ 57a:	8a e0       	ldi	r24, 0x0A	; 10
+ 57c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 580:	80 e0       	ldi	r24, 0x00	; 0
+ 582:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 586:	80 e0       	ldi	r24, 0x00	; 0
+ 588:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0B); // VSense Mux
+ 58c:	8b e0       	ldi	r24, 0x0B	; 11
+ 58e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 592:	80 e0       	ldi	r24, 0x00	; 0
+ 594:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 598:	80 e0       	ldi	r24, 0x00	; 0
+ 59a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+ 59e:	8c e0       	ldi	r24, 0x0C	; 12
+ 5a0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5a4:	80 e0       	ldi	r24, 0x00	; 0
+ 5a6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5aa:	80 e0       	ldi	r24, 0x00	; 0
+ 5ac:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+ 5b0:	8d e0       	ldi	r24, 0x0D	; 13
+ 5b2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5b6:	80 e0       	ldi	r24, 0x00	; 0
+ 5b8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
+ 5bc:	80 e0       	ldi	r24, 0x00	; 0
+ 5be:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+ 5c2:	8e e0       	ldi	r24, 0x0E	; 14
+ 5c4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5c8:	80 e0       	ldi	r24, 0x00	; 0
+ 5ca:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5ce:	80 e0       	ldi	r24, 0x00	; 0
+ 5d0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+ 5d4:	8f e0       	ldi	r24, 0x0F	; 15
+ 5d6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5da:	80 e0       	ldi	r24, 0x00	; 0
+ 5dc:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5e0:	80 e0       	ldi	r24, 0x00	; 0
+ 5e2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+ 5e6:	80 e1       	ldi	r24, 0x10	; 16
+ 5e8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5ec:	80 e0       	ldi	r24, 0x00	; 0
+ 5ee:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5f2:	80 e0       	ldi	r24, 0x00	; 0
+ 5f4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+ 5f8:	8a e1       	ldi	r24, 0x1A	; 26
+ 5fa:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 5fe:	80 e0       	ldi	r24, 0x00	; 0
+ 600:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+ 604:	80 e3       	ldi	r24, 0x30	; 48
+ 606:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+ 60a:	81 e0       	ldi	r24, 0x01	; 1
+ 60c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xC1);
+ 610:	81 ec       	ldi	r24, 0xC1	; 193
+ 612:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xD0);
+ 616:	80 ed       	ldi	r24, 0xD0	; 208
+ 618:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	CS2up();
+ 61c:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+}
+ 620:	08 95       	ret
+
+00000622 <AFE_Init_WSM_Cont>:
+
+void AFE_Init_WSM_Cont(){
+	CS2down();
+ 622:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+ 626:	82 e0       	ldi	r24, 0x02	; 2
+ 628:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 62c:	80 e0       	ldi	r24, 0x00	; 0
+ 62e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 632:	80 e0       	ldi	r24, 0x00	; 0
+ 634:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+ 638:	83 e0       	ldi	r24, 0x03	; 3
+ 63a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 63e:	8f ef       	ldi	r24, 0xFF	; 255
+ 640:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+ 644:	8f ef       	ldi	r24, 0xFF	; 255
+ 646:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+ 64a:	89 e0       	ldi	r24, 0x09	; 9
+ 64c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x60);
+ 650:	80 e6       	ldi	r24, 0x60	; 96
+ 652:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x05);
+ 656:	85 e0       	ldi	r24, 0x05	; 5
+ 658:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0A); // ISW Mux
+ 65c:	8a e0       	ldi	r24, 0x0A	; 10
+ 65e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 662:	80 e0       	ldi	r24, 0x00	; 0
+ 664:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 668:	80 e0       	ldi	r24, 0x00	; 0
+ 66a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0B); // VSense Mux
+ 66e:	8b e0       	ldi	r24, 0x0B	; 11
+ 670:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 674:	80 e0       	ldi	r24, 0x00	; 0
+ 676:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 67a:	80 e0       	ldi	r24, 0x00	; 0
+ 67c:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+ 680:	8c e0       	ldi	r24, 0x0C	; 12
+ 682:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 686:	80 e0       	ldi	r24, 0x00	; 0
+ 688:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 68c:	80 e0       	ldi	r24, 0x00	; 0
+ 68e:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+ 692:	8d e0       	ldi	r24, 0x0D	; 13
+ 694:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 698:	80 e0       	ldi	r24, 0x00	; 0
+ 69a:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
+ 69e:	80 e0       	ldi	r24, 0x00	; 0
+ 6a0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+ 6a4:	8e e0       	ldi	r24, 0x0E	; 14
+ 6a6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6aa:	80 e0       	ldi	r24, 0x00	; 0
+ 6ac:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6b0:	80 e0       	ldi	r24, 0x00	; 0
+ 6b2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+ 6b6:	8f e0       	ldi	r24, 0x0F	; 15
+ 6b8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6bc:	80 e0       	ldi	r24, 0x00	; 0
+ 6be:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6c2:	80 e0       	ldi	r24, 0x00	; 0
+ 6c4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+ 6c8:	80 e1       	ldi	r24, 0x10	; 16
+ 6ca:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6ce:	80 e0       	ldi	r24, 0x00	; 0
+ 6d0:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6d4:	80 e0       	ldi	r24, 0x00	; 0
+ 6d6:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+ 6da:	8a e1       	ldi	r24, 0x1A	; 26
+ 6dc:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+ 6e0:	80 e0       	ldi	r24, 0x00	; 0
+ 6e2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+ 6e6:	80 e3       	ldi	r24, 0x30	; 48
+ 6e8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+ 6ec:	81 e0       	ldi	r24, 0x01	; 1
+ 6ee:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x41);
+ 6f2:	81 e4       	ldi	r24, 0x41	; 65
+ 6f4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x50);
+ 6f8:	80 e5       	ldi	r24, 0x50	; 80
+ 6fa:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	CS2up();
+ 6fe:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+}
+ 702:	08 95       	ret
+
+00000704 <readWSM>:
+
+uint16_t readWSM(){
+		AFE_Init_WSM_SS();
+ 704:	0e 94 a0 02 	call	0x540	; 0x540 <AFE_Init_WSM_SS>
+		
+		//Polling for RDY (PINB0 must transition 1>0)
+		while(PINB & 0x01){}
+ 708:	18 99       	sbic	0x03, 0	; 3
+ 70a:	fe cf       	rjmp	.-4      	; 0x708 <readWSM+0x4>
+			
+		//Read Conversion Data
+		CS2down();
+ 70c:	0e 94 9a 01 	call	0x334	; 0x334 <CS2down>
+		SPI_MasterTransmit(0x20);
+ 710:	80 e2       	ldi	r24, 0x20	; 32
+ 712:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+		msb=SPI_MasterReceive(0xff);
+ 716:	8f ef       	ldi	r24, 0xFF	; 255
+ 718:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 71c:	80 93 0a 01 	sts	0x010A, r24
+		lsb=SPI_MasterReceive(0xff);
+ 720:	8f ef       	ldi	r24, 0xFF	; 255
+ 722:	0e 94 96 00 	call	0x12c	; 0x12c <SPI_MasterReceive>
+ 726:	80 93 03 01 	sts	0x0103, r24
+		CS2up();
+ 72a:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+		
+		//Combine [MSB(8) LSB(8)] into 16bit Val
+		msb_lsb_comb=((uint16_t) msb<<8)|lsb;
+ 72e:	30 91 0a 01 	lds	r19, 0x010A
+ 732:	20 e0       	ldi	r18, 0x00	; 0
+ 734:	80 91 03 01 	lds	r24, 0x0103
+ 738:	90 e0       	ldi	r25, 0x00	; 0
+ 73a:	82 2b       	or	r24, r18
+ 73c:	93 2b       	or	r25, r19
+ 73e:	90 93 1a 01 	sts	0x011A, r25
+ 742:	80 93 19 01 	sts	0x0119, r24
+		return msb_lsb_comb;
+}
+ 746:	08 95       	ret
+
+00000748 <set_PORTD_bit>:
+	// either high or low (1 or 0) to match 'value'.
+	// Leaves all other bits in PORTB unchanged.
+	
+	//Positions Used (5,6)
+	
+	if (value == 0)
+ 748:	61 15       	cp	r22, r1
+ 74a:	71 05       	cpc	r23, r1
+ 74c:	71 f4       	brne	.+28     	; 0x76a <set_PORTD_bit+0x22>
+	{
+		PORTD &= ~(1 << position);      // Set bit # 'position' low
+ 74e:	4b b1       	in	r20, 0x0b	; 11
+ 750:	21 e0       	ldi	r18, 0x01	; 1
+ 752:	30 e0       	ldi	r19, 0x00	; 0
+ 754:	b9 01       	movw	r22, r18
+ 756:	02 c0       	rjmp	.+4      	; 0x75c <set_PORTD_bit+0x14>
+ 758:	66 0f       	add	r22, r22
+ 75a:	77 1f       	adc	r23, r23
+ 75c:	8a 95       	dec	r24
+ 75e:	e2 f7       	brpl	.-8      	; 0x758 <set_PORTD_bit+0x10>
+ 760:	cb 01       	movw	r24, r22
+ 762:	80 95       	com	r24
+ 764:	84 23       	and	r24, r20
+ 766:	8b b9       	out	0x0b, r24	; 11
+ 768:	0c c0       	rjmp	.+24     	; 0x782 <set_PORTD_bit+0x3a>
+	}
+	else
+	{
+		PORTD |= (1 << position);       // Set bit # 'position' high
+ 76a:	4b b1       	in	r20, 0x0b	; 11
+ 76c:	21 e0       	ldi	r18, 0x01	; 1
+ 76e:	30 e0       	ldi	r19, 0x00	; 0
+ 770:	b9 01       	movw	r22, r18
+ 772:	02 c0       	rjmp	.+4      	; 0x778 <set_PORTD_bit+0x30>
+ 774:	66 0f       	add	r22, r22
+ 776:	77 1f       	adc	r23, r23
+ 778:	8a 95       	dec	r24
+ 77a:	e2 f7       	brpl	.-8      	; 0x774 <set_PORTD_bit+0x2c>
+ 77c:	cb 01       	movw	r24, r22
+ 77e:	84 2b       	or	r24, r20
+ 780:	8b b9       	out	0x0b, r24	; 11
+	}
+	return 1;
+}
+ 782:	81 e0       	ldi	r24, 0x01	; 1
+ 784:	90 e0       	ldi	r25, 0x00	; 0
+ 786:	08 95       	ret
+
+00000788 <sdInit>:
+	SPI_MasterReceive(0xff);
+	r7=SPI_MasterReceive(0xff);
+	return r1;
+}
+
+void sdInit(){
+ 788:	cf 93       	push	r28
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 78a:	8f e3       	ldi	r24, 0x3F	; 63
+ 78c:	9d e0       	ldi	r25, 0x0D	; 13
+ 78e:	a3 e0       	ldi	r26, 0x03	; 3
+ 790:	81 50       	subi	r24, 0x01	; 1
+ 792:	90 40       	sbci	r25, 0x00	; 0
+ 794:	a0 40       	sbci	r26, 0x00	; 0
+ 796:	e1 f7       	brne	.-8      	; 0x790 <sdInit+0x8>
+ 798:	00 c0       	rjmp	.+0      	; 0x79a <sdInit+0x12>
+ 79a:	00 00       	nop
+	_delay_ms(1000);
+	CS1up();
+ 79c:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+ 7a0:	ca e0       	ldi	r28, 0x0A	; 10
+	for(char i=0;i<10;i++){
+		SPI_MasterTransmit(0xff);
+ 7a2:	8f ef       	ldi	r24, 0xFF	; 255
+ 7a4:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+ 7a8:	c1 50       	subi	r28, 0x01	; 1
+}
+
+void sdInit(){
+	_delay_ms(1000);
+	CS1up();
+	for(char i=0;i<10;i++){
+ 7aa:	d9 f7       	brne	.-10     	; 0x7a2 <sdInit+0x1a>
+		SPI_MasterTransmit(0xff);
+	}
+	CS1down();
+ 7ac:	0e 94 70 00 	call	0xe0	; 0xe0 <CS1down>
+	
+	SPI_MasterTransmit(0xff);
+ 7b0:	8f ef       	ldi	r24, 0xFF	; 255
+ 7b2:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xff);
+ 7b6:	8f ef       	ldi	r24, 0xFF	; 255
+ 7b8:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	set_PORTD_bit(6,1); //Turn LED2 (Card Present Status)
+ 7bc:	86 e0       	ldi	r24, 0x06	; 6
+ 7be:	90 e0       	ldi	r25, 0x00	; 0
+ 7c0:	61 e0       	ldi	r22, 0x01	; 1
+ 7c2:	70 e0       	ldi	r23, 0x00	; 0
+ 7c4:	0e 94 a4 03 	call	0x748	; 0x748 <set_PORTD_bit>
+	
+	while(r1!=0x01){
+ 7c8:	80 91 1f 01 	lds	r24, 0x011F
+ 7cc:	81 30       	cpi	r24, 0x01	; 1
+ 7ce:	59 f0       	breq	.+22     	; 0x7e6 <sdInit+0x5e>
+		sendCmd(0,0x00000000,0x95);
+ 7d0:	80 e0       	ldi	r24, 0x00	; 0
+ 7d2:	40 e0       	ldi	r20, 0x00	; 0
+ 7d4:	50 e0       	ldi	r21, 0x00	; 0
+ 7d6:	ba 01       	movw	r22, r20
+ 7d8:	25 e9       	ldi	r18, 0x95	; 149
+ 7da:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+	SPI_MasterTransmit(0xff);
+	SPI_MasterTransmit(0xff);
+	
+	set_PORTD_bit(6,1); //Turn LED2 (Card Present Status)
+	
+	while(r1!=0x01){
+ 7de:	80 91 1f 01 	lds	r24, 0x011F
+ 7e2:	81 30       	cpi	r24, 0x01	; 1
+ 7e4:	a9 f7       	brne	.-22     	; 0x7d0 <sdInit+0x48>
+		sendCmd(0,0x00000000,0x95);
+	}
+	while((r7!=0xAA)){
+ 7e6:	80 91 17 01 	lds	r24, 0x0117
+ 7ea:	8a 3a       	cpi	r24, 0xAA	; 170
+ 7ec:	91 f0       	breq	.+36     	; 0x812 <sdInit+0x8a>
+		set_PORTD_bit(6,0); //Turn LED2 off if Present Card
+ 7ee:	86 e0       	ldi	r24, 0x06	; 6
+ 7f0:	90 e0       	ldi	r25, 0x00	; 0
+ 7f2:	60 e0       	ldi	r22, 0x00	; 0
+ 7f4:	70 e0       	ldi	r23, 0x00	; 0
+ 7f6:	0e 94 a4 03 	call	0x748	; 0x748 <set_PORTD_bit>
+		sendCmd(8,0x000001AA,0x87);
+ 7fa:	88 e0       	ldi	r24, 0x08	; 8
+ 7fc:	4a ea       	ldi	r20, 0xAA	; 170
+ 7fe:	51 e0       	ldi	r21, 0x01	; 1
+ 800:	60 e0       	ldi	r22, 0x00	; 0
+ 802:	70 e0       	ldi	r23, 0x00	; 0
+ 804:	27 e8       	ldi	r18, 0x87	; 135
+ 806:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+	set_PORTD_bit(6,1); //Turn LED2 (Card Present Status)
+	
+	while(r1!=0x01){
+		sendCmd(0,0x00000000,0x95);
+	}
+	while((r7!=0xAA)){
+ 80a:	80 91 17 01 	lds	r24, 0x0117
+ 80e:	8a 3a       	cpi	r24, 0xAA	; 170
+ 810:	71 f7       	brne	.-36     	; 0x7ee <sdInit+0x66>
+		set_PORTD_bit(6,0); //Turn LED2 off if Present Card
+		sendCmd(8,0x000001AA,0x87);
+	}
+	while(r1!=0x00){
+ 812:	80 91 1f 01 	lds	r24, 0x011F
+ 816:	88 23       	and	r24, r24
+ 818:	a1 f0       	breq	.+40     	; 0x842 <sdInit+0xba>
+		sendCmd(55,0x40000000,0xff);
+ 81a:	87 e3       	ldi	r24, 0x37	; 55
+ 81c:	40 e0       	ldi	r20, 0x00	; 0
+ 81e:	50 e0       	ldi	r21, 0x00	; 0
+ 820:	60 e0       	ldi	r22, 0x00	; 0
+ 822:	70 e4       	ldi	r23, 0x40	; 64
+ 824:	2f ef       	ldi	r18, 0xFF	; 255
+ 826:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+		sendCmd(41,0x40000000,0xff);
+ 82a:	89 e2       	ldi	r24, 0x29	; 41
+ 82c:	40 e0       	ldi	r20, 0x00	; 0
+ 82e:	50 e0       	ldi	r21, 0x00	; 0
+ 830:	60 e0       	ldi	r22, 0x00	; 0
+ 832:	70 e4       	ldi	r23, 0x40	; 64
+ 834:	2f ef       	ldi	r18, 0xFF	; 255
+ 836:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+	}
+	while((r7!=0xAA)){
+		set_PORTD_bit(6,0); //Turn LED2 off if Present Card
+		sendCmd(8,0x000001AA,0x87);
+	}
+	while(r1!=0x00){
+ 83a:	80 91 1f 01 	lds	r24, 0x011F
+ 83e:	88 23       	and	r24, r24
+ 840:	61 f7       	brne	.-40     	; 0x81a <sdInit+0x92>
+		sendCmd(55,0x40000000,0xff);
+		sendCmd(41,0x40000000,0xff);
+	}
+	
+	sendCmd(58,0x00000000,0xff);
+ 842:	8a e3       	ldi	r24, 0x3A	; 58
+ 844:	40 e0       	ldi	r20, 0x00	; 0
+ 846:	50 e0       	ldi	r21, 0x00	; 0
+ 848:	ba 01       	movw	r22, r20
+ 84a:	2f ef       	ldi	r18, 0xFF	; 255
+ 84c:	0e 94 9c 00 	call	0x138	; 0x138 <sendCmd>
+	SPI_MasterTransmit(0xff);
+ 850:	8f ef       	ldi	r24, 0xFF	; 255
+ 852:	0e 94 91 00 	call	0x122	; 0x122 <SPI_MasterTransmit>
+	
+	//sendCmd(16,0x00000200,0xff);
+	//SPITransmit(0xff);
+	
+	//sendCmd(10,0x00000000,0xff); //results in r1=0xff
+	CS1up();
+ 856:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+	//return 1;
+}
+ 85a:	cf 91       	pop	r28
+ 85c:	08 95       	ret
+
+0000085e <rtd1Val>:
+	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor) 
+}
+
+uint16_t rtd1Val(){
+	//outputs 10bit result [ADCH,ADCL]
+	adcl_val=ADCL;
+ 85e:	20 91 78 00 	lds	r18, 0x0078
+ 862:	20 93 18 01 	sts	0x0118, r18
+	adch_val=ADCH;
+ 866:	30 91 79 00 	lds	r19, 0x0079
+ 86a:	30 93 1e 01 	sts	0x011E, r19
+	adcvalComb |= adch_val << 8 | adcl_val;
+ 86e:	93 2f       	mov	r25, r19
+ 870:	80 e0       	ldi	r24, 0x00	; 0
+ 872:	30 e0       	ldi	r19, 0x00	; 0
+ 874:	28 2b       	or	r18, r24
+ 876:	39 2b       	or	r19, r25
+ 878:	80 91 05 01 	lds	r24, 0x0105
+ 87c:	90 91 06 01 	lds	r25, 0x0106
+ 880:	82 2b       	or	r24, r18
+ 882:	93 2b       	or	r25, r19
+ 884:	90 93 06 01 	sts	0x0106, r25
+ 888:	80 93 05 01 	sts	0x0105, r24
+	ADCSRA |= (1 << ADSC); // Required before reading a single ADCH value
+ 88c:	ea e7       	ldi	r30, 0x7A	; 122
+ 88e:	f0 e0       	ldi	r31, 0x00	; 0
+ 890:	80 81       	ld	r24, Z
+ 892:	80 64       	ori	r24, 0x40	; 64
+ 894:	80 83       	st	Z, r24
+	
+	return adcvalComb;
+	
+}
+ 896:	80 91 05 01 	lds	r24, 0x0105
+ 89a:	90 91 06 01 	lds	r25, 0x0106
+ 89e:	08 95       	ret
+
+000008a0 <rtd2Val>:
+	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor)
+}
+
+uint16_t rtd2Val(){
+	//outputs 10bit result [ADCH,ADCL]
+	adcl_val2=ADCL;
+ 8a0:	20 91 78 00 	lds	r18, 0x0078
+ 8a4:	20 93 07 01 	sts	0x0107, r18
+	adch_val2=ADCH;
+ 8a8:	30 91 79 00 	lds	r19, 0x0079
+ 8ac:	30 93 02 01 	sts	0x0102, r19
+	adcvalComb2 |= adch_val2 << 8 | adcl_val2;
+ 8b0:	93 2f       	mov	r25, r19
+ 8b2:	80 e0       	ldi	r24, 0x00	; 0
+ 8b4:	30 e0       	ldi	r19, 0x00	; 0
+ 8b6:	28 2b       	or	r18, r24
+ 8b8:	39 2b       	or	r19, r25
+ 8ba:	80 91 00 01 	lds	r24, 0x0100
+ 8be:	90 91 01 01 	lds	r25, 0x0101
+ 8c2:	82 2b       	or	r24, r18
+ 8c4:	93 2b       	or	r25, r19
+ 8c6:	90 93 01 01 	sts	0x0101, r25
+ 8ca:	80 93 00 01 	sts	0x0100, r24
+	ADCSRA |= (1 << ADSC); // Required before reading a single ADCH value
+ 8ce:	ea e7       	ldi	r30, 0x7A	; 122
+ 8d0:	f0 e0       	ldi	r31, 0x00	; 0
+ 8d2:	80 81       	ld	r24, Z
+ 8d4:	80 64       	ori	r24, 0x40	; 64
+ 8d6:	80 83       	st	Z, r24
+	
+	return adcvalComb2;
+	
+}
+ 8d8:	80 91 00 01 	lds	r24, 0x0100
+ 8dc:	90 91 01 01 	lds	r25, 0x0101
+ 8e0:	08 95       	ret
+
+000008e2 <main>:
+
+uint16_t toSend[4];
+
+
+int main(void)
+{
+ 8e2:	cf 93       	push	r28
+ 8e4:	df 93       	push	r29
+ 8e6:	cd b7       	in	r28, 0x3d	; 61
+ 8e8:	de b7       	in	r29, 0x3e	; 62
+ 8ea:	28 97       	sbiw	r28, 0x08	; 8
+ 8ec:	0f b6       	in	r0, 0x3f	; 63
+ 8ee:	f8 94       	cli
+ 8f0:	de bf       	out	0x3e, r29	; 62
+ 8f2:	0f be       	out	0x3f, r0	; 63
+ 8f4:	cd bf       	out	0x3d, r28	; 61
+		DATA_BCM=readBCM();
+		DATA_WSM=readWSM();
+		
+		
+		//SD Write
+		toSend[0]=DATA_RTD1; //Test Byte
+ 8f6:	0f e0       	ldi	r16, 0x0F	; 15
+ 8f8:	11 e0       	ldi	r17, 0x01	; 1
+		toSend[1]=DATA_RTD2; 
+ 8fa:	ee 24       	eor	r14, r14
+ 8fc:	ff 24       	eor	r15, r15
+ 8fe:	68 94       	set
+ 900:	e1 f8       	bld	r14, 1
+ 902:	e0 0e       	add	r14, r16
+ 904:	f1 1e       	adc	r15, r17
+		toSend[2]=DATA_BCM;
+ 906:	cc 24       	eor	r12, r12
+ 908:	dd 24       	eor	r13, r13
+ 90a:	68 94       	set
+ 90c:	c2 f8       	bld	r12, 2
+ 90e:	c0 0e       	add	r12, r16
+ 910:	d1 1e       	adc	r13, r17
+		toSend[3]=DATA_WSM;
+ 912:	0f 2e       	mov	r0, r31
+ 914:	f6 e0       	ldi	r31, 0x06	; 6
+ 916:	af 2e       	mov	r10, r31
+ 918:	bb 24       	eor	r11, r11
+ 91a:	f0 2d       	mov	r31, r0
+ 91c:	a0 0e       	add	r10, r16
+ 91e:	b1 1e       	adc	r11, r17
+{
+	while(1){
+		
+		//Initialize LED
+		// LED2: Solid - SD not Present; Blinking - SD Present
+		ledInit();
+ 920:	0e 94 72 00 	call	0xe4	; 0xe4 <ledInit>
+		
+		//Initialize SPI & SD
+		CS1down();
+ 924:	0e 94 70 00 	call	0xe0	; 0xe0 <CS1down>
+		SPI_MasterInit();
+ 928:	0e 94 86 00 	call	0x10c	; 0x10c <SPI_MasterInit>
+		sdInit();
+ 92c:	0e 94 c4 03 	call	0x788	; 0x788 <sdInit>
+		crankClock();
+ 930:	0e 94 67 00 	call	0xce	; 0xce <crankClock>
+		
+		
+		// RTD Main Fn
+		rtd1Init();
+ 934:	0e 94 75 00 	call	0xea	; 0xea <rtd1Init>
+		DATA_RTD1=rtd1Val();
+ 938:	0e 94 2f 04 	call	0x85e	; 0x85e <rtd1Val>
+ 93c:	90 93 1d 01 	sts	0x011D, r25
+ 940:	80 93 1c 01 	sts	0x011C, r24
+		rtd2Init();
+ 944:	0e 94 7e 00 	call	0xfc	; 0xfc <rtd2Init>
+		DATA_RTD2=rtd2Val();
+ 948:	0e 94 50 04 	call	0x8a0	; 0x8a0 <rtd2Val>
+ 94c:	90 93 0e 01 	sts	0x010E, r25
+ 950:	80 93 0d 01 	sts	0x010D, r24
+		
+		
+		
+		//AFE Main Fn
+		CS2up();
+ 954:	0e 94 98 01 	call	0x330	; 0x330 <CS2up>
+		DATA_BCM=readBCM();
+ 958:	0e 94 7e 02 	call	0x4fc	; 0x4fc <readBCM>
+ 95c:	90 93 09 01 	sts	0x0109, r25
+ 960:	80 93 08 01 	sts	0x0108, r24
+		DATA_WSM=readWSM();
+ 964:	0e 94 82 03 	call	0x704	; 0x704 <readWSM>
+ 968:	90 93 0c 01 	sts	0x010C, r25
+ 96c:	80 93 0b 01 	sts	0x010B, r24
+		
+		
+		//SD Write
+		toSend[0]=DATA_RTD1; //Test Byte
+ 970:	20 91 1c 01 	lds	r18, 0x011C
+ 974:	30 91 1d 01 	lds	r19, 0x011D
+ 978:	f8 01       	movw	r30, r16
+ 97a:	31 83       	std	Z+1, r19	; 0x01
+ 97c:	20 83       	st	Z, r18
+		toSend[1]=DATA_RTD2; 
+ 97e:	20 91 0d 01 	lds	r18, 0x010D
+ 982:	30 91 0e 01 	lds	r19, 0x010E
+ 986:	f7 01       	movw	r30, r14
+ 988:	31 83       	std	Z+1, r19	; 0x01
+ 98a:	20 83       	st	Z, r18
+		toSend[2]=DATA_BCM;
+ 98c:	20 91 08 01 	lds	r18, 0x0108
+ 990:	30 91 09 01 	lds	r19, 0x0109
+ 994:	f6 01       	movw	r30, r12
+ 996:	31 83       	std	Z+1, r19	; 0x01
+ 998:	20 83       	st	Z, r18
+		toSend[3]=DATA_WSM;
+ 99a:	f5 01       	movw	r30, r10
+ 99c:	91 83       	std	Z+1, r25	; 0x01
+ 99e:	80 83       	st	Z, r24
+		 
+		//SD Write
+		//for (unsigned long i=0;i<2000;i+=512){
+			//ORIGINALLY 1074000000
+			sdWrite(toSend,0); //0x00801000 blank sector beginning (from 1st file test)
+ 9a0:	c8 01       	movw	r24, r16
+ 9a2:	60 e0       	ldi	r22, 0x00	; 0
+ 9a4:	70 e0       	ldi	r23, 0x00	; 0
+ 9a6:	0e 94 dd 00 	call	0x1ba	; 0x1ba <sdWrite>
+		//}
+	
+		//SD Read (Confirms Data)
+		
+		if(sd_mmc_spi_wait_not_busy()==true){
+ 9aa:	0e 94 69 01 	call	0x2d2	; 0x2d2 <sd_mmc_spi_wait_not_busy>
+ 9ae:	88 23       	and	r24, r24
+ 9b0:	09 f4       	brne	.+2      	; 0x9b4 <main+0xd2>
+ 9b2:	b6 cf       	rjmp	.-148    	; 0x920 <main+0x3e>
+			uint16_t toReceive[4];
+			sdRead(toReceive,0);
+ 9b4:	ce 01       	movw	r24, r28
+ 9b6:	01 96       	adiw	r24, 0x01	; 1
+ 9b8:	40 e0       	ldi	r20, 0x00	; 0
+ 9ba:	50 e0       	ldi	r21, 0x00	; 0
+ 9bc:	ba 01       	movw	r22, r20
+ 9be:	0e 94 29 01 	call	0x252	; 0x252 <sdRead>
+			CS1up();
+ 9c2:	0e 94 6e 00 	call	0xdc	; 0xdc <CS1up>
+ 9c6:	ac cf       	rjmp	.-168    	; 0x920 <main+0x3e>
+
+000009c8 <_exit>:
+ 9c8:	f8 94       	cli
+
+000009ca <__stop_program>:
+ 9ca:	ff cf       	rjmp	.-2      	; 0x9ca <__stop_program>

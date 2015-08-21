@@ -1,0 +1,606 @@
+
+GccApplication3_SPI4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000032a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000008  00800100  00800100  0000039e  2**0
+                  ALLOC
+  2 .stab         000006cc  00000000  00000000  000003a0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  00000a6c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  00000af8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000006a6  00000000  00000000  00000b78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000230  00000000  00000000  0000121e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000003b5  00000000  00000000  0000144e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000100  00000000  00000000  00001804  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001ca  00000000  00000000  00001904  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000135  00000000  00000000  00001ace  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001c03  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ea e2       	ldi	r30, 0x2A	; 42
+  a0:	f3 e0       	ldi	r31, 0x03	; 3
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	11 e0       	ldi	r17, 0x01	; 1
+  b4:	a0 e0       	ldi	r26, 0x00	; 0
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a8 30       	cpi	r26, 0x08	; 8
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 13 01 	call	0x226	; 0x226 <main>
+  c6:	0c 94 93 01 	jmp	0x326	; 0x326 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <Init_SPISystem>:
+{
+	
+
+	/* Set MOSI and SCK and CS2 and CS1 and CLK0 and RDY output, all others input */
+	
+	DDRB |= (1<<PORTB5)|(1<<PORTB7)|(1<<PORTB2)|(1<<PORTB4)|(1<<PORTB1)|(1<<PORTB0);
+  ce:	84 b1       	in	r24, 0x04	; 4
+  d0:	87 6b       	ori	r24, 0xB7	; 183
+  d2:	84 b9       	out	0x04, r24	; 4
+	/* Enable SPI, Master, sclk is Fosc/4 -> 250Khz (Fosc = 1Mhz)*/
+	SPCR = (1<<SPE) | (1<<MSTR); //Pulls up the MOSI to indicate that ATmega is MASTER
+  d4:	80 e5       	ldi	r24, 0x50	; 80
+  d6:	8c bd       	out	0x2c, r24	; 44
+	
+	
+
+}
+  d8:	08 95       	ret
+
+000000da <AFETransmit>:
+				 AFETransmit(0x100063);//ADC Control Register 2
+				 */
+	
+}
+
+void AFETransmit(unsigned long data){ 
+  da:	cf 92       	push	r12
+  dc:	df 92       	push	r13
+  de:	ef 92       	push	r14
+  e0:	ff 92       	push	r15
+  e2:	cf 93       	push	r28
+  e4:	df 93       	push	r29
+  e6:	6b 01       	movw	r12, r22
+  e8:	7c 01       	movw	r14, r24
+	//Sends 3 Byte (24Bit) value as 3 separate 8 bit Char's to SPITransmit() Fn.
+	//CSdown();
+	SPITransmit(data);//1st byte
+  ea:	cb e8       	ldi	r28, 0x8B	; 139
+  ec:	d0 e0       	ldi	r29, 0x00	; 0
+  ee:	fe 01       	movw	r30, r28
+  f0:	09 95       	icall
+	SPITransmit(data<<8);//2nd byte
+  f2:	9e 2d       	mov	r25, r14
+  f4:	8d 2d       	mov	r24, r13
+  f6:	7c 2d       	mov	r23, r12
+  f8:	66 27       	eor	r22, r22
+  fa:	fe 01       	movw	r30, r28
+  fc:	09 95       	icall
+	SPITransmit(data<<16);//3rd byte
+  fe:	c6 01       	movw	r24, r12
+ 100:	77 27       	eor	r23, r23
+ 102:	66 27       	eor	r22, r22
+ 104:	fe 01       	movw	r30, r28
+ 106:	09 95       	icall
+	//msb=SPIReceive();
+	//CSup();
+}
+ 108:	df 91       	pop	r29
+ 10a:	cf 91       	pop	r28
+ 10c:	ff 90       	pop	r15
+ 10e:	ef 90       	pop	r14
+ 110:	df 90       	pop	r13
+ 112:	cf 90       	pop	r12
+ 114:	08 95       	ret
+
+00000116 <SPITransmit>:
+	data|=(SPIReceive()>>8);
+	CSup();
+}
+
+void SPITransmit(unsigned char data){
+	SPDR=data;
+ 116:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF))){
+ 118:	0d b4       	in	r0, 0x2d	; 45
+ 11a:	07 fe       	sbrs	r0, 7
+ 11c:	fd cf       	rjmp	.-6      	; 0x118 <SPITransmit+0x2>
+		//do nothing
+	}
+}
+ 11e:	08 95       	ret
+
+00000120 <CSup>:
+	return SPDR;
+}
+
+void CSup(){
+	// chip select line UP
+	PORTB |= (1<<PORTB2);
+ 120:	2a 9a       	sbi	0x05, 2	; 5
+}
+ 122:	08 95       	ret
+
+00000124 <CSdown>:
+
+void CSdown(){
+	// chip select line DOWN
+	PORTB &= ~(1<<PORTB2);
+ 124:	2a 98       	cbi	0x05, 2	; 5
+}
+ 126:	08 95       	ret
+
+00000128 <Init_AFE_BCM>:
+	
+
+}
+
+void Init_AFE_BCM(void)
+{
+ 128:	cf 93       	push	r28
+ 12a:	df 93       	push	r29
+				AFETransmit(0x014140);//ADC Control Register 1
+ 12c:	cd e6       	ldi	r28, 0x6D	; 109
+ 12e:	d0 e0       	ldi	r29, 0x00	; 0
+ 130:	60 e4       	ldi	r22, 0x40	; 64
+ 132:	71 e4       	ldi	r23, 0x41	; 65
+ 134:	81 e0       	ldi	r24, 0x01	; 1
+ 136:	90 e0       	ldi	r25, 0x00	; 0
+ 138:	fe 01       	movw	r30, r28
+ 13a:	09 95       	icall
+				AFETransmit(0x020000);//Misc Reg 1
+ 13c:	60 e0       	ldi	r22, 0x00	; 0
+ 13e:	70 e0       	ldi	r23, 0x00	; 0
+ 140:	82 e0       	ldi	r24, 0x02	; 2
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	fe 01       	movw	r30, r28
+ 146:	09 95       	icall
+				AFETransmit(0x03FFFF);//Misc Reg 2
+ 148:	6f ef       	ldi	r22, 0xFF	; 255
+ 14a:	7f ef       	ldi	r23, 0xFF	; 255
+ 14c:	83 e0       	ldi	r24, 0x03	; 3
+ 14e:	90 e0       	ldi	r25, 0x00	; 0
+ 150:	fe 01       	movw	r30, r28
+ 152:	09 95       	icall
+				AFETransmit(0x096006);//Device Control 1
+ 154:	66 e0       	ldi	r22, 0x06	; 6
+ 156:	70 e6       	ldi	r23, 0x60	; 96
+ 158:	89 e0       	ldi	r24, 0x09	; 9
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	fe 01       	movw	r30, r28
+ 15e:	09 95       	icall
+				AFETransmit(0x0A8040);//ISW_Mux
+ 160:	60 e4       	ldi	r22, 0x40	; 64
+ 162:	70 e8       	ldi	r23, 0x80	; 128
+ 164:	8a e0       	ldi	r24, 0x0A	; 10
+ 166:	90 e0       	ldi	r25, 0x00	; 0
+ 168:	fe 01       	movw	r30, r28
+ 16a:	09 95       	icall
+				AFETransmit(0x0B8040);//VSENSE_Mux
+ 16c:	60 e4       	ldi	r22, 0x40	; 64
+ 16e:	70 e8       	ldi	r23, 0x80	; 128
+ 170:	8b e0       	ldi	r24, 0x0B	; 11
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+ 174:	fe 01       	movw	r30, r28
+ 176:	09 95       	icall
+				AFETransmit(0x0E0001);//BCM_DAC_FREQ
+ 178:	61 e0       	ldi	r22, 0x01	; 1
+ 17a:	70 e0       	ldi	r23, 0x00	; 0
+ 17c:	8e e0       	ldi	r24, 0x0E	; 14
+ 17e:	90 e0       	ldi	r25, 0x00	; 0
+ 180:	fe 01       	movw	r30, r28
+ 182:	09 95       	icall
+				AFETransmit(0x100063);//ADC Control Register 2
+ 184:	63 e6       	ldi	r22, 0x63	; 99
+ 186:	70 e0       	ldi	r23, 0x00	; 0
+ 188:	80 e1       	ldi	r24, 0x10	; 16
+ 18a:	90 e0       	ldi	r25, 0x00	; 0
+ 18c:	fe 01       	movw	r30, r28
+ 18e:	09 95       	icall
+				AFETransmit(0x1A0030);//Misc Reg 3
+ 190:	60 e3       	ldi	r22, 0x30	; 48
+ 192:	70 e0       	ldi	r23, 0x00	; 0
+ 194:	8a e1       	ldi	r24, 0x1A	; 26
+ 196:	90 e0       	ldi	r25, 0x00	; 0
+ 198:	fe 01       	movw	r30, r28
+ 19a:	09 95       	icall
+				 AFETransmit(0x0E00FF);//BCM_DAC_FREQ
+				 AFETransmit(0x0F0000);//Device Control 2
+				 AFETransmit(0x100063);//ADC Control Register 2
+				 */
+	
+}
+ 19c:	df 91       	pop	r29
+ 19e:	cf 91       	pop	r28
+ 1a0:	08 95       	ret
+
+000001a2 <SPIReceive>:
+	}
+}
+
+unsigned char SPIReceive(){
+	/* Wait for reception complete */
+	SPDR=0xff;
+ 1a2:	8f ef       	ldi	r24, 0xFF	; 255
+ 1a4:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 1a6:	0d b4       	in	r0, 0x2d	; 45
+ 1a8:	07 fe       	sbrs	r0, 7
+ 1aa:	fd cf       	rjmp	.-6      	; 0x1a6 <SPIReceive+0x4>
+	/* Return Data Register */
+	return SPDR;
+ 1ac:	8e b5       	in	r24, 0x2e	; 46
+}
+ 1ae:	08 95       	ret
+
+000001b0 <AFEReceive>:
+
+
+uint16_t AFEReceive(){
+	uint16_t data;
+	
+	CSdown();
+ 1b0:	0e 94 92 00 	call	0x124	; 0x124 <CSdown>
+	data=SPIReceive();
+ 1b4:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <SPIReceive>
+	data|=(SPIReceive()>>8);
+ 1b8:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <SPIReceive>
+	CSup();
+ 1bc:	0e 94 90 00 	call	0x120	; 0x120 <CSup>
+}
+ 1c0:	08 95       	ret
+
+000001c2 <SPITranceive>:
+	return SPDR;
+}
+
+unsigned char SPITranceive(unsigned char data){
+	/* Wait for reception complete */
+	SPDR=data;
+ 1c2:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 1c4:	0d b4       	in	r0, 0x2d	; 45
+ 1c6:	07 fe       	sbrs	r0, 7
+ 1c8:	fd cf       	rjmp	.-6      	; 0x1c4 <SPITranceive+0x2>
+	/* Return Data Register */
+	return SPDR;
+ 1ca:	8e b5       	in	r24, 0x2e	; 46
+}
+ 1cc:	08 95       	ret
+
+000001ce <wait_one_second>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1ce:	8f e3       	ldi	r24, 0x3F	; 63
+ 1d0:	9d e0       	ldi	r25, 0x0D	; 13
+ 1d2:	a3 e0       	ldi	r26, 0x03	; 3
+ 1d4:	81 50       	subi	r24, 0x01	; 1
+ 1d6:	90 40       	sbci	r25, 0x00	; 0
+ 1d8:	a0 40       	sbci	r26, 0x00	; 0
+ 1da:	e1 f7       	brne	.-8      	; 0x1d4 <wait_one_second+0x6>
+ 1dc:	00 c0       	rjmp	.+0      	; 0x1de <wait_one_second+0x10>
+ 1de:	00 00       	nop
+
+int wait_one_second(void)
+{
+	_delay_ms(1000);
+	return 1;
+}
+ 1e0:	81 e0       	ldi	r24, 0x01	; 1
+ 1e2:	90 e0       	ldi	r25, 0x00	; 0
+ 1e4:	08 95       	ret
+
+000001e6 <set_PORTD_bit>:
+{
+	// Sets or clears the bit in position 'position'
+	// either high or low (1 or 0) to match 'value'.
+	// Leaves all other bits in PORTB unchanged.
+	
+	if (value == 0)
+ 1e6:	61 15       	cp	r22, r1
+ 1e8:	71 05       	cpc	r23, r1
+ 1ea:	71 f4       	brne	.+28     	; 0x208 <set_PORTD_bit+0x22>
+	{
+		PORTD &= ~(1 << position);      // Set bit # 'position' low
+ 1ec:	4b b1       	in	r20, 0x0b	; 11
+ 1ee:	21 e0       	ldi	r18, 0x01	; 1
+ 1f0:	30 e0       	ldi	r19, 0x00	; 0
+ 1f2:	b9 01       	movw	r22, r18
+ 1f4:	02 c0       	rjmp	.+4      	; 0x1fa <set_PORTD_bit+0x14>
+ 1f6:	66 0f       	add	r22, r22
+ 1f8:	77 1f       	adc	r23, r23
+ 1fa:	8a 95       	dec	r24
+ 1fc:	e2 f7       	brpl	.-8      	; 0x1f6 <set_PORTD_bit+0x10>
+ 1fe:	cb 01       	movw	r24, r22
+ 200:	80 95       	com	r24
+ 202:	84 23       	and	r24, r20
+ 204:	8b b9       	out	0x0b, r24	; 11
+ 206:	0c c0       	rjmp	.+24     	; 0x220 <set_PORTD_bit+0x3a>
+	}
+	else
+	{
+		PORTD |= (1 << position);       // Set bit # 'position' high
+ 208:	4b b1       	in	r20, 0x0b	; 11
+ 20a:	21 e0       	ldi	r18, 0x01	; 1
+ 20c:	30 e0       	ldi	r19, 0x00	; 0
+ 20e:	b9 01       	movw	r22, r18
+ 210:	02 c0       	rjmp	.+4      	; 0x216 <set_PORTD_bit+0x30>
+ 212:	66 0f       	add	r22, r22
+ 214:	77 1f       	adc	r23, r23
+ 216:	8a 95       	dec	r24
+ 218:	e2 f7       	brpl	.-8      	; 0x212 <set_PORTD_bit+0x2c>
+ 21a:	cb 01       	movw	r24, r22
+ 21c:	84 2b       	or	r24, r20
+ 21e:	8b b9       	out	0x0b, r24	; 11
+	}
+	return 1;
+}
+ 220:	81 e0       	ldi	r24, 0x01	; 1
+ 222:	90 e0       	ldi	r25, 0x00	; 0
+ 224:	08 95       	ret
+
+00000226 <main>:
+uint8_t status;
+int main(void)
+{
+	//while(1)
+	//{
+		DDRD = 0b01100000;  // Enabling PB3
+ 226:	80 e6       	ldi	r24, 0x60	; 96
+ 228:	8a b9       	out	0x0a, r24	; 10
+		Init_SPISystem(); //Set up SPI Protocol
+ 22a:	0e 94 67 00 	call	0xce	; 0xce <Init_SPISystem>
+		CSup(); //Need to pull it UP after setting it as an Output
+ 22e:	00 e9       	ldi	r16, 0x90	; 144
+ 230:	10 e0       	ldi	r17, 0x00	; 0
+ 232:	f8 01       	movw	r30, r16
+ 234:	09 95       	icall
+		CSdown();
+ 236:	0f 2e       	mov	r0, r31
+ 238:	f2 e9       	ldi	r31, 0x92	; 146
+ 23a:	ef 2e       	mov	r14, r31
+ 23c:	f0 e0       	ldi	r31, 0x00	; 0
+ 23e:	ff 2e       	mov	r15, r31
+ 240:	f0 2d       	mov	r31, r0
+ 242:	f7 01       	movw	r30, r14
+ 244:	09 95       	icall
+			
+		    	
+			//	
+			AFETransmit(0x020000);//Misc Reg 1
+ 246:	cd e6       	ldi	r28, 0x6D	; 109
+ 248:	d0 e0       	ldi	r29, 0x00	; 0
+ 24a:	60 e0       	ldi	r22, 0x00	; 0
+ 24c:	70 e0       	ldi	r23, 0x00	; 0
+ 24e:	82 e0       	ldi	r24, 0x02	; 2
+ 250:	90 e0       	ldi	r25, 0x00	; 0
+ 252:	fe 01       	movw	r30, r28
+ 254:	09 95       	icall
+			
+			//
+			AFETransmit(0x03FFFF);//Misc Reg 2
+ 256:	6f ef       	ldi	r22, 0xFF	; 255
+ 258:	7f ef       	ldi	r23, 0xFF	; 255
+ 25a:	83 e0       	ldi	r24, 0x03	; 3
+ 25c:	90 e0       	ldi	r25, 0x00	; 0
+ 25e:	fe 01       	movw	r30, r28
+ 260:	09 95       	icall
+			AFETransmit(0x096006);//Device Control 1
+ 262:	66 e0       	ldi	r22, 0x06	; 6
+ 264:	70 e6       	ldi	r23, 0x60	; 96
+ 266:	89 e0       	ldi	r24, 0x09	; 9
+ 268:	90 e0       	ldi	r25, 0x00	; 0
+ 26a:	fe 01       	movw	r30, r28
+ 26c:	09 95       	icall
+			AFETransmit(0x0A8040);//ISW_Mux
+ 26e:	60 e4       	ldi	r22, 0x40	; 64
+ 270:	70 e8       	ldi	r23, 0x80	; 128
+ 272:	8a e0       	ldi	r24, 0x0A	; 10
+ 274:	90 e0       	ldi	r25, 0x00	; 0
+ 276:	fe 01       	movw	r30, r28
+ 278:	09 95       	icall
+			AFETransmit(0x0B8040);//VSENSE_Mux
+ 27a:	60 e4       	ldi	r22, 0x40	; 64
+ 27c:	70 e8       	ldi	r23, 0x80	; 128
+ 27e:	8b e0       	ldi	r24, 0x0B	; 11
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	fe 01       	movw	r30, r28
+ 284:	09 95       	icall
+			//AFETransmit(0x0C0000);//I/Q Mode Enable
+			//AFETransmit(0x0D0000);//Weight Scale Control
+			AFETransmit(0x0E00FF);//BCM_DAC_FREQ
+ 286:	6f ef       	ldi	r22, 0xFF	; 255
+ 288:	70 e0       	ldi	r23, 0x00	; 0
+ 28a:	8e e0       	ldi	r24, 0x0E	; 14
+ 28c:	90 e0       	ldi	r25, 0x00	; 0
+ 28e:	fe 01       	movw	r30, r28
+ 290:	09 95       	icall
+			//AFETransmit(0x0F0000);//Device Control 2
+			AFETransmit(0x100063);//ADC Control Register 2
+ 292:	63 e6       	ldi	r22, 0x63	; 99
+ 294:	70 e0       	ldi	r23, 0x00	; 0
+ 296:	80 e1       	ldi	r24, 0x10	; 16
+ 298:	90 e0       	ldi	r25, 0x00	; 0
+ 29a:	fe 01       	movw	r30, r28
+ 29c:	09 95       	icall
+			AFETransmit(0x1A0030);//Misc Reg 3
+ 29e:	60 e3       	ldi	r22, 0x30	; 48
+ 2a0:	70 e0       	ldi	r23, 0x00	; 0
+ 2a2:	8a e1       	ldi	r24, 0x1A	; 26
+ 2a4:	90 e0       	ldi	r25, 0x00	; 0
+ 2a6:	fe 01       	movw	r30, r28
+ 2a8:	09 95       	icall
+			
+		CSup();
+ 2aa:	f8 01       	movw	r30, r16
+ 2ac:	09 95       	icall
+		//while(1){
+			CSdown();	
+ 2ae:	f7 01       	movw	r30, r14
+ 2b0:	09 95       	icall
+			SPITransmit(0x01);//ADC Control Register 1
+ 2b2:	cb e8       	ldi	r28, 0x8B	; 139
+ 2b4:	d0 e0       	ldi	r29, 0x00	; 0
+ 2b6:	81 e0       	ldi	r24, 0x01	; 1
+ 2b8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ba:	fe 01       	movw	r30, r28
+ 2bc:	09 95       	icall
+			SPITransmit(0xC9);
+ 2be:	89 ec       	ldi	r24, 0xC9	; 201
+ 2c0:	90 e0       	ldi	r25, 0x00	; 0
+ 2c2:	fe 01       	movw	r30, r28
+ 2c4:	09 95       	icall
+			SPITransmit(0xC0); //f0?
+ 2c6:	80 ec       	ldi	r24, 0xC0	; 192
+ 2c8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ca:	fe 01       	movw	r30, r28
+ 2cc:	09 95       	icall
+			CSup();
+ 2ce:	f8 01       	movw	r30, r16
+ 2d0:	09 95       	icall
+			
+		
+			while(status==0){
+ 2d2:	80 91 07 01 	lds	r24, 0x0107
+ 2d6:	88 23       	and	r24, r24
+ 2d8:	49 f4       	brne	.+18     	; 0x2ec <main+0xc6>
+				set_PORTD_bit(6,1);
+ 2da:	86 e0       	ldi	r24, 0x06	; 6
+ 2dc:	90 e0       	ldi	r25, 0x00	; 0
+ 2de:	61 e0       	ldi	r22, 0x01	; 1
+ 2e0:	70 e0       	ldi	r23, 0x00	; 0
+ 2e2:	0e 94 f3 00 	call	0x1e6	; 0x1e6 <set_PORTD_bit>
+				status=PINB0;
+ 2e6:	10 92 07 01 	sts	0x0107, r1
+ 2ea:	14 c0       	rjmp	.+40     	; 0x314 <main+0xee>
+			}				
+						
+			
+			CSdown();
+ 2ec:	f7 01       	movw	r30, r14
+ 2ee:	09 95       	icall
+			SPITransmit(0x20);
+ 2f0:	80 e2       	ldi	r24, 0x20	; 32
+ 2f2:	90 e0       	ldi	r25, 0x00	; 0
+ 2f4:	fe 01       	movw	r30, r28
+ 2f6:	09 95       	icall
+			huh=SPIReceive();
+ 2f8:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <SPIReceive>
+ 2fc:	80 93 06 01 	sts	0x0106, r24
+			huh2=SPIReceive();
+ 300:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <SPIReceive>
+ 304:	80 93 05 01 	sts	0x0105, r24
+			CSup();
+ 308:	f8 01       	movw	r30, r16
+ 30a:	09 95       	icall
+			
+			exit(-1);
+ 30c:	8f ef       	ldi	r24, 0xFF	; 255
+ 30e:	9f ef       	ldi	r25, 0xFF	; 255
+ 310:	0e 94 93 01 	call	0x326	; 0x326 <_exit>
+			SPITransmit(0xC0); //f0?
+			CSup();
+			
+		
+			while(status==0){
+				set_PORTD_bit(6,1);
+ 314:	86 e0       	ldi	r24, 0x06	; 6
+ 316:	90 e0       	ldi	r25, 0x00	; 0
+ 318:	61 e0       	ldi	r22, 0x01	; 1
+ 31a:	70 e0       	ldi	r23, 0x00	; 0
+ 31c:	0e 94 f3 00 	call	0x1e6	; 0x1e6 <set_PORTD_bit>
+				status=PINB0;
+ 320:	10 92 07 01 	sts	0x0107, r1
+ 324:	f7 cf       	rjmp	.-18     	; 0x314 <main+0xee>
+
+00000326 <_exit>:
+ 326:	f8 94       	cli
+
+00000328 <__stop_program>:
+ 328:	ff cf       	rjmp	.-2      	; 0x328 <__stop_program>
