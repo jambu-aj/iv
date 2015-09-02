@@ -1,12 +1,16 @@
+/*
+ * GccApplication1_MAIN.c
+ *
+ * Created: 8/26/2015 2:11:04 PM
+ *  Author: Sreenidhi
+ */ 
+
+
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdbool.h>
-#include <avr/pgmspace.h>
-#include <avr/interrupt.h>
-#include <string.h>
 #include "ff.h"
-#include "diskio.h"
-#include "usb_serial.h"
+
 
 
 /*Function prototypes*/
@@ -28,7 +32,6 @@ uint16_t readBCM();
 void AFE_Init_WSM_SS();
 void AFE_Init_WSM_Cont();
 uint16_t readWSM();
-int set_PORTD_bit(int, int);
 
 bool sd_mmc_spi_wait_not_busy(void);
 bool sdRead(unsigned char * DATA, unsigned long address);
@@ -71,20 +74,20 @@ uint8_t check=0;
 int main(void)
 {
 	
-	 FATFS filesystem;
-	 FRESULT errCode;
-	 
-			//Initialize LED
-			// LED2: Solid - SD not Present; Blinking - SD Present, proceed to Data Collection
-			ledInit();
-			
-			//Initialize SPI & SD
-			CS1down();
-			SPI_MasterInit();
-			sdInit();
-			crankClock();
-			CS2up();
-			
+	FATFS filesystem;
+	FRESULT errCode;
+	
+	//Initialize LED
+	// LED2: Solid - SD not Present; Blinking - SD Present, proceed to Data Collection
+	ledInit();
+	
+	//Initialize SPI & SD
+	CS1down();
+	SPI_MasterInit();
+	sdInit();
+	crankClock();
+	CS2up();
+	
 	while(1){
 		
 
@@ -105,49 +108,49 @@ int main(void)
 		
 		//SD Write
 		toSend[0]=DATA_RTD1; //Test Byte
-		toSend[1]=DATA_RTD2; 
+		toSend[1]=DATA_RTD2;
 		toSend[2]=DATA_BCM;
 		toSend[3]=DATA_WSM;
-		 
-		//SD Write
-		errCode = f_mount (&filesystem,"0:",1);
-		    if (errCode == FR_OK)
-		    {
 		
-				    DIR rootDir;
-					errCode = f_opendir(&rootDir, "/");
+		//SD Write
+		errCode = f_mount(&filesystem,"0:",1);
+		if (errCode == FR_OK)
+		{
+			
+			DIR rootDir;
+			errCode = f_opendir(&rootDir, "/");
+			if (errCode == FR_OK)
+			{
+				
+				FILINFO fileEntry;
+				errCode = f_readdir(&rootDir, &fileEntry);
+				if (errCode == FR_OK)
+				{
+					
+					// open file
+					FIL file;
+					errCode = f_open(&file, fileEntry.fname, FA_WRITE);
 					if (errCode == FR_OK)
-						{
-			 		    
-							FILINFO fileEntry;
-							errCode = f_readdir(&rootDir, &fileEntry);
-							if (errCode == FR_OK)
-								{
-						    
-									// open file
-									FIL file;
-									errCode = f_open(&file, fileEntry.fname, FA_WRITE);
-									if (errCode == FR_OK)
-										{
-									    
-				   							errCode = f_write(&file,*toSend,64,check) ;
-											
-					    
-										 }
-								  }
-						}
+					{
 						
+						errCode = f_write(&file,*toSend,64,&check ) ;
+						
+						
+					}
+				}
 			}
-		    
-//for (unsigned long i=0;i<2000;i+=512){
+			
+		}
+		
+		//for (unsigned long i=0;i<2000;i+=512){
 			//ORIGINALLY 1074000000
 			//sdWrite(toSend,j); //0x00801000 blank sector beginning (from 1st file test)
 		//}
-	
+		
 		//SD Read (Confirms Data)
 		
-	//	if(sd_mmc_spi_wait_not_busy()==true){
-		//	sdRead(toReceive,j);
+		//	if(sd_mmc_spi_wait_not_busy()==true){
+			//	sdRead(toReceive,j);
 			//CS1up();
 		//}
 		
