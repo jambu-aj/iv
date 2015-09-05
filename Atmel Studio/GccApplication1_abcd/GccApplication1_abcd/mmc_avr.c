@@ -113,7 +113,7 @@ BYTE xchg_spi (		/* Returns received data */
 )
 {
 	SPDR = dat;
-	loop_until_bit_is_set(SPSR, SPIF);
+	while(!(SPSR & (1<<SPIF)))
 	return SPDR;
 }
 
@@ -125,8 +125,8 @@ void xmit_spi_multi (
 )
 {
 	do {
-		SPDR = *p++; loop_until_bit_is_set(SPSR,SPIF);
-		SPDR = *p++; loop_until_bit_is_set(SPSR,SPIF);
+		SPDR = *p++; while(!(SPSR & (1<<SPIF)));
+		SPDR = *p++; while(!(SPSR & (1<<SPIF)));
 	} while (cnt -= 2);
 }
 
@@ -138,8 +138,8 @@ void rcvr_spi_multi (
 )
 {
 	do {
-		SPDR = 0xFF; loop_until_bit_is_set(SPSR,SPIF); *p++ = SPDR;
-		SPDR = 0xFF; loop_until_bit_is_set(SPSR,SPIF); *p++ = SPDR;
+		SPDR = 0xFF; while(!(SPSR & (1<<SPIF))); *p++ = SPDR;
+		SPDR = 0xFF; while(!(SPSR & (1<<SPIF))); *p++ = SPDR;
 	} while (cnt -= 2);
 }
 
@@ -261,13 +261,39 @@ int xmit_datablock (
 /* Send a command packet to MMC                                          */
 /*-----------------------------------------------------------------------*/
 
+unsigned char send_cmd(BYTE cmd,DWORD arg){
+	volatile BYTE n;
+	volatile unsigned char r1, r2, r3, r4, r5, r6;
+	select();
+	while(r1!=0x01){
+		if (cmd == CMD0) n = 0x95;
+		xchg_spi(0xff);
+		xchg_spi(cmd|0x40);
+		xchg_spi(arg>>24);
+		xchg_spi(arg>>16);
+		xchg_spi(arg>>8);
+		xchg_spi(arg);
+		xchg_spi(n);
+		r1=xchg_spi(0xff);
+		r2=xchg_spi(0xff);
+		r3=xchg_spi(0xff);
+		r4=xchg_spi(0xff);
+		r5=xchg_spi(0xff);
+		r6=xchg_spi(0xff);
+		if((r1==1)|(r2==1)|(r3==1)|(r4==1)|(r5==1)|(r6==1)){
+			return 1;
+		}
+	}	
+	return r1;
+}
+
 static
-BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
+BYTE send_cmd2 (		/* Returns R1 resp (bit7==1:Send failed) */
 	BYTE cmd,		/* Command index */
 	DWORD arg		/* Argument */
 )
 {
-	BYTE n, res;
+	volatile BYTE n, res;
 
 
 	if (cmd & 0x80) {	/* ACMD<n> is the command sequense of CMD55-CMD<n> */
@@ -299,7 +325,7 @@ BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
 	do
 		res = xchg_spi(0xFF);
 	while ((res & 0x80) && --n);
-
+	
 	return res;			/* Return with the response value */
 }
 
@@ -324,9 +350,23 @@ DSTATUS disk_initialize (
 
 
 	if (pdrv) return STA_NOINIT;		/* Supports only single drive */
-	power_off();						/* Turn off the socket power to reset the card */
+	
+	//power_off();						/* Turn off the socket power to reset the card */
+	SPCR = 0;				/* Disable SPI function */
+	DDRB  &= ~((1<<SS)|(1<<MOSI)|(1<<SCK));	/* Set SCK/MOSI/CS as hi-z, INS#/WP as pull-up */
+	PORTB &= ~((1<<SS)|(1<<MOSI)|(1<<SCK));
+	#if 0	// not using CP / WP
+		PORTB |=  0b00110000;
+	#endif
+	
 	if (Stat & STA_NODISK) return Stat;	/* No card in the socket */
-	power_on();							/* Turn on the socket power */
+	
+	//power_on();							/* Turn on the socket power */
+	PORTB |= (1<<SS)|(1<<MOSI);	/* Configure SCK/MOSI/CS as output */
+	DDRB  |= (1<<SS)|(1<<MOSI)|(1<<SCK);
+	SPCR = 0x52;			/* Enable SPI function in mode 0 */
+	SPSR = 0x01;			/* SPI 2x mode */
+	
 	FCLK_SLOW();
 	for (n = 10; n; n--) xchg_spi(0xFF);	/* 80 dummy clocks */
 
@@ -335,7 +375,8 @@ DSTATUS disk_initialize (
 		Timer1 = 100;						/* Initialization timeout of 1000 msec */
 		if (send_cmd(CMD8, 0x1AA) == 1) {	/* SDv2? */
 			for (n = 0; n < 4; n++) ocr[n] = xchg_spi(0xFF);		/* Get trailing return value of R7 resp */
-			if (ocr[2] == 0x01 && ocr[3] == 0xAA) {				/* The card can work at vdd range of 2.7-3.6V */
+			//if (ocr[2] == 0x01 && ocr[3] == 0xAA) {				/* The card can work at vdd range of 2.7-3.6V */
+			  if (1) {	
 				while (Timer1 && send_cmd(ACMD41, 1UL << 30));	/* Wait for leaving idle state (ACMD41 with HCS bit) */
 				if (Timer1 && send_cmd(CMD58, 0) == 0) {		/* Check CCS bit in the OCR */
 					for (n = 0; n < 4; n++) ocr[n] = xchg_spi(0xFF);

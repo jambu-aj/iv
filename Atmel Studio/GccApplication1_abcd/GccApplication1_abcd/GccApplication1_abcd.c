@@ -29,7 +29,7 @@ int result=1;
 
 int main(void)
 {
-	fat_init2();
+	fat_init();
 }
 
 void fat_init(void){
