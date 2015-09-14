@@ -1,0 +1,14 @@
+#include <msp430.h> 
+#include "ff.h"
+#include "diskio.h"
+#include <stdio.h>
+#include <math.h>
+
+/*
+ * main.c
+ */
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+	
+	return 0;
+}

@@ -1,0 +1,21 @@
+#include <msp430.h>
+//USING MSP430G2452
+
+/*
+ * main.c
+ */
+
+void main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+    //P1DIR = 8 bit Port Direction - b1: OUT, b0: IN
+    //P1OUT = 8 bit Port Logic - b1: HIGH, b0: LOW
+
+    P1DIR = 0x41; //1.0, 1.6 Output, 1.3 and rest Input
+
+	while(1){
+		P1OUT = 0x41;
+		_delay_cycles(1000);
+		P1OUT |= (1<<0);
+		_delay_cycles(1000);
+	}
+}

@@ -1,0 +1,1 @@
+"./HAL_SDCard.obj" "./ff.obj" "./main.obj" "./main_externalref.obj" "./mmc.obj" "../lnk_msp430g2452.cmd" -l"libc.a" 

@@ -39,7 +39,7 @@ void fat_init(void){
 		errCode = f_mount(&fatfs, "", 0);                       //mount drive number 0
 		//errCode = f_mkfs("",0,0);
 		//errCode = f_opendir(&dir, "/");                                 //root directory
-
+		disk_initialize(0);
 		errCode = f_open(&file, "/data.txt", FA_CREATE_ALWAYS | FA_WRITE);
 		if(errCode != FR_OK){
 			result=0;                                       //used as a debugging flag

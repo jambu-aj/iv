@@ -1,0 +1,59 @@
+
+**** Build of configuration Debug for project SD_TEST2 ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../HAL_SDCard.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="HAL_SDCard.pp"  "../HAL_SDCard.c"
+"../HAL_SDCard.c", line 85: error #20: identifier "UCB0CTL1" is undefined
+"../HAL_SDCard.c", line 85: error #20: identifier "UCSWRST" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCB0CTL0" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCCKPL" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCMSB" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCMST" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCMODE_0" is undefined
+"../HAL_SDCard.c", line 86: error #20: identifier "UCSYNC" is undefined
+"../HAL_SDCard.c", line 89: error #20: identifier "UCSSEL_2" is undefined
+"../HAL_SDCard.c", line 90: error #20: identifier "UCB0BR0" is undefined
+"../HAL_SDCard.c", line 91: error #20: identifier "UCB0BR1" is undefined
+"../HAL_SDCard.c", line 93: error #20: identifier "UCB0IFG" is undefined
+"../HAL_SDCard.c", line 93: error #20: identifier "UCRXIFG" is undefined
+"../HAL_SDCard.c", line 106: error #20: identifier "UCB0CTL1" is undefined
+"../HAL_SDCard.c", line 106: error #20: identifier "UCSWRST" is undefined
+"../HAL_SDCard.c", line 107: error #20: identifier "UCB0BR0" is undefined
+"../HAL_SDCard.c", line 108: error #20: identifier "UCB0BR1" is undefined
+"../HAL_SDCard.c", line 125: error #20: identifier "UCB0IFG" is undefined
+"../HAL_SDCard.c", line 125: error #20: identifier "UCRXIFG" is undefined
+"../HAL_SDCard.c", line 129: error #20: identifier "UCTXIFG" is undefined
+"../HAL_SDCard.c", line 130: error #20: identifier "UCB0TXBUF" is undefined
+"../HAL_SDCard.c", line 132: error #20: identifier "UCB0RXBUF" is undefined
+"../HAL_SDCard.c", line 129: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../HAL_SDCard.c", line 131: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../HAL_SDCard.c", line 156: error #20: identifier "UCB0IFG" is undefined
+
+"../HAL_SDCard.c", line 156: error #20: identifier "UCTXIFG" is undefined
+>> Compilation failure
+"../HAL_SDCard.c", line 157: error #20: identifier "UCB0TXBUF" is undefined
+"../HAL_SDCard.c", line 159: error #20: identifier "UCB0STAT" is undefined
+"../HAL_SDCard.c", line 159: error #20: identifier "UCBUSY" is undefined
+"../HAL_SDCard.c", line 161: error #20: identifier "UCB0RXBUF" is undefined
+"../HAL_SDCard.c", line 156: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../HAL_SDCard.c", line 159: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+28 errors detected in the compilation of "../HAL_SDCard.c".
+gmake: *** [HAL_SDCard.obj] Error 1
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 29: warning #190-D: enumerated type mixed with another type
+"../main.c", line 29: warning #69-D: integer conversion resulted in a change of sign
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 550 (col. 7): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 552 (col. 8): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 562 (col. 11): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 592 (col. 10): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 594 (col. 12): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include/ymath.h", line 604 (col. 15): remark #1531-D: (ULP 5.2) Detected floating point operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../main.c'
+' '
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
