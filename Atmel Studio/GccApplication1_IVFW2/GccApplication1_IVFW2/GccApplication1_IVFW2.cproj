@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>6.0</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
-    <ProjectGuid>{6f5500ed-03ec-4208-b66b-6531a1b03557}</ProjectGuid>
+    <ProjectGuid>{280958b2-2f68-4212-ad1a-db8eae99b73a}</ProjectGuid>
     <avrdevice>ATmega1284P</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>GccApplication1_FatFS_SDCard</AssemblyName>
-    <Name>GccApplication1_FatFS_SDCard</Name>
-    <RootNamespace>GccApplication1_FatFS_SDCard</RootNamespace>
+    <AssemblyName>GccApplication1_IVFW2</AssemblyName>
+    <Name>GccApplication1_IVFW2</Name>
+    <RootNamespace>GccApplication1_IVFW2</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -33,13 +33,13 @@
       </OverrideVtorValue>
       <Channel>
         <host>127.0.0.1</host>
-        <port>49655</port>
+        <port>52257</port>
         <ssl>False</ssl>
       </Channel>
       <ToolOptions>
         <InterfaceName>JTAG</InterfaceName>
         <InterfaceProperties>
-          <JtagDbgClock>200000</JtagDbgClock>
+          <JtagDbgClock>250000</JtagDbgClock>
           <JtagProgClock>1000000</JtagProgClock>
           <IspClock>150000</IspClock>
           <JtagInChain>false</JtagInChain>
@@ -110,7 +110,7 @@
     <Compile Include="ffconf.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="GccApplication1_FatFS_SDCard.c">
+    <Compile Include="GccApplication1_IVFW2.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="integer.h">

@@ -1,4 +1,12 @@
 /*
+ * GccApplication1_IVFW.c
+ *
+ * Created: 9/14/2015 10:09:08 PM
+ *  Author: andyjambu
+ */ 
+
+
+/*
  * GccApplication1_FatFS_SDCard.c
  *
  * Created: 9/14/2015 7:16:05 PM
@@ -28,8 +36,7 @@ int main(void)
     if(1)
     {
         //TODO:: Please write your application code 
-
- 		fat_init(); // Will Hang if SD not inserted
+		fat_init(); // Will Hang if SD not inserted
 		errCode = f_write(&file, buff, 10, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
 		errCode = f_close(&file);
     }
@@ -42,7 +49,7 @@ void fat_init(void){
         errCode = f_mount(0, &fatfs);                       //mount drive number 0
         errCode = f_opendir(&dir, "/");				    	//root directory
 
-        errCode = f_open(&file, "/gt2.txt", FA_CREATE_ALWAYS | FA_WRITE);
+        errCode = f_open(&file, "/data.txt", FA_CREATE_ALWAYS | FA_WRITE);
         if(errCode != FR_OK){
             result=0; //used as a debugging flag
 		}                                       

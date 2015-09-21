@@ -71,13 +71,14 @@ static
 void power_on (void)
 {
 	//Original Code
-// 	{	/* Remove this block if no socket power control */
-// 		PORTE &= ~_BV(7);	/* Socket power on (PE7=low) */
-// 		DDRE |= _BV(7);
-// 		for (Timer1 = 2; Timer1; );	/* Wait for 20ms */
+	// 	{	/* Remove this block if no socket power control */
+	// 		PORTE &= ~_BV(7);	/* Socket power on (PE7=low) */
+	// 		DDRE |= _BV(7);
+	// 		for (Timer1 = 2; Timer1; );	/* Wait for 20ms */
 // 	}
-	
+
 	PORTB |= SS|MOSI|MISO; // SS, MOSI, MISO HIGH /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
+	PORTB |= (1<<PORTB2); // PULL UP AFE's CS BEFORE SD COMMUNICATION
 	DDRB  |= SS|MOSI|SCK; /* Configure SCK/MOSI/CS as output */
 
 	/* Enable SPI, Master, set clock rate fck/16 */
@@ -88,8 +89,9 @@ static
 void power_off (void)
 {
 	SPCR = 0;	/* Disable SPI function */
-	DDRB  &= ~(SS);	// SS high /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
-	PORTB &= ~(SS|MOSI|SCK); // !SS,SCK and MOSI outputs
+	PORTB &= ~(SS);	// SS high /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
+	PORTB &= ~(1<<PORTB2); // PULL UP AFE's CS BEFORE SD COMMUNICATION
+	DDRB &= ~(SS|MOSI|SCK); // !SS,SCK and MOSI outputs
 	
 // 	{	/* Remove this block if no socket power control */
 // 		PORTE |= _BV(7);		/* Socket power off (PE7=high) */
@@ -271,7 +273,7 @@ BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
 
 	/* Select the card and wait for ready */
 	deselect();
- 	if (!select()) return 0xFF;
+	if (!select()) return 0xFF;
 
 	/* Send command packet */
 	xchg_spi(0x40 | cmd);				/* Start + Command index */

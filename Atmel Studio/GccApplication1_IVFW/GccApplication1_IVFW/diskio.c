@@ -76,9 +76,9 @@ void power_on (void)
 // 		DDRE |= _BV(7);
 // 		for (Timer1 = 2; Timer1; );	/* Wait for 20ms */
 // 	}
-	
-	PORTB |= SS|MOSI|MISO; // SS, MOSI, MISO HIGH /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
-	DDRB  |= SS|MOSI|SCK; /* Configure SCK/MOSI/CS as output */
+
+	PORTB |= SS|MOSI;	/* Configure SCK/MOSI/CS as output */
+	DDRB  |= SS|MOSI|SCK;
 
 	/* Enable SPI, Master, set clock rate fck/16 */
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
@@ -87,10 +87,10 @@ void power_on (void)
 static
 void power_off (void)
 {
-	SPCR = 0;	/* Disable SPI function */
-	DDRB  &= ~(SS);	// SS high /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
-	PORTB &= ~(SS|MOSI|SCK); // !SS,SCK and MOSI outputs
-	
+	SPCR = 0;				/* Disable SPI function */
+
+	DDRB  &= ~(SS|MOSI|SCK);	/* Set SCK/MOSI/CS as hi-z, INS#/WP as pull-up */
+	PORTB &= ~(SS|MOSI|SCK);
 // 	{	/* Remove this block if no socket power control */
 // 		PORTE |= _BV(7);		/* Socket power off (PE7=high) */
 // 		for (Timer1 = 20; Timer1; );	/* Wait for 20ms */
@@ -271,7 +271,7 @@ BYTE send_cmd (		/* Returns R1 resp (bit7==1:Send failed) */
 
 	/* Select the card and wait for ready */
 	deselect();
- 	if (!select()) return 0xFF;
+	if (!select()) return 0xFF;
 
 	/* Send command packet */
 	xchg_spi(0x40 | cmd);				/* Start + Command index */
