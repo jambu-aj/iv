@@ -76,7 +76,7 @@ void power_on (void)
 	// 		DDRE |= _BV(7);
 	// 		for (Timer1 = 2; Timer1; );	/* Wait for 20ms */
 // 	}
-
+	PORTB = 0xFF;
 	PORTB |= SS|MOSI|MISO; // SS, MOSI, MISO HIGH /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
 	PORTB |= (1<<PORTB2); // PULL UP AFE's CS BEFORE SD COMMUNICATION
 	DDRB  |= SS|MOSI|SCK; /* Configure SCK/MOSI/CS as output */

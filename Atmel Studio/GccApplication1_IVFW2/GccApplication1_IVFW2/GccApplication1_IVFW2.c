@@ -17,8 +17,8 @@
 #define MOSI DDB5
 #define SCK DDB7
 #define CLK0 DDB1
-#define CS2 DDB2
-#define CS1 DDB4
+#define CS2 DDB2 //AFE
+#define CS1 DDB4 //SD
 #define RDY DDB0
 #define LED1 DDD5
 #define LED2 DDD6
@@ -38,8 +38,8 @@ uint16_t DATA_RTD2;
 uint16_t adcvalComb, adcvalComb2;//ADC Combined Values
 uint8_t adcl_val, adch_val, adcl_val2, adch_val2;//ADC MSB LSB Values
 
-unsigned char msb; //AFE Variables
-unsigned char lsb;
+uint8_t msb; //AFE Variables
+uint8_t lsb;
 uint16_t msb_lsb_comb;
 uint16_t DATA_BCM;
 uint16_t DATA_WSM;
@@ -50,10 +50,7 @@ uint16_t toSend[4];
 uint16_t toReceive[4];
 uint8_t j=0; //SD Sector #
 char arrFill[512];
-
 int result=1;
-char buff[] = "helloworld";
-int buff_stat;
 
 
 /*Function prototypes*/
@@ -68,10 +65,6 @@ uint16_t readBCM();
 void AFE_Init_WSM_SS();
 void AFE_Init_WSM_Cont();
 uint16_t readWSM();
-
-//bool sd_mmc_spi_wait_not_busy(void);
-//bool sdRead(unsigned char * DATA, unsigned long address);
-
 uint16_t rtd1Val();
 uint16_t rtd2Val();
 
@@ -84,18 +77,30 @@ void main(void)
 	//Initialize SPI & SD
 
 	SPI_MasterInit();
-	fat_init();
+	fat_init();		
 	crankClock();
 	CS2up();
 	
 	while(1)
 	{
-		int i = 0;
 		set_PORTD_bit(6,0);
-		unsigned char txtFill="helloworld";
-		errCode = f_write(&file, txtFill, 512, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+		volatile int n[512]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+		
+		for(int i=0 ; i<arrSize ; i+=3){
+			//DATA_WSM  = readWSM();
+			//DATA_RTD1 = rtd1Val();
+			DATA_BCM  = readBCM();
+			
+			//n[i] = DATA_RTD1;
+			n[i+1] = DATA_BCM;
+			//n[i+2] = DATA_WSM;
+		}
+
+		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
 		errCode = f_close(&file);
 		set_PORTD_bit(6,1);
+		
 	}
 }
 
@@ -158,7 +163,7 @@ void SPI_MasterTransmit(unsigned char cData){
 	;
 }
 
-unsigned char SPI_MasterReceive(unsigned char cdata){
+uint8_t SPI_MasterReceive(unsigned char cdata){
 	SPDR=cdata;
 	while(!(SPSR & (1<<SPIF))){
 		//do nothing
@@ -229,8 +234,9 @@ void AFE_Init_BCM_SS(){
 	SPI_MasterTransmit(0x00);
 	
 	SPI_MasterTransmit(0x0E); // BCM DAC Freq
-	SPI_MasterTransmit(0x01);
-	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x00); // Avg current Output = 300uA
+	SPI_MasterTransmit(0x0F); // 14kHz, Good up to 64kHz (0x41)
+
 	
 	SPI_MasterTransmit(0x0F); // Dev Cont 2
 	SPI_MasterTransmit(0x00);
@@ -247,8 +253,9 @@ void AFE_Init_BCM_SS(){
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-	SPI_MasterTransmit(0xC1);
-	SPI_MasterTransmit(0xD0);
+	//SPI_MasterTransmit(0xC9); // Single Ended ADC Meas Mode
+	SPI_MasterTransmit(0xC1); // DIFF MODE 
+	SPI_MasterTransmit(0xB0); // 64 SPS,
 	
 	CS2up();
 }
@@ -344,7 +351,7 @@ void AFE_Init_WSM_SS(){
 	SPI_MasterTransmit(0x09); // Dev Cont 1
 	SPI_MasterTransmit(0x60);
 	SPI_MasterTransmit(0x05);
-	
+	/*
 	SPI_MasterTransmit(0x0A); // ISW Mux
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
@@ -356,15 +363,16 @@ void AFE_Init_WSM_SS(){
 	SPI_MasterTransmit(0x0C); // IQ Mode Enable
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
+	*/
 	
 	SPI_MasterTransmit(0x0D); // Weight Scale Control
-	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x60); //00
 	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
-	
+	/*
 	SPI_MasterTransmit(0x0E); // BCM DAC Freq
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
-	
+	*/
 	SPI_MasterTransmit(0x0F); // Dev Cont 2
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
@@ -380,8 +388,8 @@ void AFE_Init_WSM_SS(){
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-	SPI_MasterTransmit(0xC1);
-	SPI_MasterTransmit(0xD0);
+	SPI_MasterTransmit(0xC1); //?
+	SPI_MasterTransmit(0xD0); //250 SPS
 	
 	CS2up();
 }

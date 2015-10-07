@@ -76,7 +76,7 @@ void power_on (void)
 // 		DDRE |= _BV(7);
 // 		for (Timer1 = 2; Timer1; );	/* Wait for 20ms */
 // 	}
-	
+	PORTB = 0xff;
 	PORTB |= SS|MOSI|MISO; // SS, MOSI, MISO HIGH /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
 	DDRB  |= SS|MOSI|SCK; /* Configure SCK/MOSI/CS as output */
 
@@ -90,6 +90,7 @@ void power_off (void)
 	SPCR = 0;	/* Disable SPI function */
 	DDRB  &= ~(SS);	// SS high /*NOTE: MUST PULL UP ANY OTHER CS GPIO BEING USED TO PREVENT CROSSTALK*/
 	PORTB &= ~(SS|MOSI|SCK); // !SS,SCK and MOSI outputs
+	
 	
 // 	{	/* Remove this block if no socket power control */
 // 		PORTE |= _BV(7);		/* Socket power off (PE7=high) */

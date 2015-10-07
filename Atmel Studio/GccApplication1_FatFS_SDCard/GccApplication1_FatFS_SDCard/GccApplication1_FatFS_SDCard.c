@@ -30,6 +30,7 @@ int main(void)
         //TODO:: Please write your application code 
 
  		fat_init(); // Will Hang if SD not inserted
+		char buff[] = "helloworld";
 		errCode = f_write(&file, buff, 10, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
 		errCode = f_close(&file);
     }
