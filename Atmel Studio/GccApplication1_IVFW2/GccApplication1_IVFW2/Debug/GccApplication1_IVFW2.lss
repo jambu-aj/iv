@@ -3,31 +3,31 @@ GccApplication1_IVFW2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000000a0  00800100  00004dfc  00004e90  2**0
+  0 .data         000000a0  00800100  00004f30  00004fc4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00004dfc  00000000  00000000  00000094  2**1
+  1 .text         00004f30  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000725  008001a0  008001a0  00004f30  2**0
+  2 .bss          00000725  008001a0  008001a0  00005064  2**0
                   ALLOC
-  3 .stab         000006cc  00000000  00000000  00004f30  2**2
+  3 .stab         000006cc  00000000  00000000  00005064  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000085  00000000  00000000  000055fc  2**0
+  4 .stabstr      00000085  00000000  00000000  00005730  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000120  00000000  00000000  00005688  2**3
+  5 .debug_aranges 00000120  00000000  00000000  000057b8  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000305f  00000000  00000000  000057a8  2**0
+  6 .debug_info   00003148  00000000  00000000  000058d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000089e  00000000  00000000  00008807  2**0
+  7 .debug_abbrev 000008ff  00000000  00000000  00008a20  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001222  00000000  00000000  000090a5  2**0
+  8 .debug_line   0000133b  00000000  00000000  0000931f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000d8c  00000000  00000000  0000a2c8  2**2
+  9 .debug_frame  00000dac  00000000  00000000  0000a65c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000008bc  00000000  00000000  0000b054  2**0
+ 10 .debug_str    0000091a  00000000  00000000  0000b408  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000592b  00000000  00000000  0000b910  2**0
+ 11 .debug_loc    000059d3  00000000  00000000  0000bd22  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000e8  00000000  00000000  0001123b  2**0
+ 12 .debug_ranges 00000100  00000000  00000000  000116f5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -53,8 +53,8 @@ Disassembly of section .text:
       44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
       48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
       4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
-      50:	0c 94 52 26 	jmp	0x4ca4	; 0x4ca4 <__vector_20>
-      54:	0c 94 80 26 	jmp	0x4d00	; 0x4d00 <__vector_21>
+      50:	0c 94 ec 26 	jmp	0x4dd8	; 0x4dd8 <__vector_20>
+      54:	0c 94 1a 27 	jmp	0x4e34	; 0x4e34 <__vector_21>
       58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
       5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
       60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
@@ -81,8 +81,8 @@ Disassembly of section .text:
       98:	11 e0       	ldi	r17, 0x01	; 1
       9a:	a0 e0       	ldi	r26, 0x00	; 0
       9c:	b1 e0       	ldi	r27, 0x01	; 1
-      9e:	ec ef       	ldi	r30, 0xFC	; 252
-      a0:	fd e4       	ldi	r31, 0x4D	; 77
+      9e:	e0 e3       	ldi	r30, 0x30	; 48
+      a0:	ff e4       	ldi	r31, 0x4F	; 79
       a2:	00 e0       	ldi	r16, 0x00	; 0
       a4:	0b bf       	out	0x3b, r16	; 59
       a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
@@ -105,8 +105,8 @@ Disassembly of section .text:
       bc:	a5 3c       	cpi	r26, 0xC5	; 197
       be:	b1 07       	cpc	r27, r17
       c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
-      c2:	0e 94 6b 25 	call	0x4ad6	; 0x4ad6 <main>
-      c6:	0c 94 fc 26 	jmp	0x4df8	; 0x4df8 <_exit>
+      c2:	0e 94 0e 26 	call	0x4c1c	; 0x4c1c <main>
+      c6:	0c 94 96 27 	jmp	0x4f2c	; 0x4f2c <_exit>
 
 000000ca <__bad_interrupt>:
       ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -3185,7 +3185,7 @@ FRESULT chk_mounted (	/* FR_OK(0): successful, !=0: any error occurred */
     10b0:	50 e0       	ldi	r21, 0x00	; 0
     10b2:	c5 01       	movw	r24, r10
     10b4:	b4 01       	movw	r22, r8
-    10b6:	0e 94 bb 26 	call	0x4d76	; 0x4d76 <__mulsi3>
+    10b6:	0e 94 55 27 	call	0x4eaa	; 0x4eaa <__mulsi3>
     10ba:	6a 87       	std	Y+10, r22	; 0x0a
     10bc:	7b 87       	std	Y+11, r23	; 0x0b
     10be:	8c 87       	std	Y+12, r24	; 0x0c
@@ -3247,7 +3247,7 @@ FRESULT chk_mounted (	/* FR_OK(0): successful, !=0: any error occurred */
     111e:	30 e0       	ldi	r19, 0x00	; 0
     1120:	40 e0       	ldi	r20, 0x00	; 0
     1122:	50 e0       	ldi	r21, 0x00	; 0
-    1124:	0e 94 da 26 	call	0x4db4	; 0x4db4 <__udivmodsi4>
+    1124:	0e 94 74 27 	call	0x4ee8	; 0x4ee8 <__udivmodsi4>
     1128:	89 01       	movw	r16, r18
     112a:	9a 01       	movw	r18, r20
     112c:	d9 01       	movw	r26, r18
@@ -4494,7 +4494,7 @@ DWORD clust2sect (	/* !=0: Sector number, 0: Failed - invalid cluster# */
     1892:	50 e0       	ldi	r21, 0x00	; 0
     1894:	bc 01       	movw	r22, r24
     1896:	cd 01       	movw	r24, r26
-    1898:	0e 94 bb 26 	call	0x4d76	; 0x4d76 <__mulsi3>
+    1898:	0e 94 55 27 	call	0x4eaa	; 0x4eaa <__mulsi3>
     189c:	8b 01       	movw	r16, r22
     189e:	9c 01       	movw	r18, r24
     18a0:	8a a5       	lds	r24, 0x6a
@@ -9671,7 +9671,7 @@ FRESULT f_lseek (
     357c:	90 40       	sbci	r25, 0x00	; 0
     357e:	a5 01       	movw	r20, r10
     3580:	94 01       	movw	r18, r8
-    3582:	0e 94 da 26 	call	0x4db4	; 0x4db4 <__udivmodsi4>
+    3582:	0e 94 74 27 	call	0x4ee8	; 0x4ee8 <__udivmodsi4>
     3586:	29 83       	std	Y+1, r18	; 0x01
     3588:	3a 83       	std	Y+2, r19	; 0x02
     358a:	4b 83       	std	Y+3, r20	; 0x03
@@ -9680,7 +9680,7 @@ FRESULT f_lseek (
     3590:	b2 01       	movw	r22, r4
     3592:	a5 01       	movw	r20, r10
     3594:	94 01       	movw	r18, r8
-    3596:	0e 94 da 26 	call	0x4db4	; 0x4db4 <__udivmodsi4>
+    3596:	0e 94 74 27 	call	0x4ee8	; 0x4ee8 <__udivmodsi4>
 
 		ifptr = fp->fptr;
 		fp->fptr = nsect = 0;
@@ -12714,1278 +12714,1508 @@ void CS2up(){
 }
     4682:	08 95       	ret
 
-00004684 <mainOG>:
-
-int mainOG(void)
-{
-	
-	//Initialize LED
-	ledInit(); 	// LED2: Solid - SD not Present; Blinking - SD Present, proceed to Data Collection
-    4684:	0e 94 d7 22 	call	0x45ae	; 0x45ae <ledInit>
-	
-	//Initialize SPI & SD
-
-	SPI_MasterInit();
-    4688:	0e 94 26 23 	call	0x464c	; 0x464c <SPI_MasterInit>
-	fat_init();
-    468c:	0e 94 da 22 	call	0x45b4	; 0x45b4 <fat_init>
-	crankClock();
-    4690:	0e 94 d0 22 	call	0x45a0	; 0x45a0 <crankClock>
-	CS2up();
-    4694:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
-			DATA_WSM=readWSM();
-		
-			//toSend = {DATA_RTD1, DATA_RTD2, DATA_BCM, DATA_WSM};
-			arrFill[i] = toSend;
-		}
-		errCode = f_write(&file, arrFill, 512, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-    4698:	c9 e3       	ldi	r28, 0x39	; 57
-    469a:	d2 e0       	ldi	r29, 0x02	; 2
-    469c:	03 e7       	ldi	r16, 0x73	; 115
-    469e:	14 e0       	ldi	r17, 0x04	; 4
-    46a0:	0f 2e       	mov	r0, r31
-    46a2:	f1 e3       	ldi	r31, 0x31	; 49
-    46a4:	ef 2e       	mov	r14, r31
-    46a6:	f2 e0       	ldi	r31, 0x02	; 2
-    46a8:	ff 2e       	mov	r15, r31
-    46aa:	f0 2d       	mov	r31, r0
-    46ac:	ce 01       	movw	r24, r28
-    46ae:	b8 01       	movw	r22, r16
-    46b0:	40 e0       	ldi	r20, 0x00	; 0
-    46b2:	52 e0       	ldi	r21, 0x02	; 2
-    46b4:	97 01       	movw	r18, r14
-    46b6:	0e 94 88 17 	call	0x2f10	; 0x2f10 <f_write>
-    46ba:	80 93 38 02 	sts	0x0238, r24
-		errCode = f_close(&file);			
-    46be:	ce 01       	movw	r24, r28
-    46c0:	0e 94 e7 19 	call	0x33ce	; 0x33ce <f_close>
-    46c4:	80 93 38 02 	sts	0x0238, r24
-    46c8:	f1 cf       	rjmp	.-30     	; 0x46ac <mainOG+0x28>
-
-000046ca <CS2down>:
-	PORTB |= (1<<CS2); //Assert PB2 HIGH
-}
+00004684 <CS2down>:
 
 void CS2down(){
 	//AFE4300
 	PORTB &= ~(1<<CS2); //Assert PB2 LOW
-    46ca:	2a 98       	cbi	0x05, 2	; 5
+    4684:	2a 98       	cbi	0x05, 2	; 5
 }
-    46cc:	08 95       	ret
+    4686:	08 95       	ret
 
-000046ce <AFE_Init_BCM_SS>:
+00004688 <afeTurnOff>:
+		msb_lsb_comb=((uint16_t) msb<<8)|lsb;
+		return msb_lsb_comb;
+}
+
+void afeTurnOff(){
+	CS2down();
+    4688:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+    468c:	82 e0       	ldi	r24, 0x02	; 2
+    468e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4692:	80 e0       	ldi	r24, 0x00	; 0
+    4694:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4698:	80 e0       	ldi	r24, 0x00	; 0
+    469a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+    469e:	83 e0       	ldi	r24, 0x03	; 3
+    46a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+    46a4:	8f ef       	ldi	r24, 0xFF	; 255
+    46a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xFF);
+    46aa:	8f ef       	ldi	r24, 0xFF	; 255
+    46ac:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+    46b0:	89 e0       	ldi	r24, 0x09	; 9
+    46b2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x60);
+    46b6:	80 e6       	ldi	r24, 0x60	; 96
+    46b8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    46bc:	80 e0       	ldi	r24, 0x00	; 0
+    46be:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x63);
+	*/
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+    46c2:	8a e1       	ldi	r24, 0x1A	; 26
+    46c4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    46c8:	80 e0       	ldi	r24, 0x00	; 0
+    46ca:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+    46ce:	80 e3       	ldi	r24, 0x30	; 48
+    46d0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+    46d4:	81 e0       	ldi	r24, 0x01	; 1
+    46d6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x41); 
+    46da:	81 e4       	ldi	r24, 0x41	; 65
+    46dc:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0xC0); 
+    46e0:	80 ec       	ldi	r24, 0xC0	; 192
+    46e2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	CS2up();
+    46e6:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+}
+    46ea:	08 95       	ret
+
+000046ec <AFE_Init_BCM_SS>:
+}
 
 //AFE Functions-------------------------------------------------------------
 
 void AFE_Init_BCM_SS(){
 	CS2down();
-    46ce:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    46ec:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 	
 	//Config Code START
 	SPI_MasterTransmit(0x02); // Misc Reg 1
-    46d2:	82 e0       	ldi	r24, 0x02	; 2
-    46d4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    46f0:	82 e0       	ldi	r24, 0x02	; 2
+    46f2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    46d8:	80 e0       	ldi	r24, 0x00	; 0
-    46da:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    46f6:	80 e0       	ldi	r24, 0x00	; 0
+    46f8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    46de:	80 e0       	ldi	r24, 0x00	; 0
-    46e0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    46fc:	80 e0       	ldi	r24, 0x00	; 0
+    46fe:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x03); // Misc Reg 2
-    46e4:	83 e0       	ldi	r24, 0x03	; 3
-    46e6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4702:	83 e0       	ldi	r24, 0x03	; 3
+    4704:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    46ea:	8f ef       	ldi	r24, 0xFF	; 255
-    46ec:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4708:	8f ef       	ldi	r24, 0xFF	; 255
+    470a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    46f0:	8f ef       	ldi	r24, 0xFF	; 255
-    46f2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    470e:	8f ef       	ldi	r24, 0xFF	; 255
+    4710:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x09); // Dev Cont 1
-    46f6:	89 e0       	ldi	r24, 0x09	; 9
-    46f8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4714:	89 e0       	ldi	r24, 0x09	; 9
+    4716:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x60);
-    46fc:	80 e6       	ldi	r24, 0x60	; 96
-    46fe:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    471a:	80 e6       	ldi	r24, 0x60	; 96
+    471c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x06);
-    4702:	86 e0       	ldi	r24, 0x06	; 6
-    4704:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4720:	86 e0       	ldi	r24, 0x06	; 6
+    4722:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0A); // ISW Mux
-    4708:	8a e0       	ldi	r24, 0x0A	; 10
-    470a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4726:	8a e0       	ldi	r24, 0x0A	; 10
+    4728:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x40);
-    470e:	80 e4       	ldi	r24, 0x40	; 64
-    4710:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    472c:	80 e4       	ldi	r24, 0x40	; 64
+    472e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x80);
-    4714:	80 e8       	ldi	r24, 0x80	; 128
-    4716:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4732:	80 e8       	ldi	r24, 0x80	; 128
+    4734:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0B); // VSense Mux
-    471a:	8b e0       	ldi	r24, 0x0B	; 11
-    471c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4738:	8b e0       	ldi	r24, 0x0B	; 11
+    473a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x40);
-    4720:	80 e4       	ldi	r24, 0x40	; 64
-    4722:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    473e:	80 e4       	ldi	r24, 0x40	; 64
+    4740:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x80);
-    4726:	80 e8       	ldi	r24, 0x80	; 128
-    4728:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4744:	80 e8       	ldi	r24, 0x80	; 128
+    4746:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0C); // IQ Mode Enable
-    472c:	8c e0       	ldi	r24, 0x0C	; 12
-    472e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4732:	80 e0       	ldi	r24, 0x00	; 0
-    4734:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4738:	80 e0       	ldi	r24, 0x00	; 0
-    473a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0D); // Weight Scale Control
-    473e:	8d e0       	ldi	r24, 0x0D	; 13
-    4740:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4744:	80 e0       	ldi	r24, 0x00	; 0
-    4746:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    474a:	80 e0       	ldi	r24, 0x00	; 0
+    474a:	8c e0       	ldi	r24, 0x0C	; 12
     474c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0E); // BCM DAC Freq
-    4750:	8e e0       	ldi	r24, 0x0E	; 14
+	SPI_MasterTransmit(0x00);
+    4750:	80 e0       	ldi	r24, 0x00	; 0
     4752:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00); // Avg current Output = 300uA
+	SPI_MasterTransmit(0x00);
     4756:	80 e0       	ldi	r24, 0x00	; 0
     4758:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x0F); // 14kHz, Good up to 64kHz (0x41)
-    475c:	8f e0       	ldi	r24, 0x0F	; 15
-    475e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-
 	
-	SPI_MasterTransmit(0x0F); // Dev Cont 2
-    4762:	8f e0       	ldi	r24, 0x0F	; 15
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+    475c:	8d e0       	ldi	r24, 0x0D	; 13
+    475e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4762:	80 e0       	ldi	r24, 0x00	; 0
     4764:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     4768:	80 e0       	ldi	r24, 0x00	; 0
     476a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    476e:	80 e0       	ldi	r24, 0x00	; 0
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+    476e:	8e e0       	ldi	r24, 0x0E	; 14
     4770:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x10); // ADC Control Reg 2
-    4774:	80 e1       	ldi	r24, 0x10	; 16
+	SPI_MasterTransmit(0x00); // Avg current Output = 300uA
+    4774:	80 e0       	ldi	r24, 0x00	; 0
     4776:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    477a:	80 e0       	ldi	r24, 0x00	; 0
+	SPI_MasterTransmit(0x0F); // 14kHz, Good up to 64kHz (0x41)
+    477a:	8f e0       	ldi	r24, 0x0F	; 15
     477c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x63);
-    4780:	83 e6       	ldi	r24, 0x63	; 99
-    4782:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+
 	
-	SPI_MasterTransmit(0x1A); // Misc Reg 3
-    4786:	8a e1       	ldi	r24, 0x1A	; 26
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+    4780:	8f e0       	ldi	r24, 0x0F	; 15
+    4782:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4786:	80 e0       	ldi	r24, 0x00	; 0
     4788:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     478c:	80 e0       	ldi	r24, 0x00	; 0
     478e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x30);
-    4792:	80 e3       	ldi	r24, 0x30	; 48
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+    4792:	80 e1       	ldi	r24, 0x10	; 16
     4794:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4798:	80 e0       	ldi	r24, 0x00	; 0
+    479a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x63);
+    479e:	83 e6       	ldi	r24, 0x63	; 99
+    47a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+    47a4:	8a e1       	ldi	r24, 0x1A	; 26
+    47a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    47aa:	80 e0       	ldi	r24, 0x00	; 0
+    47ac:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+    47b0:	80 e3       	ldi	r24, 0x30	; 48
+    47b2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	//Config Code END
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-    4798:	81 e0       	ldi	r24, 0x01	; 1
-    479a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47b6:	81 e0       	ldi	r24, 0x01	; 1
+    47b8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	//SPI_MasterTransmit(0xC9); // Single Ended ADC Meas Mode
 	SPI_MasterTransmit(0xC1); // DIFF MODE 
-    479e:	81 ec       	ldi	r24, 0xC1	; 193
-    47a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47bc:	81 ec       	ldi	r24, 0xC1	; 193
+    47be:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xB0); // 64 SPS,
-    47a4:	80 eb       	ldi	r24, 0xB0	; 176
-    47a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47c2:	80 eb       	ldi	r24, 0xB0	; 176
+    47c4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	CS2up();
-    47aa:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    47c8:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 }
-    47ae:	08 95       	ret
+    47cc:	08 95       	ret
 
-000047b0 <AFE_Init_BCM_Cont>:
+000047ce <AFE_Init_BCM_Cont>:
 
 void AFE_Init_BCM_Cont(){
 	CS2down();
-    47b0:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    47ce:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 	
 	//Config Code START
 	SPI_MasterTransmit(0x02); // Misc Reg 1
-    47b4:	82 e0       	ldi	r24, 0x02	; 2
-    47b6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47d2:	82 e0       	ldi	r24, 0x02	; 2
+    47d4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    47ba:	80 e0       	ldi	r24, 0x00	; 0
-    47bc:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47d8:	80 e0       	ldi	r24, 0x00	; 0
+    47da:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    47c0:	80 e0       	ldi	r24, 0x00	; 0
-    47c2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47de:	80 e0       	ldi	r24, 0x00	; 0
+    47e0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x03); // Misc Reg 2
-    47c6:	83 e0       	ldi	r24, 0x03	; 3
-    47c8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47e4:	83 e0       	ldi	r24, 0x03	; 3
+    47e6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    47cc:	8f ef       	ldi	r24, 0xFF	; 255
-    47ce:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47ea:	8f ef       	ldi	r24, 0xFF	; 255
+    47ec:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    47d2:	8f ef       	ldi	r24, 0xFF	; 255
-    47d4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47f0:	8f ef       	ldi	r24, 0xFF	; 255
+    47f2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x09); // Dev Cont 1
-    47d8:	89 e0       	ldi	r24, 0x09	; 9
-    47da:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47f6:	89 e0       	ldi	r24, 0x09	; 9
+    47f8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x60);
-    47de:	80 e6       	ldi	r24, 0x60	; 96
-    47e0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    47fc:	80 e6       	ldi	r24, 0x60	; 96
+    47fe:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x06);
-    47e4:	86 e0       	ldi	r24, 0x06	; 6
-    47e6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4802:	86 e0       	ldi	r24, 0x06	; 6
+    4804:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0A); // ISW Mux
-    47ea:	8a e0       	ldi	r24, 0x0A	; 10
-    47ec:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4808:	8a e0       	ldi	r24, 0x0A	; 10
+    480a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x40);
-    47f0:	80 e4       	ldi	r24, 0x40	; 64
-    47f2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    480e:	80 e4       	ldi	r24, 0x40	; 64
+    4810:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x80);
-    47f6:	80 e8       	ldi	r24, 0x80	; 128
-    47f8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4814:	80 e8       	ldi	r24, 0x80	; 128
+    4816:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0B); // VSense Mux
-    47fc:	8b e0       	ldi	r24, 0x0B	; 11
-    47fe:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    481a:	8b e0       	ldi	r24, 0x0B	; 11
+    481c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x40);
-    4802:	80 e4       	ldi	r24, 0x40	; 64
-    4804:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4820:	80 e4       	ldi	r24, 0x40	; 64
+    4822:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x80);
-    4808:	80 e8       	ldi	r24, 0x80	; 128
-    480a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4826:	80 e8       	ldi	r24, 0x80	; 128
+    4828:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0C); // IQ Mode Enable
-    480e:	8c e0       	ldi	r24, 0x0C	; 12
-    4810:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    482c:	8c e0       	ldi	r24, 0x0C	; 12
+    482e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    4814:	80 e0       	ldi	r24, 0x00	; 0
-    4816:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4832:	80 e0       	ldi	r24, 0x00	; 0
+    4834:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    481a:	80 e0       	ldi	r24, 0x00	; 0
-    481c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4838:	80 e0       	ldi	r24, 0x00	; 0
+    483a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0D); // Weight Scale Control
-    4820:	8d e0       	ldi	r24, 0x0D	; 13
-    4822:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4826:	80 e0       	ldi	r24, 0x00	; 0
-    4828:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    482c:	80 e0       	ldi	r24, 0x00	; 0
-    482e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0E); // BCM DAC Freq
-    4832:	8e e0       	ldi	r24, 0x0E	; 14
-    4834:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x01);
-    4838:	81 e0       	ldi	r24, 0x01	; 1
-    483a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    483e:	80 e0       	ldi	r24, 0x00	; 0
+    483e:	8d e0       	ldi	r24, 0x0D	; 13
     4840:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0F); // Dev Cont 2
-    4844:	8f e0       	ldi	r24, 0x0F	; 15
+	SPI_MasterTransmit(0x00);
+    4844:	80 e0       	ldi	r24, 0x00	; 0
     4846:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     484a:	80 e0       	ldi	r24, 0x00	; 0
     484c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4850:	80 e0       	ldi	r24, 0x00	; 0
-    4852:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x10); // ADC Control Reg 2
-    4856:	80 e1       	ldi	r24, 0x10	; 16
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+    4850:	8e e0       	ldi	r24, 0x0E	; 14
+    4852:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x01);
+    4856:	81 e0       	ldi	r24, 0x01	; 1
     4858:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     485c:	80 e0       	ldi	r24, 0x00	; 0
     485e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x63);
-    4862:	83 e6       	ldi	r24, 0x63	; 99
-    4864:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x1A); // Misc Reg 3
-    4868:	8a e1       	ldi	r24, 0x1A	; 26
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+    4862:	8f e0       	ldi	r24, 0x0F	; 15
+    4864:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4868:	80 e0       	ldi	r24, 0x00	; 0
     486a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     486e:	80 e0       	ldi	r24, 0x00	; 0
     4870:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x30);
-    4874:	80 e3       	ldi	r24, 0x30	; 48
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+    4874:	80 e1       	ldi	r24, 0x10	; 16
     4876:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    487a:	80 e0       	ldi	r24, 0x00	; 0
+    487c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x63);
+    4880:	83 e6       	ldi	r24, 0x63	; 99
+    4882:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+    4886:	8a e1       	ldi	r24, 0x1A	; 26
+    4888:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    488c:	80 e0       	ldi	r24, 0x00	; 0
+    488e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+    4892:	80 e3       	ldi	r24, 0x30	; 48
+    4894:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	//Config Code END
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-    487a:	81 e0       	ldi	r24, 0x01	; 1
-    487c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4898:	81 e0       	ldi	r24, 0x01	; 1
+    489a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x41); // Continuous Conversion w/ Differential Input
-    4880:	81 e4       	ldi	r24, 0x41	; 65
-    4882:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    489e:	81 e4       	ldi	r24, 0x41	; 65
+    48a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x50); //<-250 Samples/Sec
-    4886:	80 e5       	ldi	r24, 0x50	; 80
-    4888:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    48a4:	80 e5       	ldi	r24, 0x50	; 80
+    48a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	CS2up();
-    488c:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    48aa:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 }
-    4890:	08 95       	ret
+    48ae:	08 95       	ret
 
-00004892 <readBCM>:
+000048b0 <readBCM>:
 
 uint16_t readBCM(){
 	AFE_Init_BCM_SS(); //BCM Read Single Shot Mode
-    4892:	0e 94 67 23 	call	0x46ce	; 0x46ce <AFE_Init_BCM_SS>
+    48b0:	0e 94 76 23 	call	0x46ec	; 0x46ec <AFE_Init_BCM_SS>
 	
 	//Polling for RDY (PINB0 must transition 1>0)
 	while(PINB & 0x01){}
-    4896:	18 99       	sbic	0x03, 0	; 3
-    4898:	fe cf       	rjmp	.-4      	; 0x4896 <readBCM+0x4>
+    48b4:	18 99       	sbic	0x03, 0	; 3
+    48b6:	fe cf       	rjmp	.-4      	; 0x48b4 <readBCM+0x4>
 
 	//Read Conversion Data
 	CS2down();
-    489a:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    48b8:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 	SPI_MasterTransmit(0x20);
-    489e:	80 e2       	ldi	r24, 0x20	; 32
-    48a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    48bc:	80 e2       	ldi	r24, 0x20	; 32
+    48be:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	msb=SPI_MasterReceive(0xff);
-    48a4:	8f ef       	ldi	r24, 0xFF	; 255
-    48a6:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
-    48aa:	80 93 66 04 	sts	0x0466, r24
+    48c2:	8f ef       	ldi	r24, 0xFF	; 255
+    48c4:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
+    48c8:	80 93 66 04 	sts	0x0466, r24
 	lsb=SPI_MasterReceive(0xff);
-    48ae:	8f ef       	ldi	r24, 0xFF	; 255
-    48b0:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
-    48b4:	80 93 34 02 	sts	0x0234, r24
+    48cc:	8f ef       	ldi	r24, 0xFF	; 255
+    48ce:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
+    48d2:	80 93 34 02 	sts	0x0234, r24
 	CS2up();
-    48b8:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    48d6:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 
 	//Combine [MSB(8) LSB(8)] into 16bit Val
 	msb_lsb_comb=((uint16_t) msb<<8)|lsb;
-    48bc:	30 91 66 04 	lds	r19, 0x0466
-    48c0:	20 e0       	ldi	r18, 0x00	; 0
-    48c2:	80 91 34 02 	lds	r24, 0x0234
-    48c6:	90 e0       	ldi	r25, 0x00	; 0
-    48c8:	82 2b       	or	r24, r18
-    48ca:	93 2b       	or	r25, r19
-    48cc:	90 93 8c 06 	sts	0x068C, r25
-    48d0:	80 93 8b 06 	sts	0x068B, r24
+    48da:	30 91 66 04 	lds	r19, 0x0466
+    48de:	20 e0       	ldi	r18, 0x00	; 0
+    48e0:	80 91 34 02 	lds	r24, 0x0234
+    48e4:	90 e0       	ldi	r25, 0x00	; 0
+    48e6:	82 2b       	or	r24, r18
+    48e8:	93 2b       	or	r25, r19
+    48ea:	90 93 8c 06 	sts	0x068C, r25
+    48ee:	80 93 8b 06 	sts	0x068B, r24
 	return msb_lsb_comb;
 
 }
-    48d4:	08 95       	ret
+    48f2:	08 95       	ret
 
-000048d6 <AFE_Init_WSM_SS>:
+000048f4 <AFE_Init_WSM_SS>:
 
 void AFE_Init_WSM_SS(){
 	CS2down();
-    48d6:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    48f4:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 	
 	//Config Code START
 	SPI_MasterTransmit(0x02); // Misc Reg 1
-    48da:	82 e0       	ldi	r24, 0x02	; 2
-    48dc:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    48f8:	82 e0       	ldi	r24, 0x02	; 2
+    48fa:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    48e0:	80 e0       	ldi	r24, 0x00	; 0
-    48e2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    48fe:	80 e0       	ldi	r24, 0x00	; 0
+    4900:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    48e6:	80 e0       	ldi	r24, 0x00	; 0
-    48e8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4904:	80 e0       	ldi	r24, 0x00	; 0
+    4906:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x03); // Misc Reg 2
-    48ec:	83 e0       	ldi	r24, 0x03	; 3
-    48ee:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    490a:	83 e0       	ldi	r24, 0x03	; 3
+    490c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    48f2:	8f ef       	ldi	r24, 0xFF	; 255
-    48f4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4910:	8f ef       	ldi	r24, 0xFF	; 255
+    4912:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    48f8:	8f ef       	ldi	r24, 0xFF	; 255
-    48fa:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4916:	8f ef       	ldi	r24, 0xFF	; 255
+    4918:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x09); // Dev Cont 1
-    48fe:	89 e0       	ldi	r24, 0x09	; 9
-    4900:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    491c:	89 e0       	ldi	r24, 0x09	; 9
+    491e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x60);
-    4904:	80 e6       	ldi	r24, 0x60	; 96
-    4906:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4922:	80 e6       	ldi	r24, 0x60	; 96
+    4924:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x05);
-    490a:	85 e0       	ldi	r24, 0x05	; 5
-    490c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4928:	85 e0       	ldi	r24, 0x05	; 5
+    492a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x0C); // IQ Mode Enable
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
 	*/
 	
 	SPI_MasterTransmit(0x0D); // Weight Scale Control
-    4910:	8d e0       	ldi	r24, 0x0D	; 13
-    4912:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    492e:	8d e0       	ldi	r24, 0x0D	; 13
+    4930:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x60); //00
-    4916:	80 e6       	ldi	r24, 0x60	; 96
-    4918:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4934:	80 e6       	ldi	r24, 0x60	; 96
+    4936:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
-    491c:	80 e0       	ldi	r24, 0x00	; 0
-    491e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    493a:	80 e0       	ldi	r24, 0x00	; 0
+    493c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	/*
 	SPI_MasterTransmit(0x0E); // BCM DAC Freq
 	SPI_MasterTransmit(0x00);
 	SPI_MasterTransmit(0x00);
 	*/
 	SPI_MasterTransmit(0x0F); // Dev Cont 2
-    4922:	8f e0       	ldi	r24, 0x0F	; 15
-    4924:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4928:	80 e0       	ldi	r24, 0x00	; 0
-    492a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    492e:	80 e0       	ldi	r24, 0x00	; 0
-    4930:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x10); // ADC Control Reg 2
-    4934:	80 e1       	ldi	r24, 0x10	; 16
-    4936:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    493a:	80 e0       	ldi	r24, 0x00	; 0
-    493c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4940:	80 e0       	ldi	r24, 0x00	; 0
+    4940:	8f e0       	ldi	r24, 0x0F	; 15
     4942:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x1A); // Misc Reg 3
-    4946:	8a e1       	ldi	r24, 0x1A	; 26
+	SPI_MasterTransmit(0x00);
+    4946:	80 e0       	ldi	r24, 0x00	; 0
     4948:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     494c:	80 e0       	ldi	r24, 0x00	; 0
     494e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x30);
-    4952:	80 e3       	ldi	r24, 0x30	; 48
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+    4952:	80 e1       	ldi	r24, 0x10	; 16
     4954:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4958:	80 e0       	ldi	r24, 0x00	; 0
+    495a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    495e:	80 e0       	ldi	r24, 0x00	; 0
+    4960:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+    4964:	8a e1       	ldi	r24, 0x1A	; 26
+    4966:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    496a:	80 e0       	ldi	r24, 0x00	; 0
+    496c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+    4970:	80 e3       	ldi	r24, 0x30	; 48
+    4972:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	//Config Code END
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-    4958:	81 e0       	ldi	r24, 0x01	; 1
-    495a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4976:	81 e0       	ldi	r24, 0x01	; 1
+    4978:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xC1); //?
-    495e:	81 ec       	ldi	r24, 0xC1	; 193
-    4960:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    497c:	81 ec       	ldi	r24, 0xC1	; 193
+    497e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xD0); //250 SPS
-    4964:	80 ed       	ldi	r24, 0xD0	; 208
-    4966:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4982:	80 ed       	ldi	r24, 0xD0	; 208
+    4984:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	CS2up();
-    496a:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    4988:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 }
-    496e:	08 95       	ret
+    498c:	08 95       	ret
 
-00004970 <AFE_Init_WSM_Cont>:
+0000498e <AFE_Init_WSM_Cont>:
 
 void AFE_Init_WSM_Cont(){
 	CS2down();
-    4970:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    498e:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 	
 	//Config Code START
 	SPI_MasterTransmit(0x02); // Misc Reg 1
-    4974:	82 e0       	ldi	r24, 0x02	; 2
-    4976:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4992:	82 e0       	ldi	r24, 0x02	; 2
+    4994:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    497a:	80 e0       	ldi	r24, 0x00	; 0
-    497c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4998:	80 e0       	ldi	r24, 0x00	; 0
+    499a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
-    4980:	80 e0       	ldi	r24, 0x00	; 0
-    4982:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    499e:	80 e0       	ldi	r24, 0x00	; 0
+    49a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x03); // Misc Reg 2
-    4986:	83 e0       	ldi	r24, 0x03	; 3
-    4988:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49a4:	83 e0       	ldi	r24, 0x03	; 3
+    49a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    498c:	8f ef       	ldi	r24, 0xFF	; 255
-    498e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49aa:	8f ef       	ldi	r24, 0xFF	; 255
+    49ac:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0xFF);
-    4992:	8f ef       	ldi	r24, 0xFF	; 255
-    4994:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49b0:	8f ef       	ldi	r24, 0xFF	; 255
+    49b2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x09); // Dev Cont 1
-    4998:	89 e0       	ldi	r24, 0x09	; 9
-    499a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49b6:	89 e0       	ldi	r24, 0x09	; 9
+    49b8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x60);
-    499e:	80 e6       	ldi	r24, 0x60	; 96
-    49a0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49bc:	80 e6       	ldi	r24, 0x60	; 96
+    49be:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x05);
-    49a4:	85 e0       	ldi	r24, 0x05	; 5
-    49a6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    49c2:	85 e0       	ldi	r24, 0x05	; 5
+    49c4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	SPI_MasterTransmit(0x0A); // ISW Mux
-    49aa:	8a e0       	ldi	r24, 0x0A	; 10
-    49ac:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49b0:	80 e0       	ldi	r24, 0x00	; 0
-    49b2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49b6:	80 e0       	ldi	r24, 0x00	; 0
-    49b8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0B); // VSense Mux
-    49bc:	8b e0       	ldi	r24, 0x0B	; 11
-    49be:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49c2:	80 e0       	ldi	r24, 0x00	; 0
-    49c4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49c8:	80 e0       	ldi	r24, 0x00	; 0
+    49c8:	8a e0       	ldi	r24, 0x0A	; 10
     49ca:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	
-	SPI_MasterTransmit(0x0C); // IQ Mode Enable
-    49ce:	8c e0       	ldi	r24, 0x0C	; 12
+	SPI_MasterTransmit(0x00);
+    49ce:	80 e0       	ldi	r24, 0x00	; 0
     49d0:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     49d4:	80 e0       	ldi	r24, 0x00	; 0
     49d6:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49da:	80 e0       	ldi	r24, 0x00	; 0
-    49dc:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x0D); // Weight Scale Control
-    49e0:	8d e0       	ldi	r24, 0x0D	; 13
+	SPI_MasterTransmit(0x0B); // VSense Mux
+    49da:	8b e0       	ldi	r24, 0x0B	; 11
+    49dc:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    49e0:	80 e0       	ldi	r24, 0x00	; 0
     49e2:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     49e6:	80 e0       	ldi	r24, 0x00	; 0
     49e8:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
-    49ec:	80 e0       	ldi	r24, 0x00	; 0
-    49ee:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x0E); // BCM DAC Freq
-    49f2:	8e e0       	ldi	r24, 0x0E	; 14
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+    49ec:	8c e0       	ldi	r24, 0x0C	; 12
+    49ee:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    49f2:	80 e0       	ldi	r24, 0x00	; 0
     49f4:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     49f8:	80 e0       	ldi	r24, 0x00	; 0
     49fa:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    49fe:	80 e0       	ldi	r24, 0x00	; 0
-    4a00:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x0F); // Dev Cont 2
-    4a04:	8f e0       	ldi	r24, 0x0F	; 15
-    4a06:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+    49fe:	8d e0       	ldi	r24, 0x0D	; 13
+    4a00:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
+    4a04:	80 e0       	ldi	r24, 0x00	; 0
+    4a06:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00); // 2nd Stage Gain = 1, No Offset DAC Val
     4a0a:	80 e0       	ldi	r24, 0x00	; 0
     4a0c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4a10:	80 e0       	ldi	r24, 0x00	; 0
-    4a12:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x10); // ADC Control Reg 2
-    4a16:	80 e1       	ldi	r24, 0x10	; 16
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+    4a10:	8e e0       	ldi	r24, 0x0E	; 14
+    4a12:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4a16:	80 e0       	ldi	r24, 0x00	; 0
     4a18:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     4a1c:	80 e0       	ldi	r24, 0x00	; 0
     4a1e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x00);
-    4a22:	80 e0       	ldi	r24, 0x00	; 0
-    4a24:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
-	SPI_MasterTransmit(0x1A); // Misc Reg 3
-    4a28:	8a e1       	ldi	r24, 0x1A	; 26
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+    4a22:	8f e0       	ldi	r24, 0x0F	; 15
+    4a24:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4a28:	80 e0       	ldi	r24, 0x00	; 0
     4a2a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x00);
     4a2e:	80 e0       	ldi	r24, 0x00	; 0
     4a30:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
-	SPI_MasterTransmit(0x30);
-    4a34:	80 e3       	ldi	r24, 0x30	; 48
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+    4a34:	80 e1       	ldi	r24, 0x10	; 16
     4a36:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4a3a:	80 e0       	ldi	r24, 0x00	; 0
+    4a3c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4a40:	80 e0       	ldi	r24, 0x00	; 0
+    4a42:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+    4a46:	8a e1       	ldi	r24, 0x1A	; 26
+    4a48:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x00);
+    4a4c:	80 e0       	ldi	r24, 0x00	; 0
+    4a4e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+	SPI_MasterTransmit(0x30);
+    4a52:	80 e3       	ldi	r24, 0x30	; 48
+    4a54:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	//Config Code END
 	
 	//Begin ADC Conversion
 	SPI_MasterTransmit(0x01); // ADC Control Reg 1
-    4a3a:	81 e0       	ldi	r24, 0x01	; 1
-    4a3c:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4a58:	81 e0       	ldi	r24, 0x01	; 1
+    4a5a:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x41);
-    4a40:	81 e4       	ldi	r24, 0x41	; 65
-    4a42:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4a5e:	81 e4       	ldi	r24, 0x41	; 65
+    4a60:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	SPI_MasterTransmit(0x50);
-    4a46:	80 e5       	ldi	r24, 0x50	; 80
-    4a48:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4a64:	80 e5       	ldi	r24, 0x50	; 80
+    4a66:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 	
 	CS2up();
-    4a4c:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    4a6a:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 }
-    4a50:	08 95       	ret
+    4a6e:	08 95       	ret
 
-00004a52 <readWSM>:
+00004a70 <readWSM>:
 
 uint16_t readWSM(){
 		AFE_Init_WSM_SS();
-    4a52:	0e 94 6b 24 	call	0x48d6	; 0x48d6 <AFE_Init_WSM_SS>
+    4a70:	0e 94 7a 24 	call	0x48f4	; 0x48f4 <AFE_Init_WSM_SS>
 		
 		//Polling for RDY (PINB0 must transition 1>0)
 		while(PINB & 0x01){}
-    4a56:	18 99       	sbic	0x03, 0	; 3
-    4a58:	fe cf       	rjmp	.-4      	; 0x4a56 <readWSM+0x4>
+    4a74:	18 99       	sbic	0x03, 0	; 3
+    4a76:	fe cf       	rjmp	.-4      	; 0x4a74 <readWSM+0x4>
 			
 		//Read Conversion Data
 		CS2down();
-    4a5a:	0e 94 65 23 	call	0x46ca	; 0x46ca <CS2down>
+    4a78:	0e 94 42 23 	call	0x4684	; 0x4684 <CS2down>
 		SPI_MasterTransmit(0x20);
-    4a5e:	80 e2       	ldi	r24, 0x20	; 32
-    4a60:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
+    4a7c:	80 e2       	ldi	r24, 0x20	; 32
+    4a7e:	0e 94 31 23 	call	0x4662	; 0x4662 <SPI_MasterTransmit>
 		msb=SPI_MasterReceive(0xff);
-    4a64:	8f ef       	ldi	r24, 0xFF	; 255
-    4a66:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
-    4a6a:	80 93 66 04 	sts	0x0466, r24
+    4a82:	8f ef       	ldi	r24, 0xFF	; 255
+    4a84:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
+    4a88:	80 93 66 04 	sts	0x0466, r24
 		lsb=SPI_MasterReceive(0xff);
-    4a6e:	8f ef       	ldi	r24, 0xFF	; 255
-    4a70:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
-    4a74:	80 93 34 02 	sts	0x0234, r24
+    4a8c:	8f ef       	ldi	r24, 0xFF	; 255
+    4a8e:	0e 94 36 23 	call	0x466c	; 0x466c <SPI_MasterReceive>
+    4a92:	80 93 34 02 	sts	0x0234, r24
 		CS2up();
-    4a78:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+    4a96:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
 		
 		//Combine [MSB(8) LSB(8)] into 16bit Val
 		msb_lsb_comb=((uint16_t) msb<<8)|lsb;
-    4a7c:	30 91 66 04 	lds	r19, 0x0466
-    4a80:	20 e0       	ldi	r18, 0x00	; 0
-    4a82:	80 91 34 02 	lds	r24, 0x0234
-    4a86:	90 e0       	ldi	r25, 0x00	; 0
-    4a88:	82 2b       	or	r24, r18
-    4a8a:	93 2b       	or	r25, r19
-    4a8c:	90 93 8c 06 	sts	0x068C, r25
-    4a90:	80 93 8b 06 	sts	0x068B, r24
+    4a9a:	30 91 66 04 	lds	r19, 0x0466
+    4a9e:	20 e0       	ldi	r18, 0x00	; 0
+    4aa0:	80 91 34 02 	lds	r24, 0x0234
+    4aa4:	90 e0       	ldi	r25, 0x00	; 0
+    4aa6:	82 2b       	or	r24, r18
+    4aa8:	93 2b       	or	r25, r19
+    4aaa:	90 93 8c 06 	sts	0x068C, r25
+    4aae:	80 93 8b 06 	sts	0x068B, r24
 		return msb_lsb_comb;
 }
-    4a94:	08 95       	ret
+    4ab2:	08 95       	ret
 
-00004a96 <set_PORTD_bit>:
+00004ab4 <set_PORTD_bit>:
 	// either high or low (1 or 0) to match 'value'.
 	// Leaves all other bits in PORTB unchanged.
 	
 	//Positions Used (5,6)
 	
 	if (value == 0)
-    4a96:	61 15       	cp	r22, r1
-    4a98:	71 05       	cpc	r23, r1
-    4a9a:	71 f4       	brne	.+28     	; 0x4ab8 <set_PORTD_bit+0x22>
+    4ab4:	61 15       	cp	r22, r1
+    4ab6:	71 05       	cpc	r23, r1
+    4ab8:	71 f4       	brne	.+28     	; 0x4ad6 <set_PORTD_bit+0x22>
 	{
 		PORTD &= ~(1 << position);      // Set bit # 'position' low
-    4a9c:	4b b1       	in	r20, 0x0b	; 11
-    4a9e:	21 e0       	ldi	r18, 0x01	; 1
-    4aa0:	30 e0       	ldi	r19, 0x00	; 0
-    4aa2:	b9 01       	movw	r22, r18
-    4aa4:	02 c0       	rjmp	.+4      	; 0x4aaa <set_PORTD_bit+0x14>
-    4aa6:	66 0f       	add	r22, r22
-    4aa8:	77 1f       	adc	r23, r23
-    4aaa:	8a 95       	dec	r24
-    4aac:	e2 f7       	brpl	.-8      	; 0x4aa6 <set_PORTD_bit+0x10>
-    4aae:	cb 01       	movw	r24, r22
-    4ab0:	80 95       	com	r24
-    4ab2:	84 23       	and	r24, r20
-    4ab4:	8b b9       	out	0x0b, r24	; 11
-    4ab6:	0c c0       	rjmp	.+24     	; 0x4ad0 <set_PORTD_bit+0x3a>
+    4aba:	4b b1       	in	r20, 0x0b	; 11
+    4abc:	21 e0       	ldi	r18, 0x01	; 1
+    4abe:	30 e0       	ldi	r19, 0x00	; 0
+    4ac0:	b9 01       	movw	r22, r18
+    4ac2:	02 c0       	rjmp	.+4      	; 0x4ac8 <set_PORTD_bit+0x14>
+    4ac4:	66 0f       	add	r22, r22
+    4ac6:	77 1f       	adc	r23, r23
+    4ac8:	8a 95       	dec	r24
+    4aca:	e2 f7       	brpl	.-8      	; 0x4ac4 <set_PORTD_bit+0x10>
+    4acc:	cb 01       	movw	r24, r22
+    4ace:	80 95       	com	r24
+    4ad0:	84 23       	and	r24, r20
+    4ad2:	8b b9       	out	0x0b, r24	; 11
+    4ad4:	0c c0       	rjmp	.+24     	; 0x4aee <set_PORTD_bit+0x3a>
 	}
 	else
 	{
 		PORTD |= (1 << position);       // Set bit # 'position' high
-    4ab8:	4b b1       	in	r20, 0x0b	; 11
-    4aba:	21 e0       	ldi	r18, 0x01	; 1
-    4abc:	30 e0       	ldi	r19, 0x00	; 0
-    4abe:	b9 01       	movw	r22, r18
-    4ac0:	02 c0       	rjmp	.+4      	; 0x4ac6 <set_PORTD_bit+0x30>
-    4ac2:	66 0f       	add	r22, r22
-    4ac4:	77 1f       	adc	r23, r23
-    4ac6:	8a 95       	dec	r24
-    4ac8:	e2 f7       	brpl	.-8      	; 0x4ac2 <set_PORTD_bit+0x2c>
-    4aca:	cb 01       	movw	r24, r22
-    4acc:	84 2b       	or	r24, r20
-    4ace:	8b b9       	out	0x0b, r24	; 11
+    4ad6:	4b b1       	in	r20, 0x0b	; 11
+    4ad8:	21 e0       	ldi	r18, 0x01	; 1
+    4ada:	30 e0       	ldi	r19, 0x00	; 0
+    4adc:	b9 01       	movw	r22, r18
+    4ade:	02 c0       	rjmp	.+4      	; 0x4ae4 <set_PORTD_bit+0x30>
+    4ae0:	66 0f       	add	r22, r22
+    4ae2:	77 1f       	adc	r23, r23
+    4ae4:	8a 95       	dec	r24
+    4ae6:	e2 f7       	brpl	.-8      	; 0x4ae0 <set_PORTD_bit+0x2c>
+    4ae8:	cb 01       	movw	r24, r22
+    4aea:	84 2b       	or	r24, r20
+    4aec:	8b b9       	out	0x0b, r24	; 11
 	}
 	return 1;
 }
-    4ad0:	81 e0       	ldi	r24, 0x01	; 1
-    4ad2:	90 e0       	ldi	r25, 0x00	; 0
-    4ad4:	08 95       	ret
+    4aee:	81 e0       	ldi	r24, 0x01	; 1
+    4af0:	90 e0       	ldi	r25, 0x00	; 0
+    4af2:	08 95       	ret
 
-00004ad6 <main>:
-uint16_t readWSM();
-uint16_t rtd1Val();
-uint16_t rtd2Val();
-
-void main(void)
-{
-    4ad6:	cf 93       	push	r28
-    4ad8:	df 93       	push	r29
-    4ada:	cd b7       	in	r28, 0x3d	; 61
-    4adc:	de b7       	in	r29, 0x3e	; 62
-    4ade:	c2 50       	subi	r28, 0x02	; 2
-    4ae0:	d4 40       	sbci	r29, 0x04	; 4
-    4ae2:	0f b6       	in	r0, 0x3f	; 63
-    4ae4:	f8 94       	cli
-    4ae6:	de bf       	out	0x3e, r29	; 62
-    4ae8:	0f be       	out	0x3f, r0	; 63
-    4aea:	cd bf       	out	0x3d, r28	; 61
-	
-	//Initialize LED
-	ledInit();
-    4aec:	0e 94 d7 22 	call	0x45ae	; 0x45ae <ledInit>
-	
-	//Initialize SPI & SD
-
-	SPI_MasterInit();
-    4af0:	0e 94 26 23 	call	0x464c	; 0x464c <SPI_MasterInit>
-	fat_init();		
-    4af4:	0e 94 da 22 	call	0x45b4	; 0x45b4 <fat_init>
-	crankClock();
-    4af8:	0e 94 d0 22 	call	0x45a0	; 0x45a0 <crankClock>
-	CS2up();
-    4afc:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
-	
-	while(1)
-	{
-		set_PORTD_bit(6,0);
-		volatile int n[512]; /* n is an array of 10 integers */
-		volatile int arrSize = sizeof(n)/sizeof(n[0]);
-    4b00:	cc 24       	eor	r12, r12
-    4b02:	dd 24       	eor	r13, r13
-    4b04:	68 94       	set
-    4b06:	d1 f8       	bld	r13, 1
-			//n[i] = DATA_RTD1;
-			n[i+1] = DATA_BCM;
-			//n[i+2] = DATA_WSM;
-		}
-
-		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-    4b08:	0f 2e       	mov	r0, r31
-    4b0a:	f9 e3       	ldi	r31, 0x39	; 57
-    4b0c:	ef 2e       	mov	r14, r31
-    4b0e:	f2 e0       	ldi	r31, 0x02	; 2
-    4b10:	ff 2e       	mov	r15, r31
-    4b12:	f0 2d       	mov	r31, r0
-    4b14:	0f 2e       	mov	r0, r31
-    4b16:	f1 e3       	ldi	r31, 0x31	; 49
-    4b18:	af 2e       	mov	r10, r31
-    4b1a:	f2 e0       	ldi	r31, 0x02	; 2
-    4b1c:	bf 2e       	mov	r11, r31
-    4b1e:	f0 2d       	mov	r31, r0
-	crankClock();
-	CS2up();
-	
-	while(1)
-	{
-		set_PORTD_bit(6,0);
-    4b20:	86 e0       	ldi	r24, 0x06	; 6
-    4b22:	90 e0       	ldi	r25, 0x00	; 0
-    4b24:	60 e0       	ldi	r22, 0x00	; 0
-    4b26:	70 e0       	ldi	r23, 0x00	; 0
-    4b28:	0e 94 4b 25 	call	0x4a96	; 0x4a96 <set_PORTD_bit>
-		volatile int n[512]; /* n is an array of 10 integers */
-		volatile int arrSize = sizeof(n)/sizeof(n[0]);
-    4b2c:	da 82       	std	Y+2, r13	; 0x02
-    4b2e:	c9 82       	std	Y+1, r12	; 0x01
-		
-		for(int i=0 ; i<arrSize ; i+=3){
-    4b30:	89 81       	ldd	r24, Y+1	; 0x01
-    4b32:	9a 81       	ldd	r25, Y+2	; 0x02
-    4b34:	18 16       	cp	r1, r24
-    4b36:	19 06       	cpc	r1, r25
-    4b38:	fc f4       	brge	.+62     	; 0x4b78 <main+0xa2>
-    4b3a:	00 e0       	ldi	r16, 0x00	; 0
-    4b3c:	10 e0       	ldi	r17, 0x00	; 0
-			//DATA_WSM  = readWSM();
-			//DATA_RTD1 = rtd1Val();
-			DATA_BCM  = readBCM();
-    4b3e:	0e 94 49 24 	call	0x4892	; 0x4892 <readBCM>
-    4b42:	80 93 64 04 	sts	0x0464, r24
-    4b46:	90 93 65 04 	sts	0x0465, r25
-void AFE_Init_WSM_Cont();
-uint16_t readWSM();
-uint16_t rtd1Val();
-uint16_t rtd2Val();
-
-void main(void)
-    4b4a:	98 01       	movw	r18, r16
-    4b4c:	2f 5f       	subi	r18, 0xFF	; 255
-    4b4e:	3f 4f       	sbci	r19, 0xFF	; 255
-			//DATA_WSM  = readWSM();
-			//DATA_RTD1 = rtd1Val();
-			DATA_BCM  = readBCM();
-			
-			//n[i] = DATA_RTD1;
-			n[i+1] = DATA_BCM;
-    4b50:	48 2f       	mov	r20, r24
-    4b52:	59 2f       	mov	r21, r25
-    4b54:	22 0f       	add	r18, r18
-    4b56:	33 1f       	adc	r19, r19
-    4b58:	81 e0       	ldi	r24, 0x01	; 1
-    4b5a:	90 e0       	ldi	r25, 0x00	; 0
-    4b5c:	8c 0f       	add	r24, r28
-    4b5e:	9d 1f       	adc	r25, r29
-    4b60:	28 0f       	add	r18, r24
-    4b62:	39 1f       	adc	r19, r25
-    4b64:	f9 01       	movw	r30, r18
-    4b66:	53 83       	std	Z+3, r21	; 0x03
-    4b68:	42 83       	std	Z+2, r20	; 0x02
-	{
-		set_PORTD_bit(6,0);
-		volatile int n[512]; /* n is an array of 10 integers */
-		volatile int arrSize = sizeof(n)/sizeof(n[0]);
-		
-		for(int i=0 ; i<arrSize ; i+=3){
-    4b6a:	0d 5f       	subi	r16, 0xFD	; 253
-    4b6c:	1f 4f       	sbci	r17, 0xFF	; 255
-    4b6e:	89 81       	ldd	r24, Y+1	; 0x01
-    4b70:	9a 81       	ldd	r25, Y+2	; 0x02
-    4b72:	08 17       	cp	r16, r24
-    4b74:	19 07       	cpc	r17, r25
-    4b76:	1c f3       	brlt	.-58     	; 0x4b3e <main+0x68>
-			//n[i] = DATA_RTD1;
-			n[i+1] = DATA_BCM;
-			//n[i+2] = DATA_WSM;
-		}
-
-		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-    4b78:	49 81       	ldd	r20, Y+1	; 0x01
-    4b7a:	5a 81       	ldd	r21, Y+2	; 0x02
-    4b7c:	c7 01       	movw	r24, r14
-    4b7e:	be 01       	movw	r22, r28
-    4b80:	6d 5f       	subi	r22, 0xFD	; 253
-    4b82:	7f 4f       	sbci	r23, 0xFF	; 255
-    4b84:	95 01       	movw	r18, r10
-    4b86:	0e 94 88 17 	call	0x2f10	; 0x2f10 <f_write>
-    4b8a:	80 93 38 02 	sts	0x0238, r24
-		errCode = f_close(&file);
-    4b8e:	c7 01       	movw	r24, r14
-    4b90:	0e 94 e7 19 	call	0x33ce	; 0x33ce <f_close>
-    4b94:	80 93 38 02 	sts	0x0238, r24
-		set_PORTD_bit(6,1);
-    4b98:	86 e0       	ldi	r24, 0x06	; 6
-    4b9a:	90 e0       	ldi	r25, 0x00	; 0
-    4b9c:	61 e0       	ldi	r22, 0x01	; 1
-    4b9e:	70 e0       	ldi	r23, 0x00	; 0
-    4ba0:	0e 94 4b 25 	call	0x4a96	; 0x4a96 <set_PORTD_bit>
-		
-	}
-    4ba4:	bd cf       	rjmp	.-134    	; 0x4b20 <main+0x4a>
-
-00004ba6 <rtd1Init>:
-}
+00004af4 <rtd1Init>:
 
 //RTD Functions-------------------------------------------------------------
 
 void rtd1Init(){
 	ADMUX = 0x01; //enables ADC1 (RTD1)
-    4ba6:	81 e0       	ldi	r24, 0x01	; 1
-    4ba8:	80 93 7c 00 	sts	0x007C, r24
+    4af4:	81 e0       	ldi	r24, 0x01	; 1
+    4af6:	80 93 7c 00 	sts	0x007C, r24
 	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor) 
-    4bac:	ea e7       	ldi	r30, 0x7A	; 122
-    4bae:	f0 e0       	ldi	r31, 0x00	; 0
-    4bb0:	80 81       	ld	r24, Z
-    4bb2:	83 6c       	ori	r24, 0xC3	; 195
-    4bb4:	80 83       	st	Z, r24
+    4afa:	ea e7       	ldi	r30, 0x7A	; 122
+    4afc:	f0 e0       	ldi	r31, 0x00	; 0
+    4afe:	80 81       	ld	r24, Z
+    4b00:	83 6c       	ori	r24, 0xC3	; 195
+    4b02:	80 83       	st	Z, r24
 }
-    4bb6:	08 95       	ret
+    4b04:	08 95       	ret
 
-00004bb8 <rtd1Val>:
+00004b06 <rtd1Val>:
 
 uint16_t rtd1Val(){
 	//outputs 10bit result [ADCH,ADCL]
 	rtd1Init();
-    4bb8:	0e 94 d3 25 	call	0x4ba6	; 0x4ba6 <rtd1Init>
+    4b06:	0e 94 7a 25 	call	0x4af4	; 0x4af4 <rtd1Init>
 	adcl_val=ADCL;
-    4bbc:	80 91 78 00 	lds	r24, 0x0078
-    4bc0:	80 93 8a 06 	sts	0x068A, r24
+    4b0a:	80 91 78 00 	lds	r24, 0x0078
+    4b0e:	80 93 8a 06 	sts	0x068A, r24
 	adch_val=ADCH;
-    4bc4:	90 91 79 00 	lds	r25, 0x0079
-    4bc8:	90 93 91 06 	sts	0x0691, r25
+    4b12:	90 91 79 00 	lds	r25, 0x0079
+    4b16:	90 93 91 06 	sts	0x0691, r25
 	adcvalComb = adch_val << 8 | adcl_val;
-    4bcc:	39 2f       	mov	r19, r25
-    4bce:	20 e0       	ldi	r18, 0x00	; 0
-    4bd0:	90 e0       	ldi	r25, 0x00	; 0
-    4bd2:	82 2b       	or	r24, r18
-    4bd4:	93 2b       	or	r25, r19
-    4bd6:	90 93 37 02 	sts	0x0237, r25
-    4bda:	80 93 36 02 	sts	0x0236, r24
+    4b1a:	39 2f       	mov	r19, r25
+    4b1c:	20 e0       	ldi	r18, 0x00	; 0
+    4b1e:	90 e0       	ldi	r25, 0x00	; 0
+    4b20:	82 2b       	or	r24, r18
+    4b22:	93 2b       	or	r25, r19
+    4b24:	90 93 37 02 	sts	0x0237, r25
+    4b28:	80 93 36 02 	sts	0x0236, r24
 	return adcvalComb;
 }
-    4bde:	08 95       	ret
+    4b2c:	08 95       	ret
 
-00004be0 <rtd2Init>:
+00004b2e <mainOG>:
+		
+	}
+}
+
+void mainOG(void)
+{
+    4b2e:	cf 93       	push	r28
+    4b30:	df 93       	push	r29
+    4b32:	cd b7       	in	r28, 0x3d	; 61
+    4b34:	de b7       	in	r29, 0x3e	; 62
+    4b36:	c2 50       	subi	r28, 0x02	; 2
+    4b38:	d4 40       	sbci	r29, 0x04	; 4
+    4b3a:	0f b6       	in	r0, 0x3f	; 63
+    4b3c:	f8 94       	cli
+    4b3e:	de bf       	out	0x3e, r29	; 62
+    4b40:	0f be       	out	0x3f, r0	; 63
+    4b42:	cd bf       	out	0x3d, r28	; 61
+	
+	//Initialize LED
+	ledInit();
+    4b44:	0e 94 d7 22 	call	0x45ae	; 0x45ae <ledInit>
+	
+	//Initialize SPI & SD
+
+	SPI_MasterInit();
+    4b48:	0e 94 26 23 	call	0x464c	; 0x464c <SPI_MasterInit>
+	//fat_init();		
+	crankClock();
+    4b4c:	0e 94 d0 22 	call	0x45a0	; 0x45a0 <crankClock>
+	CS2up();
+    4b50:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+	
+	while(1)
+	{
+		set_PORTD_bit(6,0);
+		volatile int n[512]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+    4b54:	ee 24       	eor	r14, r14
+    4b56:	ff 24       	eor	r15, r15
+    4b58:	68 94       	set
+    4b5a:	f1 f8       	bld	r15, 1
+	crankClock();
+	CS2up();
+	
+	while(1)
+	{
+		set_PORTD_bit(6,0);
+    4b5c:	86 e0       	ldi	r24, 0x06	; 6
+    4b5e:	90 e0       	ldi	r25, 0x00	; 0
+    4b60:	60 e0       	ldi	r22, 0x00	; 0
+    4b62:	70 e0       	ldi	r23, 0x00	; 0
+    4b64:	0e 94 5a 25 	call	0x4ab4	; 0x4ab4 <set_PORTD_bit>
+		volatile int n[512]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+    4b68:	fa 82       	std	Y+2, r15	; 0x02
+    4b6a:	e9 82       	std	Y+1, r14	; 0x01
+		
+		for(int i=0 ; i<arrSize ; i+=3){
+    4b6c:	89 81       	ldd	r24, Y+1	; 0x01
+    4b6e:	9a 81       	ldd	r25, Y+2	; 0x02
+    4b70:	18 16       	cp	r1, r24
+    4b72:	19 06       	cpc	r1, r25
+    4b74:	84 f5       	brge	.+96     	; 0x4bd6 <mainOG+0xa8>
+    4b76:	00 e0       	ldi	r16, 0x00	; 0
+    4b78:	10 e0       	ldi	r17, 0x00	; 0
+			//DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
+			DATA_RTD1 = rtd1Val();
+    4b7a:	0e 94 83 25 	call	0x4b06	; 0x4b06 <rtd1Val>
+    4b7e:	90 93 8f 06 	sts	0x068F, r25
+    4b82:	80 93 8e 06 	sts	0x068E, r24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+    4b86:	8f e3       	ldi	r24, 0x3F	; 63
+    4b88:	9d e0       	ldi	r25, 0x0D	; 13
+    4b8a:	a3 e0       	ldi	r26, 0x03	; 3
+    4b8c:	81 50       	subi	r24, 0x01	; 1
+    4b8e:	90 40       	sbci	r25, 0x00	; 0
+    4b90:	a0 40       	sbci	r26, 0x00	; 0
+    4b92:	e1 f7       	brne	.-8      	; 0x4b8c <mainOG+0x5e>
+    4b94:	00 c0       	rjmp	.+0      	; 0x4b96 <mainOG+0x68>
+    4b96:	00 00       	nop
+			_delay_ms(1000);
+			DATA_BCM  = readBCM();
+    4b98:	0e 94 58 24 	call	0x48b0	; 0x48b0 <readBCM>
+    4b9c:	90 93 65 04 	sts	0x0465, r25
+    4ba0:	80 93 64 04 	sts	0x0464, r24
+			afeTurnOff();
+    4ba4:	0e 94 44 23 	call	0x4688	; 0x4688 <afeTurnOff>
+		errCode = f_close(&file);
+		
+	}
+}
+
+void mainOG(void)
+    4ba8:	f8 01       	movw	r30, r16
+    4baa:	31 96       	adiw	r30, 0x01	; 1
+			_delay_ms(1000);
+			DATA_BCM  = readBCM();
+			afeTurnOff();
+			
+			//n[i] = DATA_RTD1;
+			n[i+1] = DATA_BCM;
+    4bac:	80 91 64 04 	lds	r24, 0x0464
+    4bb0:	90 91 65 04 	lds	r25, 0x0465
+    4bb4:	ee 0f       	add	r30, r30
+    4bb6:	ff 1f       	adc	r31, r31
+    4bb8:	a1 e0       	ldi	r26, 0x01	; 1
+    4bba:	b0 e0       	ldi	r27, 0x00	; 0
+    4bbc:	ac 0f       	add	r26, r28
+    4bbe:	bd 1f       	adc	r27, r29
+    4bc0:	ea 0f       	add	r30, r26
+    4bc2:	fb 1f       	adc	r31, r27
+    4bc4:	93 83       	std	Z+3, r25	; 0x03
+    4bc6:	82 83       	std	Z+2, r24	; 0x02
+	{
+		set_PORTD_bit(6,0);
+		volatile int n[512]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+		
+		for(int i=0 ; i<arrSize ; i+=3){
+    4bc8:	0d 5f       	subi	r16, 0xFD	; 253
+    4bca:	1f 4f       	sbci	r17, 0xFF	; 255
+    4bcc:	89 81       	ldd	r24, Y+1	; 0x01
+    4bce:	9a 81       	ldd	r25, Y+2	; 0x02
+    4bd0:	08 17       	cp	r16, r24
+    4bd2:	19 07       	cpc	r17, r25
+    4bd4:	94 f2       	brlt	.-92     	; 0x4b7a <mainOG+0x4c>
+			//n[i+2] = DATA_WSM;
+		}
+
+		//errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+		//errCode = f_close(&file);
+		set_PORTD_bit(6,1);
+    4bd6:	86 e0       	ldi	r24, 0x06	; 6
+    4bd8:	90 e0       	ldi	r25, 0x00	; 0
+    4bda:	61 e0       	ldi	r22, 0x01	; 1
+    4bdc:	70 e0       	ldi	r23, 0x00	; 0
+    4bde:	0e 94 5a 25 	call	0x4ab4	; 0x4ab4 <set_PORTD_bit>
+		
+	}
+    4be2:	bc cf       	rjmp	.-136    	; 0x4b5c <mainOG+0x2e>
+
+00004be4 <rtd2Init>:
+	adcvalComb = adch_val << 8 | adcl_val;
+	return adcvalComb;
+}
 
 void rtd2Init(){
 	ADMUX = 0x00; //enables ADC0 (RTD2)
-    4be0:	10 92 7c 00 	sts	0x007C, r1
+    4be4:	10 92 7c 00 	sts	0x007C, r1
 	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); // Enable ADC // Start A2D Conversions // ADC frequency @ 125kHz sample rate for 1Mhz clock (x8 Division Factor)
-    4be4:	ea e7       	ldi	r30, 0x7A	; 122
-    4be6:	f0 e0       	ldi	r31, 0x00	; 0
-    4be8:	80 81       	ld	r24, Z
-    4bea:	83 6c       	ori	r24, 0xC3	; 195
-    4bec:	80 83       	st	Z, r24
+    4be8:	ea e7       	ldi	r30, 0x7A	; 122
+    4bea:	f0 e0       	ldi	r31, 0x00	; 0
+    4bec:	80 81       	ld	r24, Z
+    4bee:	83 6c       	ori	r24, 0xC3	; 195
+    4bf0:	80 83       	st	Z, r24
 }
-    4bee:	08 95       	ret
+    4bf2:	08 95       	ret
 
-00004bf0 <rtd2Val>:
+00004bf4 <rtd2Val>:
 
 uint16_t rtd2Val(){
 	//outputs 10bit result [ADCH,ADCL]
 	rtd2Init();
-    4bf0:	0e 94 f0 25 	call	0x4be0	; 0x4be0 <rtd2Init>
+    4bf4:	0e 94 f2 25 	call	0x4be4	; 0x4be4 <rtd2Init>
 	adcl_val2=ADCL;
-    4bf4:	80 91 78 00 	lds	r24, 0x0078
-    4bf8:	80 93 59 04 	sts	0x0459, r24
+    4bf8:	80 91 78 00 	lds	r24, 0x0078
+    4bfc:	80 93 59 04 	sts	0x0459, r24
 	adch_val2=ADCH;
-    4bfc:	90 91 79 00 	lds	r25, 0x0079
-    4c00:	90 93 33 02 	sts	0x0233, r25
+    4c00:	90 91 79 00 	lds	r25, 0x0079
+    4c04:	90 93 33 02 	sts	0x0233, r25
 	adcvalComb2 = adch_val2 << 8 | adcl_val2;
-    4c04:	39 2f       	mov	r19, r25
-    4c06:	20 e0       	ldi	r18, 0x00	; 0
-    4c08:	90 e0       	ldi	r25, 0x00	; 0
-    4c0a:	82 2b       	or	r24, r18
-    4c0c:	93 2b       	or	r25, r19
-    4c0e:	90 93 30 02 	sts	0x0230, r25
-    4c12:	80 93 2f 02 	sts	0x022F, r24
+    4c08:	39 2f       	mov	r19, r25
+    4c0a:	20 e0       	ldi	r18, 0x00	; 0
+    4c0c:	90 e0       	ldi	r25, 0x00	; 0
+    4c0e:	82 2b       	or	r24, r18
+    4c10:	93 2b       	or	r25, r19
+    4c12:	90 93 30 02 	sts	0x0230, r25
+    4c16:	80 93 2f 02 	sts	0x022F, r24
 	return adcvalComb2;
 }
-    4c16:	08 95       	ret
+    4c1a:	08 95       	ret
 
-00004c18 <uart_init>:
+00004c1c <main>:
+uint16_t rtd1Val();
+uint16_t rtd2Val();
+
+
+void main(void)
+{
+    4c1c:	cf 93       	push	r28
+    4c1e:	df 93       	push	r29
+    4c20:	cd b7       	in	r28, 0x3d	; 61
+    4c22:	de b7       	in	r29, 0x3e	; 62
+    4c24:	c2 50       	subi	r28, 0x02	; 2
+    4c26:	d8 40       	sbci	r29, 0x08	; 8
+    4c28:	0f b6       	in	r0, 0x3f	; 63
+    4c2a:	f8 94       	cli
+    4c2c:	de bf       	out	0x3e, r29	; 62
+    4c2e:	0f be       	out	0x3f, r0	; 63
+    4c30:	cd bf       	out	0x3d, r28	; 61
+	//Initialize LED
+	ledInit();
+    4c32:	0e 94 d7 22 	call	0x45ae	; 0x45ae <ledInit>
+					
+	//Initialize SPI & SD
+
+	SPI_MasterInit();
+    4c36:	0e 94 26 23 	call	0x464c	; 0x464c <SPI_MasterInit>
+	fat_init();
+    4c3a:	0e 94 da 22 	call	0x45b4	; 0x45b4 <fat_init>
+	crankClock();
+    4c3e:	0e 94 d0 22 	call	0x45a0	; 0x45a0 <crankClock>
+	CS2up();
+    4c42:	0e 94 40 23 	call	0x4680	; 0x4680 <CS2up>
+		
+	while(1)
+	{
+		volatile int n[1024]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+    4c46:	cc 24       	eor	r12, r12
+    4c48:	dd 24       	eor	r13, r13
+    4c4a:	68 94       	set
+    4c4c:	d2 f8       	bld	r13, 2
+		
+		for(int i=0 ; i<arrSize ; i+=4){
+    4c4e:	88 24       	eor	r8, r8
+    4c50:	99 24       	eor	r9, r9
+			n[i+1] = DATA_RTD2;
+			n[i+2] = DATA_BCM;
+			n[i+3] = DATA_WSM;
+		}
+
+		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+    4c52:	0f 2e       	mov	r0, r31
+    4c54:	f9 e3       	ldi	r31, 0x39	; 57
+    4c56:	ef 2e       	mov	r14, r31
+    4c58:	f2 e0       	ldi	r31, 0x02	; 2
+    4c5a:	ff 2e       	mov	r15, r31
+    4c5c:	f0 2d       	mov	r31, r0
+    4c5e:	0f 2e       	mov	r0, r31
+    4c60:	f1 e3       	ldi	r31, 0x31	; 49
+    4c62:	af 2e       	mov	r10, r31
+    4c64:	f2 e0       	ldi	r31, 0x02	; 2
+    4c66:	bf 2e       	mov	r11, r31
+    4c68:	f0 2d       	mov	r31, r0
+	CS2up();
+		
+	while(1)
+	{
+		volatile int n[1024]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+    4c6a:	da 82       	std	Y+2, r13	; 0x02
+    4c6c:	c9 82       	std	Y+1, r12	; 0x01
+		
+		for(int i=0 ; i<arrSize ; i+=4){
+    4c6e:	89 81       	ldd	r24, Y+1	; 0x01
+    4c70:	9a 81       	ldd	r25, Y+2	; 0x02
+    4c72:	18 16       	cp	r1, r24
+    4c74:	19 06       	cpc	r1, r25
+    4c76:	0c f0       	brlt	.+2      	; 0x4c7a <main+0x5e>
+    4c78:	58 c0       	rjmp	.+176    	; 0x4d2a <main+0x10e>
+    4c7a:	84 01       	movw	r16, r8
+			DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
+    4c7c:	0e 94 38 25 	call	0x4a70	; 0x4a70 <readWSM>
+    4c80:	90 93 68 04 	sts	0x0468, r25
+    4c84:	80 93 67 04 	sts	0x0467, r24
+			DATA_BCM  = readBCM();
+    4c88:	0e 94 58 24 	call	0x48b0	; 0x48b0 <readBCM>
+    4c8c:	90 93 65 04 	sts	0x0465, r25
+    4c90:	80 93 64 04 	sts	0x0464, r24
+			DATA_RTD1 = rtd1Val();
+    4c94:	0e 94 83 25 	call	0x4b06	; 0x4b06 <rtd1Val>
+    4c98:	90 93 8f 06 	sts	0x068F, r25
+    4c9c:	80 93 8e 06 	sts	0x068E, r24
+			DATA_RTD2 = rtd2Val();
+    4ca0:	0e 94 fa 25 	call	0x4bf4	; 0x4bf4 <rtd2Val>
+    4ca4:	28 2f       	mov	r18, r24
+    4ca6:	39 2f       	mov	r19, r25
+    4ca8:	80 93 69 04 	sts	0x0469, r24
+    4cac:	90 93 6a 04 	sts	0x046A, r25
+
+			n[i] = DATA_RTD1;
+    4cb0:	40 91 8e 06 	lds	r20, 0x068E
+    4cb4:	50 91 8f 06 	lds	r21, 0x068F
+    4cb8:	c8 01       	movw	r24, r16
+    4cba:	88 0f       	add	r24, r24
+    4cbc:	99 1f       	adc	r25, r25
+    4cbe:	61 e0       	ldi	r22, 0x01	; 1
+    4cc0:	70 e0       	ldi	r23, 0x00	; 0
+    4cc2:	6c 0f       	add	r22, r28
+    4cc4:	7d 1f       	adc	r23, r29
+    4cc6:	86 0f       	add	r24, r22
+    4cc8:	97 1f       	adc	r25, r23
+    4cca:	fc 01       	movw	r30, r24
+    4ccc:	53 83       	std	Z+3, r21	; 0x03
+    4cce:	42 83       	std	Z+2, r20	; 0x02
+uint16_t readWSM();
+uint16_t rtd1Val();
+uint16_t rtd2Val();
+
+
+void main(void)
+    4cd0:	c8 01       	movw	r24, r16
+    4cd2:	01 96       	adiw	r24, 0x01	; 1
+			DATA_BCM  = readBCM();
+			DATA_RTD1 = rtd1Val();
+			DATA_RTD2 = rtd2Val();
+
+			n[i] = DATA_RTD1;
+			n[i+1] = DATA_RTD2;
+    4cd4:	42 2f       	mov	r20, r18
+    4cd6:	53 2f       	mov	r21, r19
+    4cd8:	88 0f       	add	r24, r24
+    4cda:	99 1f       	adc	r25, r25
+    4cdc:	86 0f       	add	r24, r22
+    4cde:	97 1f       	adc	r25, r23
+    4ce0:	fc 01       	movw	r30, r24
+    4ce2:	53 83       	std	Z+3, r21	; 0x03
+    4ce4:	42 83       	std	Z+2, r20	; 0x02
+uint16_t readWSM();
+uint16_t rtd1Val();
+uint16_t rtd2Val();
+
+
+void main(void)
+    4ce6:	c8 01       	movw	r24, r16
+    4ce8:	02 96       	adiw	r24, 0x02	; 2
+			DATA_RTD1 = rtd1Val();
+			DATA_RTD2 = rtd2Val();
+
+			n[i] = DATA_RTD1;
+			n[i+1] = DATA_RTD2;
+			n[i+2] = DATA_BCM;
+    4cea:	20 91 64 04 	lds	r18, 0x0464
+    4cee:	30 91 65 04 	lds	r19, 0x0465
+    4cf2:	88 0f       	add	r24, r24
+    4cf4:	99 1f       	adc	r25, r25
+    4cf6:	86 0f       	add	r24, r22
+    4cf8:	97 1f       	adc	r25, r23
+    4cfa:	fc 01       	movw	r30, r24
+    4cfc:	33 83       	std	Z+3, r19	; 0x03
+    4cfe:	22 83       	std	Z+2, r18	; 0x02
+uint16_t readWSM();
+uint16_t rtd1Val();
+uint16_t rtd2Val();
+
+
+void main(void)
+    4d00:	c8 01       	movw	r24, r16
+    4d02:	03 96       	adiw	r24, 0x03	; 3
+			DATA_RTD2 = rtd2Val();
+
+			n[i] = DATA_RTD1;
+			n[i+1] = DATA_RTD2;
+			n[i+2] = DATA_BCM;
+			n[i+3] = DATA_WSM;
+    4d04:	20 91 67 04 	lds	r18, 0x0467
+    4d08:	30 91 68 04 	lds	r19, 0x0468
+    4d0c:	88 0f       	add	r24, r24
+    4d0e:	99 1f       	adc	r25, r25
+    4d10:	86 0f       	add	r24, r22
+    4d12:	97 1f       	adc	r25, r23
+    4d14:	fc 01       	movw	r30, r24
+    4d16:	33 83       	std	Z+3, r19	; 0x03
+    4d18:	22 83       	std	Z+2, r18	; 0x02
+	while(1)
+	{
+		volatile int n[1024]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+		
+		for(int i=0 ; i<arrSize ; i+=4){
+    4d1a:	0c 5f       	subi	r16, 0xFC	; 252
+    4d1c:	1f 4f       	sbci	r17, 0xFF	; 255
+    4d1e:	89 81       	ldd	r24, Y+1	; 0x01
+    4d20:	9a 81       	ldd	r25, Y+2	; 0x02
+    4d22:	08 17       	cp	r16, r24
+    4d24:	19 07       	cpc	r17, r25
+    4d26:	0c f4       	brge	.+2      	; 0x4d2a <main+0x10e>
+    4d28:	a9 cf       	rjmp	.-174    	; 0x4c7c <main+0x60>
+			n[i+1] = DATA_RTD2;
+			n[i+2] = DATA_BCM;
+			n[i+3] = DATA_WSM;
+		}
+
+		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+    4d2a:	49 81       	ldd	r20, Y+1	; 0x01
+    4d2c:	5a 81       	ldd	r21, Y+2	; 0x02
+    4d2e:	c7 01       	movw	r24, r14
+    4d30:	be 01       	movw	r22, r28
+    4d32:	6d 5f       	subi	r22, 0xFD	; 253
+    4d34:	7f 4f       	sbci	r23, 0xFF	; 255
+    4d36:	95 01       	movw	r18, r10
+    4d38:	0e 94 88 17 	call	0x2f10	; 0x2f10 <f_write>
+    4d3c:	80 93 38 02 	sts	0x0238, r24
+		errCode = f_close(&file);
+    4d40:	c7 01       	movw	r24, r14
+    4d42:	0e 94 e7 19 	call	0x33ce	; 0x33ce <f_close>
+    4d46:	80 93 38 02 	sts	0x0238, r24
+		
+	}
+    4d4a:	8f cf       	rjmp	.-226    	; 0x4c6a <main+0x4e>
+
+00004d4c <uart_init>:
 // 	UBRR0L = F_CPU / BAUD / 16 - 1;
 // 	UCSR0B = _BV(RXEN0) | _BV(RXCIE0) | _BV(TXEN0);
 // 	
 	
 	//Set baud rate
 	UBRR0H = (unsigned char)(ubrr>>8);
-    4c18:	90 93 c5 00 	sts	0x00C5, r25
+    4d4c:	90 93 c5 00 	sts	0x00C5, r25
 	UBRR0L = (unsigned char)ubrr;
-    4c1c:	80 93 c4 00 	sts	0x00C4, r24
+    4d50:	80 93 c4 00 	sts	0x00C4, r24
 	//Enable receiver and transmitter
 	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-    4c20:	e1 ec       	ldi	r30, 0xC1	; 193
-    4c22:	f0 e0       	ldi	r31, 0x00	; 0
-    4c24:	88 e1       	ldi	r24, 0x18	; 24
-    4c26:	80 83       	st	Z, r24
+    4d54:	e1 ec       	ldi	r30, 0xC1	; 193
+    4d56:	f0 e0       	ldi	r31, 0x00	; 0
+    4d58:	88 e1       	ldi	r24, 0x18	; 24
+    4d5a:	80 83       	st	Z, r24
 	
 	UCSR0C = 0x06; //set asynchronous, no parity, one stop bit, 8 bit transfer.
-    4c28:	86 e0       	ldi	r24, 0x06	; 6
-    4c2a:	80 93 c2 00 	sts	0x00C2, r24
+    4d5c:	86 e0       	ldi	r24, 0x06	; 6
+    4d5e:	80 93 c2 00 	sts	0x00C2, r24
 	
 	UCSR0B |= (1 << RXCIE0); //set RX interrupt on
-    4c2e:	80 81       	ld	r24, Z
-    4c30:	80 68       	ori	r24, 0x80	; 128
-    4c32:	80 83       	st	Z, r24
+    4d62:	80 81       	ld	r24, Z
+    4d64:	80 68       	ori	r24, 0x80	; 128
+    4d66:	80 83       	st	Z, r24
 }
-    4c34:	08 95       	ret
+    4d68:	08 95       	ret
 
-00004c36 <uart_test>:
+00004d6a <uart_test>:
 
 /* Get a received character */
 
 uint8_t uart_test (void)
 {
 	return RxFifo.ct;
-    4c36:	80 91 ab 01 	lds	r24, 0x01AB
+    4d6a:	80 91 ab 01 	lds	r24, 0x01AB
 }
-    4c3a:	08 95       	ret
+    4d6e:	08 95       	ret
 
-00004c3c <uart_get>:
+00004d70 <uart_get>:
 uint8_t uart_get (void)
 {
 	uint8_t d, i;
 
 
 	while (RxFifo.ct == 0) ;
-    4c3c:	eb ea       	ldi	r30, 0xAB	; 171
-    4c3e:	f1 e0       	ldi	r31, 0x01	; 1
-    4c40:	80 81       	ld	r24, Z
-    4c42:	88 23       	and	r24, r24
-    4c44:	e9 f3       	breq	.-6      	; 0x4c40 <uart_get+0x4>
+    4d70:	eb ea       	ldi	r30, 0xAB	; 171
+    4d72:	f1 e0       	ldi	r31, 0x01	; 1
+    4d74:	80 81       	ld	r24, Z
+    4d76:	88 23       	and	r24, r24
+    4d78:	e9 f3       	breq	.-6      	; 0x4d74 <uart_get+0x4>
 	i = RxFifo.ri;
-    4c46:	90 91 aa 01 	lds	r25, 0x01AA
+    4d7a:	90 91 aa 01 	lds	r25, 0x01AA
 	d = RxFifo.buff[i];
-    4c4a:	e9 ea       	ldi	r30, 0xA9	; 169
-    4c4c:	f1 e0       	ldi	r31, 0x01	; 1
-    4c4e:	df 01       	movw	r26, r30
-    4c50:	a9 0f       	add	r26, r25
-    4c52:	b1 1d       	adc	r27, r1
-    4c54:	13 96       	adiw	r26, 0x03	; 3
-    4c56:	8c 91       	ld	r24, X
-    4c58:	13 97       	sbiw	r26, 0x03	; 3
+    4d7e:	e9 ea       	ldi	r30, 0xA9	; 169
+    4d80:	f1 e0       	ldi	r31, 0x01	; 1
+    4d82:	df 01       	movw	r26, r30
+    4d84:	a9 0f       	add	r26, r25
+    4d86:	b1 1d       	adc	r27, r1
+    4d88:	13 96       	adiw	r26, 0x03	; 3
+    4d8a:	8c 91       	ld	r24, X
+    4d8c:	13 97       	sbiw	r26, 0x03	; 3
 	cli();
-    4c5a:	f8 94       	cli
+    4d8e:	f8 94       	cli
 	RxFifo.ct--;
-    4c5c:	22 81       	ldd	r18, Z+2	; 0x02
-    4c5e:	21 50       	subi	r18, 0x01	; 1
-    4c60:	22 83       	std	Z+2, r18	; 0x02
+    4d90:	22 81       	ldd	r18, Z+2	; 0x02
+    4d92:	21 50       	subi	r18, 0x01	; 1
+    4d94:	22 83       	std	Z+2, r18	; 0x02
 	sei();
-    4c62:	78 94       	sei
+    4d96:	78 94       	sei
 	RxFifo.ri = (i + 1) % sizeof RxFifo.buff;
-    4c64:	9f 5f       	subi	r25, 0xFF	; 255
-    4c66:	9f 73       	andi	r25, 0x3F	; 63
-    4c68:	90 93 aa 01 	sts	0x01AA, r25
+    4d98:	9f 5f       	subi	r25, 0xFF	; 255
+    4d9a:	9f 73       	andi	r25, 0x3F	; 63
+    4d9c:	90 93 aa 01 	sts	0x01AA, r25
 
 	return d;
 }
-    4c6c:	08 95       	ret
+    4da0:	08 95       	ret
 
-00004c6e <uart_put>:
+00004da2 <uart_put>:
 void uart_put (uint8_t d)
 {
 	uint8_t i;
 
 
 	while (TxFifo.ct >= sizeof TxFifo.buff) ;
-    4c6e:	ee ee       	ldi	r30, 0xEE	; 238
-    4c70:	f1 e0       	ldi	r31, 0x01	; 1
-    4c72:	90 81       	ld	r25, Z
-    4c74:	90 34       	cpi	r25, 0x40	; 64
-    4c76:	e8 f7       	brcc	.-6      	; 0x4c72 <uart_put+0x4>
+    4da2:	ee ee       	ldi	r30, 0xEE	; 238
+    4da4:	f1 e0       	ldi	r31, 0x01	; 1
+    4da6:	90 81       	ld	r25, Z
+    4da8:	90 34       	cpi	r25, 0x40	; 64
+    4daa:	e8 f7       	brcc	.-6      	; 0x4da6 <uart_put+0x4>
 	i = TxFifo.wi;
-    4c78:	90 91 ec 01 	lds	r25, 0x01EC
+    4dac:	90 91 ec 01 	lds	r25, 0x01EC
 	TxFifo.buff[i] = d;
-    4c7c:	e9 2f       	mov	r30, r25
-    4c7e:	f0 e0       	ldi	r31, 0x00	; 0
-    4c80:	e4 51       	subi	r30, 0x14	; 20
-    4c82:	fe 4f       	sbci	r31, 0xFE	; 254
-    4c84:	83 83       	std	Z+3, r24	; 0x03
+    4db0:	e9 2f       	mov	r30, r25
+    4db2:	f0 e0       	ldi	r31, 0x00	; 0
+    4db4:	e4 51       	subi	r30, 0x14	; 20
+    4db6:	fe 4f       	sbci	r31, 0xFE	; 254
+    4db8:	83 83       	std	Z+3, r24	; 0x03
 	cli();
-    4c86:	f8 94       	cli
+    4dba:	f8 94       	cli
 	TxFifo.ct++;
-    4c88:	80 91 ee 01 	lds	r24, 0x01EE
-    4c8c:	8f 5f       	subi	r24, 0xFF	; 255
-    4c8e:	80 93 ee 01 	sts	0x01EE, r24
+    4dbc:	80 91 ee 01 	lds	r24, 0x01EE
+    4dc0:	8f 5f       	subi	r24, 0xFF	; 255
+    4dc2:	80 93 ee 01 	sts	0x01EE, r24
 	UCSR0B = _BV(RXEN0) | _BV(RXCIE0) | _BV(TXEN0) | _BV(UDRIE0);
-    4c92:	88 eb       	ldi	r24, 0xB8	; 184
-    4c94:	80 93 c1 00 	sts	0x00C1, r24
+    4dc6:	88 eb       	ldi	r24, 0xB8	; 184
+    4dc8:	80 93 c1 00 	sts	0x00C1, r24
 	sei();
-    4c98:	78 94       	sei
+    4dcc:	78 94       	sei
 	TxFifo.wi = (i + 1) % sizeof TxFifo.buff;
-    4c9a:	9f 5f       	subi	r25, 0xFF	; 255
-    4c9c:	9f 73       	andi	r25, 0x3F	; 63
-    4c9e:	90 93 ec 01 	sts	0x01EC, r25
+    4dce:	9f 5f       	subi	r25, 0xFF	; 255
+    4dd0:	9f 73       	andi	r25, 0x3F	; 63
+    4dd2:	90 93 ec 01 	sts	0x01EC, r25
 }
-    4ca2:	08 95       	ret
+    4dd6:	08 95       	ret
 
-00004ca4 <__vector_20>:
+00004dd8 <__vector_20>:
 
 
 /* UART RXC interrupt */
 
 ISR(USART0_RX_vect)
 {
-    4ca4:	1f 92       	push	r1
-    4ca6:	0f 92       	push	r0
-    4ca8:	0f b6       	in	r0, 0x3f	; 63
-    4caa:	0f 92       	push	r0
-    4cac:	0b b6       	in	r0, 0x3b	; 59
-    4cae:	0f 92       	push	r0
-    4cb0:	11 24       	eor	r1, r1
-    4cb2:	8f 93       	push	r24
-    4cb4:	9f 93       	push	r25
-    4cb6:	af 93       	push	r26
-    4cb8:	bf 93       	push	r27
-    4cba:	ef 93       	push	r30
-    4cbc:	ff 93       	push	r31
+    4dd8:	1f 92       	push	r1
+    4dda:	0f 92       	push	r0
+    4ddc:	0f b6       	in	r0, 0x3f	; 63
+    4dde:	0f 92       	push	r0
+    4de0:	0b b6       	in	r0, 0x3b	; 59
+    4de2:	0f 92       	push	r0
+    4de4:	11 24       	eor	r1, r1
+    4de6:	8f 93       	push	r24
+    4de8:	9f 93       	push	r25
+    4dea:	af 93       	push	r26
+    4dec:	bf 93       	push	r27
+    4dee:	ef 93       	push	r30
+    4df0:	ff 93       	push	r31
 	uint8_t d, n, i;
 
 
 	d = UDR0;
-    4cbe:	90 91 c6 00 	lds	r25, 0x00C6
+    4df2:	90 91 c6 00 	lds	r25, 0x00C6
 	n = RxFifo.ct;
-    4cc2:	80 91 ab 01 	lds	r24, 0x01AB
+    4df6:	80 91 ab 01 	lds	r24, 0x01AB
 	if (n < sizeof RxFifo.buff) {
-    4cc6:	80 34       	cpi	r24, 0x40	; 64
-    4cc8:	70 f4       	brcc	.+28     	; 0x4ce6 <__vector_20+0x42>
+    4dfa:	80 34       	cpi	r24, 0x40	; 64
+    4dfc:	70 f4       	brcc	.+28     	; 0x4e1a <__vector_20+0x42>
 		RxFifo.ct = ++n;
-    4cca:	8f 5f       	subi	r24, 0xFF	; 255
-    4ccc:	80 93 ab 01 	sts	0x01AB, r24
+    4dfe:	8f 5f       	subi	r24, 0xFF	; 255
+    4e00:	80 93 ab 01 	sts	0x01AB, r24
 		i = RxFifo.wi;
-    4cd0:	e9 ea       	ldi	r30, 0xA9	; 169
-    4cd2:	f1 e0       	ldi	r31, 0x01	; 1
-    4cd4:	80 81       	ld	r24, Z
+    4e04:	e9 ea       	ldi	r30, 0xA9	; 169
+    4e06:	f1 e0       	ldi	r31, 0x01	; 1
+    4e08:	80 81       	ld	r24, Z
 		RxFifo.buff[i] = d;
-    4cd6:	df 01       	movw	r26, r30
-    4cd8:	a8 0f       	add	r26, r24
-    4cda:	b1 1d       	adc	r27, r1
-    4cdc:	13 96       	adiw	r26, 0x03	; 3
-    4cde:	9c 93       	st	X, r25
+    4e0a:	df 01       	movw	r26, r30
+    4e0c:	a8 0f       	add	r26, r24
+    4e0e:	b1 1d       	adc	r27, r1
+    4e10:	13 96       	adiw	r26, 0x03	; 3
+    4e12:	9c 93       	st	X, r25
 		RxFifo.wi = (i + 1) % sizeof RxFifo.buff;
-    4ce0:	8f 5f       	subi	r24, 0xFF	; 255
-    4ce2:	8f 73       	andi	r24, 0x3F	; 63
-    4ce4:	80 83       	st	Z, r24
+    4e14:	8f 5f       	subi	r24, 0xFF	; 255
+    4e16:	8f 73       	andi	r24, 0x3F	; 63
+    4e18:	80 83       	st	Z, r24
 	}
 }
-    4ce6:	ff 91       	pop	r31
-    4ce8:	ef 91       	pop	r30
-    4cea:	bf 91       	pop	r27
-    4cec:	af 91       	pop	r26
-    4cee:	9f 91       	pop	r25
-    4cf0:	8f 91       	pop	r24
-    4cf2:	0f 90       	pop	r0
-    4cf4:	0b be       	out	0x3b, r0	; 59
-    4cf6:	0f 90       	pop	r0
-    4cf8:	0f be       	out	0x3f, r0	; 63
-    4cfa:	0f 90       	pop	r0
-    4cfc:	1f 90       	pop	r1
-    4cfe:	18 95       	reti
+    4e1a:	ff 91       	pop	r31
+    4e1c:	ef 91       	pop	r30
+    4e1e:	bf 91       	pop	r27
+    4e20:	af 91       	pop	r26
+    4e22:	9f 91       	pop	r25
+    4e24:	8f 91       	pop	r24
+    4e26:	0f 90       	pop	r0
+    4e28:	0b be       	out	0x3b, r0	; 59
+    4e2a:	0f 90       	pop	r0
+    4e2c:	0f be       	out	0x3f, r0	; 63
+    4e2e:	0f 90       	pop	r0
+    4e30:	1f 90       	pop	r1
+    4e32:	18 95       	reti
 
-00004d00 <__vector_21>:
+00004e34 <__vector_21>:
 
 
 /* UART UDRE interrupt */
 
 ISR(USART0_UDRE_vect)
 {
-    4d00:	1f 92       	push	r1
-    4d02:	0f 92       	push	r0
-    4d04:	0f b6       	in	r0, 0x3f	; 63
-    4d06:	0f 92       	push	r0
-    4d08:	0b b6       	in	r0, 0x3b	; 59
-    4d0a:	0f 92       	push	r0
-    4d0c:	11 24       	eor	r1, r1
-    4d0e:	2f 93       	push	r18
-    4d10:	3f 93       	push	r19
-    4d12:	8f 93       	push	r24
-    4d14:	9f 93       	push	r25
-    4d16:	af 93       	push	r26
-    4d18:	bf 93       	push	r27
-    4d1a:	ef 93       	push	r30
-    4d1c:	ff 93       	push	r31
+    4e34:	1f 92       	push	r1
+    4e36:	0f 92       	push	r0
+    4e38:	0f b6       	in	r0, 0x3f	; 63
+    4e3a:	0f 92       	push	r0
+    4e3c:	0b b6       	in	r0, 0x3b	; 59
+    4e3e:	0f 92       	push	r0
+    4e40:	11 24       	eor	r1, r1
+    4e42:	2f 93       	push	r18
+    4e44:	3f 93       	push	r19
+    4e46:	8f 93       	push	r24
+    4e48:	9f 93       	push	r25
+    4e4a:	af 93       	push	r26
+    4e4c:	bf 93       	push	r27
+    4e4e:	ef 93       	push	r30
+    4e50:	ff 93       	push	r31
 	uint8_t n, i;
 
 
 	n = TxFifo.ct;
-    4d1e:	80 91 ee 01 	lds	r24, 0x01EE
+    4e52:	80 91 ee 01 	lds	r24, 0x01EE
 	if (n) {
-    4d22:	88 23       	and	r24, r24
-    4d24:	b1 f0       	breq	.+44     	; 0x4d52 <__vector_21+0x52>
+    4e56:	88 23       	and	r24, r24
+    4e58:	b1 f0       	breq	.+44     	; 0x4e86 <__vector_21+0x52>
 		TxFifo.ct = --n;
-    4d26:	28 2f       	mov	r18, r24
-    4d28:	21 50       	subi	r18, 0x01	; 1
-    4d2a:	8e ee       	ldi	r24, 0xEE	; 238
-    4d2c:	91 e0       	ldi	r25, 0x01	; 1
-    4d2e:	20 93 ee 01 	sts	0x01EE, r18
+    4e5a:	28 2f       	mov	r18, r24
+    4e5c:	21 50       	subi	r18, 0x01	; 1
+    4e5e:	8e ee       	ldi	r24, 0xEE	; 238
+    4e60:	91 e0       	ldi	r25, 0x01	; 1
+    4e62:	20 93 ee 01 	sts	0x01EE, r18
 		i = TxFifo.ri;
-    4d32:	fc 01       	movw	r30, r24
-    4d34:	32 91       	ld	r19, -Z
+    4e66:	fc 01       	movw	r30, r24
+    4e68:	32 91       	ld	r19, -Z
 		UDR0 = TxFifo.buff[i];
-    4d36:	02 97       	sbiw	r24, 0x02	; 2
-    4d38:	dc 01       	movw	r26, r24
-    4d3a:	a3 0f       	add	r26, r19
-    4d3c:	b1 1d       	adc	r27, r1
-    4d3e:	13 96       	adiw	r26, 0x03	; 3
-    4d40:	8c 91       	ld	r24, X
-    4d42:	13 97       	sbiw	r26, 0x03	; 3
-    4d44:	80 93 c6 00 	sts	0x00C6, r24
+    4e6a:	02 97       	sbiw	r24, 0x02	; 2
+    4e6c:	dc 01       	movw	r26, r24
+    4e6e:	a3 0f       	add	r26, r19
+    4e70:	b1 1d       	adc	r27, r1
+    4e72:	13 96       	adiw	r26, 0x03	; 3
+    4e74:	8c 91       	ld	r24, X
+    4e76:	13 97       	sbiw	r26, 0x03	; 3
+    4e78:	80 93 c6 00 	sts	0x00C6, r24
 		TxFifo.ri = (i + 1) % sizeof TxFifo.buff;
-    4d48:	3f 5f       	subi	r19, 0xFF	; 255
-    4d4a:	3f 73       	andi	r19, 0x3F	; 63
-    4d4c:	30 83       	st	Z, r19
+    4e7c:	3f 5f       	subi	r19, 0xFF	; 255
+    4e7e:	3f 73       	andi	r19, 0x3F	; 63
+    4e80:	30 83       	st	Z, r19
 	}
 	if (n == 0) UCSR0B = _BV(RXEN0) | _BV(RXCIE0) | _BV(TXEN0);
-    4d4e:	22 23       	and	r18, r18
-    4d50:	19 f4       	brne	.+6      	; 0x4d58 <__vector_21+0x58>
-    4d52:	88 e9       	ldi	r24, 0x98	; 152
-    4d54:	80 93 c1 00 	sts	0x00C1, r24
+    4e82:	22 23       	and	r18, r18
+    4e84:	19 f4       	brne	.+6      	; 0x4e8c <__vector_21+0x58>
+    4e86:	88 e9       	ldi	r24, 0x98	; 152
+    4e88:	80 93 c1 00 	sts	0x00C1, r24
 }
-    4d58:	ff 91       	pop	r31
-    4d5a:	ef 91       	pop	r30
-    4d5c:	bf 91       	pop	r27
-    4d5e:	af 91       	pop	r26
-    4d60:	9f 91       	pop	r25
-    4d62:	8f 91       	pop	r24
-    4d64:	3f 91       	pop	r19
-    4d66:	2f 91       	pop	r18
-    4d68:	0f 90       	pop	r0
-    4d6a:	0b be       	out	0x3b, r0	; 59
-    4d6c:	0f 90       	pop	r0
-    4d6e:	0f be       	out	0x3f, r0	; 63
-    4d70:	0f 90       	pop	r0
-    4d72:	1f 90       	pop	r1
-    4d74:	18 95       	reti
+    4e8c:	ff 91       	pop	r31
+    4e8e:	ef 91       	pop	r30
+    4e90:	bf 91       	pop	r27
+    4e92:	af 91       	pop	r26
+    4e94:	9f 91       	pop	r25
+    4e96:	8f 91       	pop	r24
+    4e98:	3f 91       	pop	r19
+    4e9a:	2f 91       	pop	r18
+    4e9c:	0f 90       	pop	r0
+    4e9e:	0b be       	out	0x3b, r0	; 59
+    4ea0:	0f 90       	pop	r0
+    4ea2:	0f be       	out	0x3f, r0	; 63
+    4ea4:	0f 90       	pop	r0
+    4ea6:	1f 90       	pop	r1
+    4ea8:	18 95       	reti
 
-00004d76 <__mulsi3>:
-    4d76:	62 9f       	mul	r22, r18
-    4d78:	d0 01       	movw	r26, r0
-    4d7a:	73 9f       	mul	r23, r19
-    4d7c:	f0 01       	movw	r30, r0
-    4d7e:	82 9f       	mul	r24, r18
-    4d80:	e0 0d       	add	r30, r0
-    4d82:	f1 1d       	adc	r31, r1
-    4d84:	64 9f       	mul	r22, r20
-    4d86:	e0 0d       	add	r30, r0
-    4d88:	f1 1d       	adc	r31, r1
-    4d8a:	92 9f       	mul	r25, r18
-    4d8c:	f0 0d       	add	r31, r0
-    4d8e:	83 9f       	mul	r24, r19
-    4d90:	f0 0d       	add	r31, r0
-    4d92:	74 9f       	mul	r23, r20
-    4d94:	f0 0d       	add	r31, r0
-    4d96:	65 9f       	mul	r22, r21
-    4d98:	f0 0d       	add	r31, r0
-    4d9a:	99 27       	eor	r25, r25
-    4d9c:	72 9f       	mul	r23, r18
-    4d9e:	b0 0d       	add	r27, r0
-    4da0:	e1 1d       	adc	r30, r1
-    4da2:	f9 1f       	adc	r31, r25
-    4da4:	63 9f       	mul	r22, r19
-    4da6:	b0 0d       	add	r27, r0
-    4da8:	e1 1d       	adc	r30, r1
-    4daa:	f9 1f       	adc	r31, r25
-    4dac:	bd 01       	movw	r22, r26
-    4dae:	cf 01       	movw	r24, r30
-    4db0:	11 24       	eor	r1, r1
-    4db2:	08 95       	ret
+00004eaa <__mulsi3>:
+    4eaa:	62 9f       	mul	r22, r18
+    4eac:	d0 01       	movw	r26, r0
+    4eae:	73 9f       	mul	r23, r19
+    4eb0:	f0 01       	movw	r30, r0
+    4eb2:	82 9f       	mul	r24, r18
+    4eb4:	e0 0d       	add	r30, r0
+    4eb6:	f1 1d       	adc	r31, r1
+    4eb8:	64 9f       	mul	r22, r20
+    4eba:	e0 0d       	add	r30, r0
+    4ebc:	f1 1d       	adc	r31, r1
+    4ebe:	92 9f       	mul	r25, r18
+    4ec0:	f0 0d       	add	r31, r0
+    4ec2:	83 9f       	mul	r24, r19
+    4ec4:	f0 0d       	add	r31, r0
+    4ec6:	74 9f       	mul	r23, r20
+    4ec8:	f0 0d       	add	r31, r0
+    4eca:	65 9f       	mul	r22, r21
+    4ecc:	f0 0d       	add	r31, r0
+    4ece:	99 27       	eor	r25, r25
+    4ed0:	72 9f       	mul	r23, r18
+    4ed2:	b0 0d       	add	r27, r0
+    4ed4:	e1 1d       	adc	r30, r1
+    4ed6:	f9 1f       	adc	r31, r25
+    4ed8:	63 9f       	mul	r22, r19
+    4eda:	b0 0d       	add	r27, r0
+    4edc:	e1 1d       	adc	r30, r1
+    4ede:	f9 1f       	adc	r31, r25
+    4ee0:	bd 01       	movw	r22, r26
+    4ee2:	cf 01       	movw	r24, r30
+    4ee4:	11 24       	eor	r1, r1
+    4ee6:	08 95       	ret
 
-00004db4 <__udivmodsi4>:
-    4db4:	a1 e2       	ldi	r26, 0x21	; 33
-    4db6:	1a 2e       	mov	r1, r26
-    4db8:	aa 1b       	sub	r26, r26
-    4dba:	bb 1b       	sub	r27, r27
-    4dbc:	fd 01       	movw	r30, r26
-    4dbe:	0d c0       	rjmp	.+26     	; 0x4dda <__udivmodsi4_ep>
+00004ee8 <__udivmodsi4>:
+    4ee8:	a1 e2       	ldi	r26, 0x21	; 33
+    4eea:	1a 2e       	mov	r1, r26
+    4eec:	aa 1b       	sub	r26, r26
+    4eee:	bb 1b       	sub	r27, r27
+    4ef0:	fd 01       	movw	r30, r26
+    4ef2:	0d c0       	rjmp	.+26     	; 0x4f0e <__udivmodsi4_ep>
 
-00004dc0 <__udivmodsi4_loop>:
-    4dc0:	aa 1f       	adc	r26, r26
-    4dc2:	bb 1f       	adc	r27, r27
-    4dc4:	ee 1f       	adc	r30, r30
-    4dc6:	ff 1f       	adc	r31, r31
-    4dc8:	a2 17       	cp	r26, r18
-    4dca:	b3 07       	cpc	r27, r19
-    4dcc:	e4 07       	cpc	r30, r20
-    4dce:	f5 07       	cpc	r31, r21
-    4dd0:	20 f0       	brcs	.+8      	; 0x4dda <__udivmodsi4_ep>
-    4dd2:	a2 1b       	sub	r26, r18
-    4dd4:	b3 0b       	sbc	r27, r19
-    4dd6:	e4 0b       	sbc	r30, r20
-    4dd8:	f5 0b       	sbc	r31, r21
+00004ef4 <__udivmodsi4_loop>:
+    4ef4:	aa 1f       	adc	r26, r26
+    4ef6:	bb 1f       	adc	r27, r27
+    4ef8:	ee 1f       	adc	r30, r30
+    4efa:	ff 1f       	adc	r31, r31
+    4efc:	a2 17       	cp	r26, r18
+    4efe:	b3 07       	cpc	r27, r19
+    4f00:	e4 07       	cpc	r30, r20
+    4f02:	f5 07       	cpc	r31, r21
+    4f04:	20 f0       	brcs	.+8      	; 0x4f0e <__udivmodsi4_ep>
+    4f06:	a2 1b       	sub	r26, r18
+    4f08:	b3 0b       	sbc	r27, r19
+    4f0a:	e4 0b       	sbc	r30, r20
+    4f0c:	f5 0b       	sbc	r31, r21
 
-00004dda <__udivmodsi4_ep>:
-    4dda:	66 1f       	adc	r22, r22
-    4ddc:	77 1f       	adc	r23, r23
-    4dde:	88 1f       	adc	r24, r24
-    4de0:	99 1f       	adc	r25, r25
-    4de2:	1a 94       	dec	r1
-    4de4:	69 f7       	brne	.-38     	; 0x4dc0 <__udivmodsi4_loop>
-    4de6:	60 95       	com	r22
-    4de8:	70 95       	com	r23
-    4dea:	80 95       	com	r24
-    4dec:	90 95       	com	r25
-    4dee:	9b 01       	movw	r18, r22
-    4df0:	ac 01       	movw	r20, r24
-    4df2:	bd 01       	movw	r22, r26
-    4df4:	cf 01       	movw	r24, r30
-    4df6:	08 95       	ret
+00004f0e <__udivmodsi4_ep>:
+    4f0e:	66 1f       	adc	r22, r22
+    4f10:	77 1f       	adc	r23, r23
+    4f12:	88 1f       	adc	r24, r24
+    4f14:	99 1f       	adc	r25, r25
+    4f16:	1a 94       	dec	r1
+    4f18:	69 f7       	brne	.-38     	; 0x4ef4 <__udivmodsi4_loop>
+    4f1a:	60 95       	com	r22
+    4f1c:	70 95       	com	r23
+    4f1e:	80 95       	com	r24
+    4f20:	90 95       	com	r25
+    4f22:	9b 01       	movw	r18, r22
+    4f24:	ac 01       	movw	r20, r24
+    4f26:	bd 01       	movw	r22, r26
+    4f28:	cf 01       	movw	r24, r30
+    4f2a:	08 95       	ret
 
-00004df8 <_exit>:
-    4df8:	f8 94       	cli
+00004f2c <_exit>:
+    4f2c:	f8 94       	cli
 
-00004dfa <__stop_program>:
-    4dfa:	ff cf       	rjmp	.-2      	; 0x4dfa <__stop_program>
+00004f2e <__stop_program>:
+    4f2e:	ff cf       	rjmp	.-2      	; 0x4f2e <__stop_program>

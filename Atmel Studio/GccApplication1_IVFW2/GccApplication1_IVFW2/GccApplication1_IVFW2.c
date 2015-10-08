@@ -68,7 +68,43 @@ uint16_t readWSM();
 uint16_t rtd1Val();
 uint16_t rtd2Val();
 
+
 void main(void)
+{
+	//Initialize LED
+	ledInit();
+					
+	//Initialize SPI & SD
+
+	SPI_MasterInit();
+	fat_init();
+	crankClock();
+	CS2up();
+		
+	while(1)
+	{
+		volatile int n[1024]; /* n is an array of 10 integers */
+		volatile int arrSize = sizeof(n)/sizeof(n[0]);
+		
+		for(int i=0 ; i<arrSize ; i+=4){
+			DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
+			DATA_BCM  = readBCM();
+			DATA_RTD1 = rtd1Val();
+			DATA_RTD2 = rtd2Val();
+
+			n[i] = DATA_RTD1;
+			n[i+1] = DATA_RTD2;
+			n[i+2] = DATA_BCM;
+			n[i+3] = DATA_WSM;
+		}
+
+		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+		errCode = f_close(&file);
+		
+	}
+}
+
+void mainOG(void)
 {
 	
 	//Initialize LED
@@ -77,7 +113,7 @@ void main(void)
 	//Initialize SPI & SD
 
 	SPI_MasterInit();
-	fat_init();		
+	//fat_init();		
 	crankClock();
 	CS2up();
 	
@@ -88,53 +124,22 @@ void main(void)
 		volatile int arrSize = sizeof(n)/sizeof(n[0]);
 		
 		for(int i=0 ; i<arrSize ; i+=3){
-			//DATA_WSM  = readWSM();
-			//DATA_RTD1 = rtd1Val();
+			//DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
+			DATA_RTD1 = rtd1Val();
+			_delay_ms(1000);
 			DATA_BCM  = readBCM();
+			afeTurnOff();
 			
 			//n[i] = DATA_RTD1;
 			n[i+1] = DATA_BCM;
 			//n[i+2] = DATA_WSM;
 		}
 
-		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-		errCode = f_close(&file);
+		//errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
+		//errCode = f_close(&file);
 		set_PORTD_bit(6,1);
 		
 	}
-}
-
-int mainOG(void)
-{
-	
-	//Initialize LED
-	ledInit(); 	// LED2: Solid - SD not Present; Blinking - SD Present, proceed to Data Collection
-	
-	//Initialize SPI & SD
-
-	SPI_MasterInit();
-	fat_init();
-	crankClock();
-	CS2up();
-	
-    while(1)
-    {
-		for (int i = 0; i++; i<128)
-		{
-			// RTD Main Fn - DATA*AREF/1024 = Voltage. Then Use Voltage -> R then R -> Deg C conversion equations.
-			DATA_RTD1=rtd1Val();
-			DATA_RTD2=rtd2Val();
-		
-			//AFE Main Fn
-			DATA_BCM=readBCM();
-			DATA_WSM=readWSM();
-		
-			//toSend = {DATA_RTD1, DATA_RTD2, DATA_BCM, DATA_WSM};
-			arrFill[i] = toSend;
-		}
-		errCode = f_write(&file, arrFill, 512, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-		errCode = f_close(&file);			
-    }
 }
 
 
@@ -467,6 +472,64 @@ uint16_t readWSM(){
 		//Combine [MSB(8) LSB(8)] into 16bit Val
 		msb_lsb_comb=((uint16_t) msb<<8)|lsb;
 		return msb_lsb_comb;
+}
+
+void afeTurnOff(){
+	CS2down();
+	
+	//Config Code START
+	SPI_MasterTransmit(0x02); // Misc Reg 1
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x00);
+	
+	SPI_MasterTransmit(0x03); // Misc Reg 2
+	SPI_MasterTransmit(0xFF);
+	SPI_MasterTransmit(0xFF);
+	
+	SPI_MasterTransmit(0x09); // Dev Cont 1
+	SPI_MasterTransmit(0x60);
+	SPI_MasterTransmit(0x00);
+	/*
+	SPI_MasterTransmit(0x0A); // ISW Mux
+	SPI_MasterTransmit(0x40);
+	SPI_MasterTransmit(0x80);
+	
+	SPI_MasterTransmit(0x0B); // VSense Mux
+	SPI_MasterTransmit(0x40);
+	SPI_MasterTransmit(0x80);
+	
+	SPI_MasterTransmit(0x0C); // IQ Mode Enable
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x00);
+	
+	SPI_MasterTransmit(0x0D); // Weight Scale Control
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x00);
+	
+	SPI_MasterTransmit(0x0E); // BCM DAC Freq
+	SPI_MasterTransmit(0x00); // Avg current Output = 300uA
+	SPI_MasterTransmit(0x0F); // 14kHz, Good up to 64kHz (0x41)
+
+	
+	SPI_MasterTransmit(0x0F); // Dev Cont 2
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x00);
+	
+	SPI_MasterTransmit(0x10); // ADC Control Reg 2
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x63);
+	*/
+	SPI_MasterTransmit(0x1A); // Misc Reg 3
+	SPI_MasterTransmit(0x00);
+	SPI_MasterTransmit(0x30);
+	//Config Code END
+	
+	//Begin ADC Conversion
+	SPI_MasterTransmit(0x01); // ADC Control Reg 1
+	SPI_MasterTransmit(0x41); 
+	SPI_MasterTransmit(0xC0); 
+	
+	CS2up();
 }
 
 //LED Functions-------------------------------------------------------------
