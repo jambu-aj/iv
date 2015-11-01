@@ -25,7 +25,7 @@ int buff_stat;
 
 int main(void)
 {
-    if(1)
+    while(1)
     {
         //TODO:: Please write your application code 
 

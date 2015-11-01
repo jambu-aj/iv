@@ -40,17 +40,11 @@ uint16_t DATA_WSM;
 
 int main(void)
 {
-    while(1){
-		SPI_MasterInit();
-		CS2up();	
-		
-		while(1){
-		DATA_BCM=readBCM();
-		DATA_WSM=readWSM();
-		}		
-		
-		
-    }
+	SPI_MasterInit();
+	CS2up();	
+	DATA_BCM=readBCM();
+	//DATA_WSM=readWSM();		
+	
 }
 
 void SPI_MasterInit(void){
@@ -143,6 +137,12 @@ void AFE_Init_BCM_SS(){
 	SPI_MasterTransmit(0xD0);
 			
 	CS2up();
+	CS2down();
+	CS2up();
+	CS2down();
+	CS2up();
+	CS2down();
+	CS2up();
 }
 
 void AFE_Init_BCM_Cont(){
@@ -206,7 +206,7 @@ uint16_t readBCM(){
 		AFE_Init_BCM_SS(); //BCM Read Single Shot Mode
 			
 		//Polling for RDY (PINB0 must transition 1>0)
-		while(PINB & 0x01){}
+		//while(PINB & 0x01){}
 		
 		//Read Conversion Data
 		CS2down();

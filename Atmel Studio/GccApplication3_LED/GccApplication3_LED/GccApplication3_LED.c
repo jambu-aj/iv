@@ -17,9 +17,9 @@ int main(void)
 	for ( ; 1==1 ; )
 	{
 
-	  set_PORTD_bit(6, 1);    // high
+	  set_PORTD_bit(5, 1);    // high
 	  _delay_ms(1000);
-	  set_PORTD_bit(6, 0);    // low
+	  set_PORTD_bit(5, 0);    // low
 	  _delay_ms(1000);
   }
 

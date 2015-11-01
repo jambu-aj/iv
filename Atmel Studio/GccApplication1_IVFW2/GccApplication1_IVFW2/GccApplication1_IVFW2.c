@@ -75,32 +75,39 @@ void main(void)
 	ledInit();
 					
 	//Initialize SPI & SD
-
 	SPI_MasterInit();
-	fat_init();
+	//fat_init();
 	crankClock();
 	CS2up();
+	
+	
 		
 	while(1)
 	{
-		volatile int n[1024]; /* n is an array of 10 integers */
+		volatile int n[1024]; /* n is an array of integers */
 		volatile int arrSize = sizeof(n)/sizeof(n[0]);
 		
 		for(int i=0 ; i<arrSize ; i+=4){
-			DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
-			DATA_BCM  = readBCM();
-			DATA_RTD1 = rtd1Val();
-			DATA_RTD2 = rtd2Val();
-
-			n[i] = DATA_RTD1;
-			n[i+1] = DATA_RTD2;
-			n[i+2] = DATA_BCM;
+			//CS2down();
+			//CS2up();
+			//DATA_WSM  = readWSM(); ///////////////// NEED TO INITIALIZE ALL OF THE ABOVE STUFF (CS2, CRANK, ETC) WHEN READING BOTH WSM AND BCM
 			n[i+3] = DATA_WSM;
+			//CS2down();
+			//CS2up();
+			DATA_BCM  = readBCM();
+			n[i+2] = DATA_BCM;
+			//DATA_RTD1 = 200;
+			n[i] = 0;
+			//DATA_RTD2 = 100;			
+			n[i+1] = 0;
+			
+			_delay_ms(1000);
 		}
-
-		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)
-		errCode = f_close(&file);
 		
+		
+		errCode = f_write(&file, n, arrSize, &bytesRead); // Will attempt to write string 'helloworld' to file (data.txt)	
+		errCode = f_close(&file);
+		arrSize = sizeof(n)/sizeof(n[0]);
 	}
 }
 
