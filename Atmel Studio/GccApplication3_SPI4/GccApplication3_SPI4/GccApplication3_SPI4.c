@@ -20,8 +20,25 @@ unsigned char SPITranceive(unsigned char data);// proto
 char val;
 char huh;
 char huh2;
+char rtd_data;
 uint8_t status;
+
 int main(void)
+{
+	while(1){
+		Init_SPISystem();
+	CSdown();
+		SPITransmit(0x00);
+		SPITransmit(0x01);
+		CSup();
+	
+		CSdown();
+		rtd_data=SPITranceive(0x02);
+		CSup();
+	}	
+	
+}
+int main2(void)
 {
 	//while(1)
 	//{
@@ -172,12 +189,12 @@ unsigned char SPITranceive(unsigned char data){
 
 void CSup(){
 	// chip select line UP
-	PORTB |= (1<<PORTB2);
+	PORTB |= (1<<PORTB4);
 }
 
 void CSdown(){
 	// chip select line DOWN
-	PORTB &= ~(1<<PORTB2);
+	PORTB &= ~(1<<PORTB4);
 }
 
 /*
