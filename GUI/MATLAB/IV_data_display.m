@@ -1,4 +1,4 @@
-%IV Data Display 512 Bytes
+%IV Data Display
 function IV = IV_data_display(datafile);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,7 +113,7 @@ figure(3)
 %subplot(2,2,4)
 plot(time_Strain,Strain)
 title('SD CARD data: Strain')
-ylabel('Strain')
+ylabel('Strain (Volts)')
 xlabel('Time (Sec)')
 
 fclose(IVID);
